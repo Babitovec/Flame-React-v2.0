@@ -10,7 +10,7 @@ const tg = window.Telegram.WebApp;
 class Frens extends React.Component {
     handleClick = () => {
         // Вызываем haptic feedback при нажатии
-        tg.hapticFeedback.notificationOccurred('success');
+        tg.hapticFeedback.impactOccurred('rigid');
         // Здесь можно добавить дополнительные действия при нажатии на кнопку
     }
 
