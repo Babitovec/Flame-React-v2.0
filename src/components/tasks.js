@@ -3,8 +3,8 @@ import "../css/tasks.css"
 
 // Images
 import burn_emoji_animated from "../img/burn_emoji_animated.gif"
-import tg_icon from "../img/tg_icon.png"
-import x_icon from "../img/x_icon.png"
+import tg_icon from "../img/tg_icon.webp"
+import x_icon from "../img/x_icon.webp"
 import flame_emoji from "../img/flame_emoji.webp"
 
 class Tasks extends React.Component {
