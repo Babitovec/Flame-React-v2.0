@@ -120,7 +120,7 @@
     font-weight: bold;
 }
 
-.username-frens-count {
+.username-years {
     color: rgba(255, 255, 255, 0.5);
     font-size: 2vh;
 }
@@ -131,7 +131,7 @@
     align-items: center;
 }
 
-.fren-total-earned {
+.received_from_friend {
     color: white;
     font-size: 2.5vh;
     font-weight: bold;

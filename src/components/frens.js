@@ -37,10 +37,10 @@ class Frens extends React.Component {
                             <div className="fren-info">
                                 <div className="username-and-frens-count">
                                     <div className="fren-username">zan_zannn</div>
-                                    <div className="username-frens-count">7 years</div>
+                                    <div className="username-years">7 years</div>
                                 </div>
                                 <div className="fren-total-earned-container">
-                                    <div className="fren-total-earned">4679</div>
+                                    <div className="received_from_friend">+467</div>
                                     <img src={flame_emoji} alt="burn_logo" className="burn-logo-claim" />
                                 </div>
                             </div>
@@ -50,10 +50,10 @@ class Frens extends React.Component {
                             <div className="fren-info">
                                 <div className="username-and-frens-count">
                                     <div className="fren-username">Babitovec</div>
-                                    <div className="username-frens-count">6 years</div>
+                                    <div className="username-years">6 years</div>
                                 </div>
                                 <div className="fren-total-earned-container">
-                                    <div className="fren-total-earned">3201</div>
+                                    <div className="received_from_friend">+320</div>
                                     <img src={flame_emoji} alt="burn_logo" className="burn-logo-claim" />
                                 </div>
                             </div>
@@ -63,10 +63,10 @@ class Frens extends React.Component {
                             <div className="fren-info">
                                 <div className="username-and-frens-count">
                                     <div className="fren-username">KryakZXD</div>
-                                    <div className="username-frens-count">5 years</div>
+                                    <div className="username-years">5 years</div>
                                 </div>
                                 <div className="fren-total-earned-container">
-                                    <div className="fren-total-earned">2172</div>
+                                    <div className="received_from_friend">+217</div>
                                     <img src={flame_emoji} alt="burn_logo" className="burn-logo-claim" />
                                 </div>
                             </div>
