@@ -1,0 +1,128 @@
+.score-stats {
+    width: 100%;
+    display: flex;
+}
+
+.score-background {
+    height: 7.5vh;
+    width: 100%;
+    position: absolute;
+    opacity: 25%;
+    /* border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%; */
+}
+
+.score-stats-box {
+    width: 100%;
+    height: 7.5vh;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-stats-text {
+    color: white;
+    font-size: 2.5vh;
+    font-weight: bold;
+    text-decoration: none;
+    user-select: none;
+}
+
+.burn-emoji-score {
+    width: 3vh;
+    height: 3vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile {
+    text-align: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.profile-pic {
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.username {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 20px; */
+}
+
+.flame-logo-score {
+    width: 4vh;
+    height: 4vh;
+}
+
+.score-count {
+    color: #ffffff;
+    font-size: 4.5vh;
+    font-weight: bold;
+}
+
+.chests {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f79351;
+    border-radius: 25px;
+}
+
+.chests-background {
+    width: 85vw;
+    height: 38.85vw;
+    background-color: #f79351;
+    border-radius: 25px;
+    position: absolute;
+}
+
+.in-chests{
+    width: 85vw;
+    height: 38.85vw;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.gifts-header {
+    display: flex;
+    justify-content: start;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 12vh;
+}
+
+.chest {
+    width: 10vh;
+    height: 10vh;
+}
+
+.open-gift {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10vh;
+    background-color: #2D2D2D;
+    padding: 2vw;
+    border-radius: 25px;
+}

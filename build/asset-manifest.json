@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.31184d59.css",
+    "main.js": "/static/js/main.f2d45673.js",
+    "static/media/masks_animated.gif": "/static/media/masks_animated.6c82fdbec3c68e161e45.gif",
+    "static/media/gift_emoji_animated.gif": "/static/media/gift_emoji_animated.c47fc3f9b84f279996c5.gif",
+    "static/media/burn_emoji_animated.gif": "/static/media/burn_emoji_animated.c0cfd2f1be88efc04b24.gif",
+    "static/media/crown_emoji_animated_compressed.gif": "/static/media/crown_emoji_animated_compressed.9dc2b517e93339e31bea.gif",
+    "static/media/PFP.gif": "/static/media/PFP.84d8b3b17cbafc88d79c.gif",
+    "static/media/tg_icon.png": "/static/media/tg_icon.4e88bc00ddd41012a3dc.png",
+    "static/media/x_icon.png": "/static/media/x_icon.ab1bf298218684bb5b1e.png",
+    "static/media/tg_background.png": "/static/media/tg_background.0253506ca3ce6c9d6f94.png",
+    "static/media/score_background_430x70_without_fade.png": "/static/media/score_background_430x70_without_fade.a5fb5b2a3ddd9acbb9d1.png",
+    "static/media/flame_emoji.png": "/static/media/flame_emoji.c700ba34828b95bc7c49.png",
+    "index.html": "/index.html",
+    "main.31184d59.css.map": "/static/css/main.31184d59.css.map",
+    "main.f2d45673.js.map": "/static/js/main.f2d45673.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31184d59.css",
+    "static/js/main.f2d45673.js"
+  ]
+}

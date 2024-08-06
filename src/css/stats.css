@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.crown-emoji-animated {
+    width: 80px;
+    height: 80px;
+    margin-top: 3.5vh;
+}
+
+.stats-header {
+    color: white;
+    font-size: 3vh;
+    font-weight: bold;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    text-align: center;
+}
+
+.user-stats-box {
+    width: 85vw;
+    background-color: rgba(255, 255, 255, 0.144);
+    border-radius: 25px;
+    width: 85vw;
+    height: 20vw;
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5vh;
+}
+
+.username-and-flame-count-box {
+    flex-direction: column;
+    align-items: start;
+    margin-left: 7vw;
+}
+
+.username {
+    text-align: center;
+    color: white;
+    font-size: 2vh;
+    font-weight: bold;
+    margin-bottom: 1.5vw;
+}
+
+.burn-count {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.7vh;
+}
+
+.user-rank {
+    color: white;
+    font-size: 2vh;
+    font-weight: bold;
+    margin-right: 7vw;
+}
+
+.total-users {
+    color: white;
+    font-size: 2vh;
+    font-weight: bold;
+    text-align: left;
+    width: 85vw;
+}

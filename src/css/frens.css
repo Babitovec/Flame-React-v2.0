@@ -1,0 +1,157 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.masks-emoji-animated {
+    width: 80px;
+    height: 80px;
+    margin-top: 3.5vh;
+}
+
+.frens-header {
+    color: white;
+    font-size: 3vh;
+    font-weight: bold;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    text-align: center;
+}
+
+.claim-frens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.144);
+    border-radius: 25px;
+    width: 85vw;
+    height: 33vw;
+}
+
+.burn-logo-claim {
+    width: 3vh;
+    height: 3vh;
+}
+
+.claimable-burn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.claimable-burn-count {
+    color: white;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.claim-button {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрирование по горизонтали и вертикали */
+    height: 35px;
+    width: 75px;
+    border-radius: 25px;
+    background-color: #439b52;
+}
+
+.claim {
+    color: white;
+    font-size: 1.65vh;
+    font-weight: 650;
+    text-align: center;
+}
+
+.frens-discription {
+    color: white;
+    font-size: 15px;
+    opacity: 65%;
+    text-align: center;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    width: 85vw;
+}
+
+.frens-count {
+    color: white;
+    font-size: 2.5vh;
+    font-weight: bold;
+    text-align: left;
+    width: 85vw;
+}
+
+.frens-invited-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1.5vh;
+}
+
+.invited-fren {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    width: 85vw;
+    margin-bottom: 1.5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.fren-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.username-and-frens-count {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fren-username {
+    color: white;
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.username-frens-count {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 2vh;
+}
+
+.fren-total-earned-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.fren-total-earned {
+    color: white;
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+.invite-fren-button {
+    position: fixed;
+    background-color: white;
+    width: 90vw;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    bottom: 12.5%;
+}
+
+.invite-fren-text {
+    color: black;
+    font-size: 2vh;
+    font-weight: bold;
+}
