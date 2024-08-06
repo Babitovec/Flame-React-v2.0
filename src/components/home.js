@@ -27,7 +27,7 @@ class Home extends React.Component {
             <div className="username">{this.props.username}</div>
             <div className="score">
               <img src={flame_emoji} alt="burn" className="flame-logo-score" />
-              <span className="score-count">5738</span>
+              <span className="score-count">5739</span>
             </div>
           </div>
 
