@@ -3,7 +3,7 @@ import  "../css/frens.css"
 
 // Images
 import masks_animated from '../img/masks_animated.gif';
-import flame_emoji from "../img/flame_emoji.png"
+import flame_emoji from "../img/flame_emoji.webp"
  
 class Frens extends React.Component {
     render() {
