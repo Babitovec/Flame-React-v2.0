@@ -37,7 +37,7 @@ class Frens extends React.Component {
                             <div className="fren-info">
                                 <div className="username-and-frens-count">
                                     <div className="fren-username">zan_zannn</div>
-                                    <div className="username-frens-count">+4</div>
+                                    <div className="username-frens-count">7 years</div>
                                 </div>
                                 <div className="fren-total-earned-container">
                                     <div className="fren-total-earned">4679</div>
@@ -50,7 +50,7 @@ class Frens extends React.Component {
                             <div className="fren-info">
                                 <div className="username-and-frens-count">
                                     <div className="fren-username">Babitovec</div>
-                                    <div className="username-frens-count">+3</div>
+                                    <div className="username-frens-count">6 years</div>
                                 </div>
                                 <div className="fren-total-earned-container">
                                     <div className="fren-total-earned">3201</div>
@@ -63,7 +63,7 @@ class Frens extends React.Component {
                             <div className="fren-info">
                                 <div className="username-and-frens-count">
                                     <div className="fren-username">KryakZXD</div>
-                                    <div className="username-frens-count">+2</div>
+                                    <div className="username-frens-count">5 years</div>
                                 </div>
                                 <div className="fren-total-earned-container">
                                     <div className="fren-total-earned">2172</div>
