@@ -85,7 +85,7 @@
     border-radius: 25px;
 }
 
-.chests-background {
+.gifts-background {
     width: 85vw;
     height: 38.85vw;
     background-color: #f79351;
@@ -93,7 +93,7 @@
     position: absolute;
 }
 
-.in-chests{
+.in-gifts{
     width: 85vw;
     height: 38.85vw;
     z-index: 1;

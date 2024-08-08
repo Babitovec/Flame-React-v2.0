@@ -32,8 +32,8 @@ class Home extends React.Component {
           </div>
 
           <div className="gifts">
-            <img src={tg_background} alt="chests" className="chests-background" />
-            <div className="in-chests">
+            <img src={tg_background} alt="gifts_background" className="gifts-background" />
+            <div className="in-gifts">
               <span className="gifts-header">Gifts</span>
               <img src={gift_emoji_animated} alt="gift" className="gift" />
               <span className="open-gift">Open</span>
