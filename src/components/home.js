@@ -31,11 +31,11 @@ class Home extends React.Component {
             </div>
           </div>
 
-          <div className="chests">
+          <div className="gifts">
             <img src={tg_background} alt="chests" className="chests-background" />
             <div className="in-chests">
               <span className="gifts-header">Gifts</span>
-              <img src={gift_emoji_animated} alt="gift" className="chest" />
+              <img src={gift_emoji_animated} alt="gift" className="gift" />
               <span className="open-gift">Open</span>
             </div>
           </div>

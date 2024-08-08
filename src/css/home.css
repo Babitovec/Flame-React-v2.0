@@ -20,6 +20,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: fixed;
 }
 
 .score-stats-text {
@@ -76,11 +77,10 @@
     font-weight: bold;
 }
 
-.chests {
+.gifts {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f79351;
     border-radius: 25px;
 }
 
@@ -110,7 +110,7 @@
     padding-bottom: 12vh;
 }
 
-.chest {
+.gift {
     width: 10vh;
     height: 10vh;
 }
