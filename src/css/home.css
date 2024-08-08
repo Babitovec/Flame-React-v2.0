@@ -1,6 +1,7 @@
 .score-stats {
     width: 100%;
     display: flex;
+    position: fixed;
 }
 
 .score-background {
@@ -20,7 +21,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: sticky;
 }
 
 .score-stats-text {
