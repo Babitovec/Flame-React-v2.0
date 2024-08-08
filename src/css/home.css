@@ -106,19 +106,33 @@
     display: flex;
     justify-content: start;
     color: #ffffff;
-    font-size: 24px;
+    font-size: 6vw;
     font-weight: bold;
     padding-bottom: 12vh;
 }
 
-.gift {
+.gift-gif-and-count {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-gif {
     width: 10vh;
     height: 10vh;
 }
 
+.gifts-count {
+    color: #ffffff;
+    font-size: 6vw;
+    margin-top: 1vw;
+    font-weight: bold;
+}
+
 .open-gift {
     color: #ffffff;
-    font-size: 24px;
+    font-size: 6vw;
     font-weight: bold;
     margin-top: 10vh;
     background-color: #2D2D2D;
