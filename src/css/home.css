@@ -119,8 +119,8 @@
 }
 
 .gift-gif {
-    width: 10vh;
-    height: 10vh;
+    width: 25vw;
+    height: 25vw;
     transition: transform 0.3s ease;
 }
 
