@@ -73,9 +73,11 @@ class Frens extends React.Component {
                         </div>
 
                     </div>
-
-                    <div className="invite-fren-button">
-                        <div className="invite-fren-text">Invite Friends</div>
+                    
+                    <div className="invite-fren-background">
+                        <div className="invite-fren-button">
+                            <div className="invite-fren-text">Invite Friends</div>
+                        </div>
                     </div>
 
                 </div>

@@ -137,6 +137,16 @@
     font-weight: bold;
 }
 
+.invite-fren-background {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 7.5vh;
+    bottom: 12.5%;
+}
+
 .invite-fren-button {
     position: fixed;
     background-color: white;
