@@ -121,6 +121,11 @@
 .gift-gif {
     width: 10vh;
     height: 10vh;
+    transition: transform 0.2s ease;
+}
+
+.gift-gif:active {
+    transform: scale(0.9);
 }
 
 .gifts-count {

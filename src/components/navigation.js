@@ -1,10 +1,10 @@
 import React from "react";
 import "../css/navigation.css";
 
-import home_icon from '../img/home_icon.webp';
-import tasks_icon from '../img/tasks_icon.webp';
-import friends_icon from '../img/friends_icon.webp';
-import stats_icon from '../img/stats_icon.webp';
+import home_icon from '../img/navigation/home_icon.webp';
+import tasks_icon from '../img/navigation/tasks_icon.webp';
+import friends_icon from '../img/navigation/friends_icon.webp';
+import stats_icon from '../img/navigation/stats_icon.webp';
 
 const tg = window.Telegram.WebApp;
 

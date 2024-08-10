@@ -2,12 +2,12 @@ import React from "react";
 import "../css/home.css";
 
 // Images
-import background_filled_colour from '../img/score_background_430x70_without_fade.webp';
+import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
 import burn_emoji_animated from '../img/burn_emoji_animated.gif';
-import PFP from '../img/PFP.gif';
+import PFP from '../img/home/PFP.gif';
 import flame_emoji from "../img/flame_emoji.webp"
-import tg_background from '../img/tg_background.webp';
-import gift_emoji_animated from '../img/gift_emoji_animated.gif';
+import tg_background from '../img/home/tg_background.webp';
+import gift_emoji_animated from '../img/home/gift_emoji_animated.gif';
 
 class Home extends React.Component {
   render() {
