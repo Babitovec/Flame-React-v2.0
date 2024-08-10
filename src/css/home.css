@@ -121,11 +121,11 @@
 .gift-gif {
     width: 10vh;
     height: 10vh;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
 .gift-gif:active {
-    transform: scale(0.9);
+    transform: scale(0.85);
 }
 
 .gifts-count {
@@ -135,7 +135,7 @@
     font-weight: bold;
 }
 
-.open-gift {
+.buy-gift {
     color: #ffffff;
     font-size: 6vw;
     font-weight: bold;
@@ -143,4 +143,9 @@
     background-color: #2D2D2D;
     padding: 2vw;
     border-radius: 25px;
+    transition: transform 0.25s ease;
+}
+
+.buy-gift:active {
+    transform: scale(0.9);
 }

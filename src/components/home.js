@@ -39,7 +39,7 @@ class Home extends React.Component {
                 <img src={gift_emoji_animated} alt="gift" className="gift-gif" />
                 <div className="gifts-count">x1</div>
               </div>
-              <span className="open-gift">Open</span>
+              <span className="buy-gift">Buy</span>
             </div>
           </div>
         </div>

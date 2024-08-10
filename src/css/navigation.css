@@ -24,6 +24,10 @@
     opacity: 100%;
 }
 
+.nav-item:active {
+    transform: scale(0.97);
+}
+
 .nav-item img {
     width: 24px;
     height: 24px;
