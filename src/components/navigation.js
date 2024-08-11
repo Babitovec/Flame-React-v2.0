@@ -55,6 +55,7 @@ function Navigation() {
             <Route path="/Tasks" element={<Tasks />} />
             <Route path="/Frens" element={<Frens />} />
             <Route path="/Stats" element={<Stats />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
