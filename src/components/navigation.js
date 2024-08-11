@@ -1,55 +1,65 @@
 import React from "react";
 import "../css/navigation.css";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
+//Components
+import Home from "./home.js";
+import Tasks from "./tasks.js";
+import Frens from "./frens.js";
+import Stats from "./stats.js";
+
+//Images
 import home_icon from '../img/navigation/home_icon.webp';
 import tasks_icon from '../img/navigation/tasks_icon.webp';
 import friends_icon from '../img/navigation/friends_icon.webp';
 import stats_icon from '../img/navigation/stats_icon.webp';
 
-const tg = window.Telegram.WebApp;
+function Navigation() {
+  const location = useLocation(); // Получаем текущий маршрут
 
-class Navigation extends React.Component {
-  handleNavigation(page) {
-    tg.HapticFeedback.impactOccurred('light');
-    this.props.changePage(page);
-  }
-
-  render() {
-    const { currentPage } = this.props;
-
-    return (
+  return (
+    <>
       <nav className="navigation">
-        <div
-          className={`nav-item ${currentPage === 'home' ? 'active' : ''}`}
-          onClick={() => this.handleNavigation('home')}
-        >
+
+        <NavLink to="/Home" className="nav-item">
           <img src={home_icon} alt="home" className="home_icon" />
           Home
-        </div>
-        <div
-          className={`nav-item ${currentPage === 'tasks' ? 'active' : ''}`}
-          onClick={() => this.handleNavigation('tasks')}
-        >
+        </NavLink>
+
+        <NavLink to="/Tasks" className="nav-item">
           <img src={tasks_icon} alt="tasks" className="tasks_icon" />
           Tasks
-        </div>
-        <div
-          className={`nav-item ${currentPage === 'frens' ? 'active' : ''}`}
-          onClick={() => this.handleNavigation('frens')}
-        >
+        </NavLink>
+
+        <NavLink to="/Frens" className="nav-item">
           <img src={friends_icon} alt="friends" className="friends_icon" />
           Frens
-        </div>
-        <div
-          className={`nav-item ${currentPage === 'stats' ? 'active' : ''}`}
-          onClick={() => this.handleNavigation('stats')}
-        >
+        </NavLink>
+
+        <NavLink to="/Stats" className="nav-item">
           <img src={stats_icon} alt="stats_icon" className="stats_icon" />
           Stats
-        </div>
+        </NavLink>
+
       </nav>
-    );
-  }
+
+      <TransitionGroup>
+        <CSSTransition
+          key={location.key}
+          classNames="fade"
+          timeout={450}
+        >
+          <Routes location={location}>
+            <Route path="/Home" element={<Home />} />
+            <Route path="/Tasks" element={<Tasks />} />
+            <Route path="/Frens" element={<Frens />} />
+            <Route path="/Stats" element={<Stats />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+    </>
+  );
 }
 
 export default Navigation;
