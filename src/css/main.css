@@ -10,6 +10,11 @@ body {
     /* position: fixed; надо затестить*/
 }
 
+/* Убираем скролл бар */
+::-webkit-scrollbar {
+  width: 0;
+}
+
 /* react-transiton-group */
 .fade-enter {
     opacity: 0;
