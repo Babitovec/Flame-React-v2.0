@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 //Components
 import Navigation from "./components/navigation.js";
@@ -14,7 +14,10 @@ class App extends React.Component {
     return (
       <div>
         <BrowserRouter>
-              
+          <Routes>
+            {/* При заходе на корневой путь перенаправляем на "/Home" */}
+            <Route path="/" element={<Navigate to="/Home" />} />
+          </Routes>
           <Navigation />
         </BrowserRouter>
       </div>

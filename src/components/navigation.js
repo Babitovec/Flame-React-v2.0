@@ -27,27 +27,45 @@ function Navigation() {
   return (
     <>
       <nav className="navigation">
-
-        <NavLink to="/Home" className="nav-item" onClick={handleNavigationClick}>
+        <NavLink 
+          to="/Home" 
+          className="nav-item" 
+          activeClassName="active" 
+          onClick={handleNavigationClick}
+        >
           <img src={home_icon} alt="home" className="home_icon" />
           Home
         </NavLink>
 
-        <NavLink to="/Tasks" className="nav-item" onClick={handleNavigationClick}>
+        <NavLink 
+          to="/Tasks" 
+          className="nav-item" 
+          activeClassName="active" 
+          onClick={handleNavigationClick}
+        >
           <img src={tasks_icon} alt="tasks" className="tasks_icon" />
           Tasks
         </NavLink>
 
-        <NavLink to="/Frens" className="nav-item" onClick={handleNavigationClick}>
+        <NavLink 
+          to="/Frens" 
+          className="nav-item" 
+          activeClassName="active" 
+          onClick={handleNavigationClick}
+        >
           <img src={friends_icon} alt="friends" className="friends_icon" />
           Frens
         </NavLink>
 
-        <NavLink to="/Stats" className="nav-item" onClick={handleNavigationClick}>
+        <NavLink 
+          to="/Stats" 
+          className="nav-item" 
+          activeClassName="active" 
+          onClick={handleNavigationClick}
+        >
           <img src={stats_icon} alt="stats_icon" className="stats_icon" />
           Stats
         </NavLink>
-
       </nav>
 
       <TransitionGroup>
