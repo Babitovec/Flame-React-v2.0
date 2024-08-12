@@ -1,15 +1,15 @@
+import React from "react";
 import "../css/navigation.css";
-import React, { useEffect } from "react";
-import { Routes, Route, NavLink, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-// Components
+//Components
 import Home from "./home.js";
 import Tasks from "./tasks.js";
 import Frens from "./frens.js";
 import Stats from "./stats.js";
 
-// Images
+//Images
 import home_icon from '../img/navigation/home_icon.webp';
 import tasks_icon from '../img/navigation/tasks_icon.webp';
 import friends_icon from '../img/navigation/friends_icon.webp';
@@ -20,19 +20,14 @@ const tg = window.Telegram.WebApp;
 function Navigation() {
   const location = useLocation(); // Получаем текущий маршрут
 
-  useEffect(() => {
-    if (location.pathname === "/") {
-      window.location.replace("/Home"); // Редирект на /Home
-    }
-  }, [location.pathname]);
-
   const handleNavigationClick = () => {
-    tg.HapticFeedback.impactOccurred("light");
+    tg.HapticFeedback.impactOccurred('light');
   };
 
   return (
     <>
       <nav className="navigation">
+
         <NavLink to="/Home" className="nav-item" onClick={handleNavigationClick}>
           <img src={home_icon} alt="home" className="home_icon" />
           Home
@@ -52,6 +47,7 @@ function Navigation() {
           <img src={stats_icon} alt="stats_icon" className="stats_icon" />
           Stats
         </NavLink>
+
       </nav>
 
       <TransitionGroup>
@@ -65,7 +61,7 @@ function Navigation() {
             <Route path="/Tasks" element={<Tasks />} />
             <Route path="/Frens" element={<Frens />} />
             <Route path="/Stats" element={<Stats />} />
-            <Route path="*" element={<Navigate to="/Home" />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
