@@ -6,6 +6,7 @@ import burn_emoji_animated from "../img/burn_emoji_animated.gif"
 import tg_icon from "../img/tasks/tg_icon.webp"
 import x_icon from "../img/tasks/x_icon.webp"
 import flame_emoji from "../img/flame_emoji.webp"
+import wallet_icon from "../img/tasks/wallet_icon.webp"
 
 class Tasks extends React.Component {
     render() {
@@ -17,32 +18,43 @@ class Tasks extends React.Component {
                 <span className="tasks-description">Complete tasks and get more Flame.</span>
                 <div className="tasks">
 
-                    <div className="subscription">
-                        <img src={tg_icon} alt="tg_icon" className="icon" />
-                        <div className="text">
-                            <div className="title">Subscribe to Burn Telegram</div>
-                            <div className="points">+100 Flame</div>
-                        </div>
-                        <div className="open-button">
-                            <div className="open">Start</div>
-                        </div>
-                    </div>
-
-                    <div className="subscription">
-                        <img src={x_icon} alt="x_icon" className="icon" />
-                        <div className="text">
-                            <div className="title">Subscribe to Burn X</div>
-                            <div className="points">+100 Flame</div>
-                        </div>
-                        <div className="open-button">
-                            <div className="open">Start</div>
-                        </div>
-                    </div>
-
-                    <div className="subscription">
+                <div className="task">
                         <img src={flame_emoji} alt="flame_emoji" className="icon" />
                         <div className="text">
                             <div className="title">Add 🔥 in Telegram name</div>
+                            <div className="points">+100 Flame</div>
+                        </div>
+                        <div className="open-button">
+                            <div className="open">Start</div>
+                        </div>
+                    </div>
+
+                    <div className="task">
+                        <img src={tg_icon} alt="tg_icon" className="icon" />
+                        <div className="text">
+                            <div className="title">Subscribe to Flame Telegram</div>
+                            <div className="points">+100 Flame</div>
+                        </div>
+                        <div className="open-button">
+                            <div className="open">Start</div>
+                        </div>
+                    </div>
+
+                    <div className="task">
+                        <img src={x_icon} alt="x_icon" className="icon" />
+                        <div className="text">
+                            <div className="title">Subscribe to Flame X</div>
+                            <div className="points">+100 Flame</div>
+                        </div>
+                        <div className="open-button">
+                            <div className="open">Start</div>
+                        </div>
+                    </div>
+
+                    <div className="task">
+                        <img src={wallet_icon} alt="wallet_icon" className="icon" />
+                        <div className="text">
+                            <div className="title">Connect your wallet</div>
                             <div className="points">+100 Flame</div>
                         </div>
                         <div className="open-button">
