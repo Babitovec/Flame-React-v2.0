@@ -41,11 +41,10 @@ class Home extends React.Component {
           </div>
 
           <div className="gifts">
-            <div className="in-gifts">
+            <div className="in-gifts-burn">
               <span className="gifts-header">Burn</span>
               <div className="gift-gif-and-count">
-                <img src={gift_emoji_animated} alt="gift" className="gift-gif" />
-                <div className="gifts-count">x1</div>
+                <img src={burn_emoji_animated} alt="gift" className="gift-gif" />
               </div>
               <span className="buy-gift">Burn</span>
             </div>

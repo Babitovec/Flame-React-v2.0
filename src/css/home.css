@@ -71,8 +71,8 @@
 }
 
 .flame-logo-score {
-    width: 4vh;
-    height: 4vh;
+    width: 3vh;
+    height: 3vh;
 }
 
 .score-count {
@@ -94,10 +94,22 @@
     align-items: center;
     border-radius: 25px;
     margin-bottom: 3vh;
+    border: 2px solid rgba(255, 255, 255, 0.144);
 }
 
 .in-gifts{
-    background-image: url(/src/img/home/tg_background.webp);
+    background-image: url(/src/img/home/home_background_black_25_opacity.png);
+    border-radius: 25px;
+    width: 85vw;
+    height: 38.85vw;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.in-gifts-burn{
+    background-image: url(/src/img/home/home_background_black_25_opacity.png);
     border-radius: 25px;
     width: 85vw;
     height: 38.85vw;
