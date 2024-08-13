@@ -18,11 +18,22 @@ class Tasks extends React.Component {
                 <span className="tasks-description">Complete tasks and get more Flame.</span>
                 <div className="tasks">
 
-                <div className="task">
+                    <div className="task">
                         <img src={flame_emoji} alt="flame_emoji" className="icon" />
                         <div className="text">
                             <div className="title">Add 🔥 in Telegram name</div>
-                            <div className="points">+100 Flame</div>
+                            <div className="points">+100 Flame + 🎁</div>
+                        </div>
+                        <div className="open-button">
+                            <div className="open">Start</div>
+                        </div>
+                    </div>
+
+                    <div className="task">
+                        <img src={wallet_icon} alt="wallet_icon" className="icon" />
+                        <div className="text">
+                            <div className="title">Connect your wallet</div>
+                            <div className="points">+100 Flame + 🎁</div>
                         </div>
                         <div className="open-button">
                             <div className="open">Start</div>
@@ -52,9 +63,9 @@ class Tasks extends React.Component {
                     </div>
 
                     <div className="task">
-                        <img src={wallet_icon} alt="wallet_icon" className="icon" />
+                        <img src={x_icon} alt="x_icon" className="icon" />
                         <div className="text">
-                            <div className="title">Connect your wallet</div>
+                            <div className="title">Share about us on X</div>
                             <div className="points">+100 Flame</div>
                         </div>
                         <div className="open-button">
