@@ -17,7 +17,7 @@ class Frens extends React.Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className="container-frens">
                     <img src={masks_animated} alt="masks_animated" className="masks-emoji-animated" />
                     <span className="frens-header">Invite Friends<br />and get more Flame</span>
                     <div className="claim-frens">
