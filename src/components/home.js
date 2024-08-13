@@ -3,7 +3,8 @@ import "../css/home.css";
 
 // Images
 import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
-import burn_emoji_animated from '../img/burn_emoji_animated.gif';
+import flame_emoji from "../img/flame_emoji.webp"
+import flame_emoji_animated from '../img/burn_emoji_animated.gif';
 import gift_emoji_animated from '../img/home/gift_emoji_animated.gif';
 import play_icon from "../img/home/play_icon3.webp"
 
@@ -21,7 +22,7 @@ class Home extends React.Component {
           </div>
 
           <div className="profile">
-            <img src={burn_emoji_animated} alt="PFP" className="profile-pic" />
+            <img src={flame_emoji} alt="PFP" className="profile-pic" />
             <div className="home_username">{this.props.username}</div>
             <div className="score">
               <span className="score-count">5739</span>
@@ -44,7 +45,7 @@ class Home extends React.Component {
             <div className="in-gifts-burn">
               <span className="gifts-header">Burn</span>
               <div className="gift-gif-and-count">
-                <img src={burn_emoji_animated} alt="gift" className="gift-gif" />
+                <img src={flame_emoji_animated} alt="gift" className="gift-gif" />
               </div>
               <span className="buy-gift">Burn</span>
             </div>
