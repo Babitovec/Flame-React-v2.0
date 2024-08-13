@@ -75,16 +75,17 @@ function Navigation() {
           timeout={450}
         >
           <Routes location={location}>
-            <Route path="/Home" element={<Home />} />
+            <Route path="/Home" element={<Home username={tg.initDataUnsafe.user?.username || "Anonymous"} />} />
             <Route path="/Tasks" element={<Tasks />} />
             <Route path="/Frens" element={<Frens />} />
-            <Route path="/Stats" element={<Stats />} />
-            <Route path="*" element={<Home />} />
+            <Route path="/Stats" element={<Stats username={tg.initDataUnsafe.user?.username || "Anonymous"} />} />
+            <Route path="*" element={<Home username={tg.initDataUnsafe.user?.username || "Anonymous"} />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
     </>
   );
 }
+
 
 export default Navigation;
