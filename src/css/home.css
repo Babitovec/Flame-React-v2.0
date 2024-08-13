@@ -95,14 +95,6 @@
     margin-bottom: 3vh;
 }
 
-.gifts-background {
-    width: 85vw;
-    height: 38.85vw;
-    background-color: #f79351;
-    border-radius: 25px;
-    position: absolute;
-}
-
 .in-gifts{
     background-image: url(/src/img/home/tg_background.webp);
     border-radius: 25px;
