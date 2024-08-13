@@ -2,7 +2,7 @@ import React from "react"
 import "../css/tasks.css"
 
 // Images
-import burn_emoji_animated from "../img/burn_emoji_animated.gif"
+import tasks_gift_emoji_animated from "../img/tasks_gift_emoji_animated.webp"
 import tg_icon from "../img/tasks/tg_icon.webp"
 import x_icon from "../img/tasks/x_icon.webp"
 import flame_emoji from "../img/flame_emoji.webp"
@@ -13,7 +13,7 @@ class Tasks extends React.Component {
         return (
           <div>
             <div className="container">
-                <img src={burn_emoji_animated} alt="burn" className="burn-logo" />
+                <img src={tasks_gift_emoji_animated} alt="burn" className="burn-logo" />
                 <span className="tasks-header">Tasks</span>
                 <span className="tasks-description">Complete tasks and get more Flame.</span>
                 <div className="tasks">
