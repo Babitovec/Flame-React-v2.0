@@ -5,6 +5,7 @@
     height: 80vh; 
     width: 100vw; /* Устанавливаем ширину на весь экран */
     box-sizing: border-box; /* Учитываем отступы и границы в общей высоте */
+    overflow: auto;
 }
 
 .masks-emoji-animated {

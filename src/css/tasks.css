@@ -82,3 +82,7 @@
     font-weight: 650;
     text-align: center;
 }
+
+.open-button:active {
+    transform: scale(0.9);
+}
