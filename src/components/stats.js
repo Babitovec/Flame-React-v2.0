@@ -8,7 +8,7 @@ class Stats extends React.Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="container-stats">
           <img src={crown_emoji_animated_compressed} alt="cronw_emoji_animated" className="crown-emoji-animated" />
           <span className="stats-header">Leaderboard</span>
           <div className="user-stats-box">

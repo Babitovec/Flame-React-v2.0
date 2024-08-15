@@ -7,7 +7,8 @@ body {
     font-family: "Rubik", sans-serif;
     height: 100vh;
     user-select: none;
-    /* position: fixed; надо затестить*/
+    position: fixed; 
+    /* тест фиксед */
 }
 
 /* Убираем скролл бар */

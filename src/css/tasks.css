@@ -4,6 +4,7 @@
     align-items: center;
     overflow: auto;
     height: 87.5vh;
+    width: 100vw;
 }
 
 .burn-logo {
