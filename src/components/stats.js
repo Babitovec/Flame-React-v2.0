@@ -4,8 +4,7 @@ import "../css/stats.css";
 // Images
 import crown_emoji_animated_compressed from "../img/crown_emoji_animated_compressed.gif"
 
-class Stats extends React.Component {
-  render() {
+const Stats = () => {
     return (
       <>
         <div className="container-stats">
@@ -122,7 +121,6 @@ class Stats extends React.Component {
         </div>
       </>
     );
-  }
 }
 
 export default Stats;
