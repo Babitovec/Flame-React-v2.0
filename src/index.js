@@ -1,6 +1,6 @@
 import React from "react"
-import * as ReactDOMClient from 'react-dom/client'; 
-import  "./css/main.css" // подключение main.css, который применяется ко всему
+import * as ReactDOMClient from 'react-dom/client';
+import "./css/main.css" // подключение main.css, который применяется ко всему
 
 import App from "./app.js"; // Подключение app.js 
 

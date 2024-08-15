@@ -158,17 +158,17 @@
     font-weight: bold;
 }
 
-.buy-gift {
+.open-gift {
     color: #ffffff;
-    font-size: 6vw;
+    font-size: 5vw;
     font-weight: bold;
     margin-top: 10vh;
-    background-color: #2D2D2D;
+    background-color: #439B52;
     padding: 2vw;
     border-radius: 25px;
     transition: transform 0.25s ease;
 }
 
-.buy-gift:active {
+.open-gift:active {
     transform: scale(0.9);
 }

@@ -37,7 +37,7 @@ class Home extends React.Component {
                 <img src={gift_emoji_animated} alt="gift" className="gift-gif" />
                 <div className="gifts-count">x1</div>
               </div>
-              <span className="buy-gift">Open</span>
+              <span className="open-gift">Open</span>
             </div>
           </div>
 
@@ -46,9 +46,9 @@ class Home extends React.Component {
               <span className="gifts-header">Burn</span>
               <div className="gift-gif-and-count">
                 <img src={flame_emoji_animated} alt="gift" className="gift-gif" />
-                <div className="total-burned-text">Burned: 2310</div>
+                <div className="total-burned-text">Burned: 2313</div>
               </div>
-              <span className="buy-gift">Open</span>
+              <span className="open-gift">Open</span>
             </div>
           </div>
 
