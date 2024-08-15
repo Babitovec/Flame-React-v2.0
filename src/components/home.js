@@ -16,7 +16,7 @@ class Home extends React.Component {
           <div className="score-stats">
             <img src={background_filled_colour} alt="background_filled_colour" className="score-background" />
             <div className="score-stats-box">
-              <img src={play_icon} alt="paly_icon" className="paly_icon" />
+              <img src={play_icon} alt="paly_icon" className="play_icon" />
               <div className="score-stats-text">Your Score</div>
             </div>
           </div>
@@ -37,7 +37,7 @@ class Home extends React.Component {
                 <img src={gift_emoji_animated} alt="gift" className="gift-gif" />
                 <div className="gifts-count">x1</div>
               </div>
-              <span className="buy-gift">Buy</span>
+              <span className="buy-gift">Open</span>
             </div>
           </div>
 
@@ -46,8 +46,9 @@ class Home extends React.Component {
               <span className="gifts-header">Burn</span>
               <div className="gift-gif-and-count">
                 <img src={flame_emoji_animated} alt="gift" className="gift-gif" />
+                <div className="total-burned-text">Burned: 2310</div>
               </div>
-              <span className="buy-gift">Burn</span>
+              <span className="buy-gift">Open</span>
             </div>
           </div>
 

@@ -37,7 +37,7 @@
     text-decoration: none;
 }
 
-.paly_icon {
+.play_icon {
     width: 2.5vh;
     height: 2.5vh;
     margin-right: 2.5vw;
@@ -67,7 +67,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-bottom: 1.1vh; */
 }
 
 .flame-logo-score {
@@ -89,34 +88,34 @@
 }
 
 .gifts {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 25px;
     margin-bottom: 3vh;
     border: 2px solid rgba(255, 255, 255, 0.144);
+    box-sizing: border-box;
 }
 
 .in-gifts{
-    background-image: url(/src/img/home/home_background_black_25_opacity.png);
     border-radius: 25px;
+    background-image: url(/src/img/home/home_background_black_25_opacity.png);
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /* background-color: rgba(249, 201, 28, 0.05); */
 }
 
 .in-gifts-burn{
-    background-image: url(/src/img/home/home_background_black_25_opacity.png);
     border-radius: 25px;
+    background-image: url(/src/img/home/home_background_black_25_opacity.png);
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /* background-color: rgba(255, 68, 27, 0.05); */
 }
 
 .gifts-header {
@@ -146,8 +145,15 @@
 }
 
 .gifts-count {
-    color: #ffffff;
+    color: #BFBFBF;
     font-size: 6vw;
+    margin-top: 1vw;
+    font-weight: bold;
+}
+
+.total-burned-text {
+    color: #BFBFBF;
+    font-size: 4vw;
     margin-top: 1vw;
     font-weight: bold;
 }
