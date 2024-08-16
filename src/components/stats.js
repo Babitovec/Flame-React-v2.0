@@ -4,7 +4,7 @@ import "../css/stats.css";
 // Images
 import crown_emoji_animated_compressed from "../img/crown_emoji_animated_compressed.gif"
 
-const Stats = () => {
+const Stats = ({ username }) => {
     return (
       <>
         <div className="container-stats">
@@ -12,7 +12,7 @@ const Stats = () => {
           <span className="stats-header">Leaderboard</span>
           <div className="user-stats-box">
             <div className="username-and-flame-count-box">
-              <div className="stats_username">{this.props.username}</div>
+              <div className="stats_username">{username}</div>
               <div className="burn-count">5738 Flame</div>
             </div>
             <div className="user-rank">#256791</div>
