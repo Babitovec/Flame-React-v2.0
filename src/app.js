@@ -8,6 +8,7 @@ const tg = window.Telegram.WebApp;
 
 tg.expand();
 tg.disableVerticalSwipes();
+tg.setBackgroundColor("#000000");
 
 class App extends React.Component {
   render() {
