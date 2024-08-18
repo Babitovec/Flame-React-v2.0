@@ -1,14 +1,18 @@
+:root {
+  --tg-theme-bg-color: #000000;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-    /* font-family: "Roboto", sans-serif; */
-    /* font-family: "Montserrat", sans-serif; */
-    font-family: "Rubik", sans-serif;
-    height: 100vh;
-    user-select: none;
-    position: fixed; 
-    /* fixed убирает возможность мимолетного скролла при переходе на другую страницу */
+  margin: 0;
+  padding: 0;
+  background-color: var(--tg-theme-bg-color);
+  /* font-family: "Roboto", sans-serif; */
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Rubik", sans-serif;
+  height: 100vh;
+  user-select: none;
+  position: fixed;
+  /* fixed убирает возможность мимолетного скролла при переходе на другую страницу */
 }
 
 /* Убираем скролл бар */
@@ -18,20 +22,19 @@ body {
 
 /* react-transiton-group */
 .fade-enter {
-    opacity: 0;
-  }
-  
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 450ms;
-  }
-  
-  .fade-exit {
-    opacity: 1;
-  }
-  
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 450ms;
-  }
-  
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 450ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 450ms;
+}
