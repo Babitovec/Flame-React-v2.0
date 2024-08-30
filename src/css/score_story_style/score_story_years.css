@@ -1,4 +1,4 @@
-.lines {
+.lines_years {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -7,21 +7,21 @@
     height: 2vh;
 }
 
-.line-1 {
+.line-1-years {
     width: 31.5vw;
     height: 1vw;
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
 }
 
-.line-2 {
+.line-2-years {
     width: 31.5vw;
     height: 1vw;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 25px;
 }
 
-.line-3 {
+.line-3-years {
     width: 31.5vw;
     height: 1vw;
     background-color: rgba(255, 255, 255, 0.5);

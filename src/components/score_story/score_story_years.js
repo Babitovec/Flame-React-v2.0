@@ -9,15 +9,15 @@ function ScoreStoryYears() {
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    navigate("/ScoreStoryPremium");
+    navigate("/ScoreStoryPremium"); // Навигация на новый маршрут через React Router
   };
 
   return (
     <>
-      <div class="lines">
-        <div class="line-1"></div>
-        <div class="line-2"></div>
-        <div class="line-3"></div>
+      <div class="lines_years">
+        <div class="line-1-years"></div>
+        <div class="line-2-years"></div>
+        <div class="line-3-years"></div>
       </div>
 
       <div class="score-story-container">

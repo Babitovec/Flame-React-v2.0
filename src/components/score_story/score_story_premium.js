@@ -9,15 +9,15 @@ function ScoreStoryPremium() {
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    navigate("/ScoreStoryReward");
+    navigate("/ScoreStoryReward"); // Навигация на ScoreStoryReward
   };
 
   return (
     <>
-      <div class="lines">
-        <div class="line-1"></div>
-        <div class="line-2"></div>
-        <div class="line-3"></div>
+      <div class="lines_premium">
+        <div class="line-1-premium"></div>
+        <div class="line-2-premium"></div>
+        <div class="line-3-premium"></div>
       </div>
 
       <div class="score-story-container">

@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/home.css";
+import { NavLink } from "react-router-dom";
 
 // Images
 import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
@@ -8,16 +9,24 @@ import flame_emoji_animated from '../img/burn_emoji_animated.gif';
 import gift_emoji_animated from '../img/home/gift_emoji_animated.gif';
 import play_icon from "../img/home/play_icon3.webp";
 
+const tg = window.Telegram.WebApp;
+
 const Home = ({ username }) => {
+  const handleNavigationClick = () => {
+    tg.HapticFeedback.impactOccurred('light');
+  };
+
   return (
     <>
       <div className="container-home">
         <div className="score-stats">
           <img src={background_filled_colour} alt="background_filled_colour" className="score-background" />
-          <div className="score-stats-box">
-            <img src={play_icon} alt="paly_icon" className="play_icon" />
-            <div className="score-stats-text">Your Score</div>
-          </div>
+          
+            <NavLink className="score-stats-box" to="/score_story_years" onClick={handleNavigationClick}>
+              <img src={play_icon} alt="play_icon" className="play_icon" />
+              <div className="score-stats-text">Your Score</div>
+            </NavLink>
+          
         </div>
 
         <div className="profile">
