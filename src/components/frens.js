@@ -8,12 +8,6 @@ import flame_emoji from "../img/flame_emoji.webp";
 const tg = window.Telegram.WebApp;
 
 const Frens = () => {
-  const handleClick = () => {
-    // Вызываем haptic feedback при нажатии
-    tg.HapticFeedback.impactOccurred('light');
-    // Здесь можно добавить дополнительные действия при нажатии на кнопку
-  };
-
   return (
     <div>
       <div className="container-frens">
@@ -29,7 +23,7 @@ const Frens = () => {
             <div className="claim">Claim</div>
           </div>
         </div> */}
-        
+
         <div className="frens-discription">Score 10% for each friend</div>
         <div className="frens-count">3 Friends</div>
 
