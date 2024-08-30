@@ -5,8 +5,6 @@ import "../css/frens.css";
 import masks_animated from '../img/masks_animated.gif';
 import flame_emoji from "../img/flame_emoji.webp";
 
-const tg = window.Telegram.WebApp;
-
 const Frens = () => {
   return (
     <div>
