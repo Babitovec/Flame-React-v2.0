@@ -10,7 +10,7 @@ import Navigation from "./components/navigation.js";
 
 const tg = window.Telegram.WebApp;
 
-tg.setHeaderColor("#ffffff");
+tg.setHeaderColor("#000000");
 tg.expand();
 tg.disableVerticalSwipes();
 
