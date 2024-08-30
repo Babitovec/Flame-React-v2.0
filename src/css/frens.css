@@ -19,7 +19,7 @@
     font-size: 3vh;
     font-weight: bold;
     margin-top: 2.5vh;
-    margin-bottom: 2.5vh;
+    /* margin-bottom: 2.5vh; */
     text-align: center;
 }
 
@@ -98,7 +98,7 @@
 .invited-fren {
     display: flex;
     align-items: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1.5px solid #282828;
     width: 85vw;
     margin-bottom: 1.5vh;
     padding-top: 1vh;

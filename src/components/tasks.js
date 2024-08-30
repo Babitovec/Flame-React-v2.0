@@ -7,6 +7,7 @@ import tg_icon from "../img/tasks/tg_icon.webp";
 import x_icon from "../img/tasks/x_icon.webp";
 import flame_emoji from "../img/flame_emoji.webp";
 import wallet_icon from "../img/tasks/wallet_icon.webp";
+import friends_icon from '../img/tasks/friends_icon.png';
 
 const Tasks = () => {
   return (
@@ -22,6 +23,17 @@ const Tasks = () => {
             <div className="text">
               <div className="title">Add 🔥 in Telegram name</div>
               <div className="points">+100 Flame + 🎁</div>
+            </div>
+            <div className="open-button">
+              <div className="open">Start</div>
+            </div>
+          </div>
+
+          <div className="task">
+            <img src={friends_icon} alt="flame_emoji" className="icon" />
+            <div className="text">
+              <div className="title">Invite 5 friends</div>
+              <div className="points">+100 Flame + 5🎁</div>
             </div>
             <div className="open-button">
               <div className="open">Start</div>
@@ -72,7 +84,7 @@ const Tasks = () => {
             </div>
           </div>
 
-        </div>  
+        </div>
       </div>
     </div>
   );

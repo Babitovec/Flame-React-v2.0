@@ -19,7 +19,8 @@ const Frens = () => {
       <div className="container-frens">
         <img src={masks_animated} alt="masks_animated" className="masks-emoji-animated" />
         <span className="frens-header">Invite Friends<br />and get more Flame</span>
-        <div className="claim-frens">
+
+        {/* <div className="claim-frens">
           <div className="claimable-burn">
             <img src={flame_emoji} alt="burn_logo" className="burn-logo-claim" />
             <div className="claimable-burn-count">156</div>
@@ -27,8 +28,9 @@ const Frens = () => {
           <div className="claim-button" onClick={handleClick}>
             <div className="claim">Claim</div>
           </div>
-        </div>
-        <div className="frens-discription">Score 10% for each friend + 🎁</div>
+        </div> */}
+        
+        <div className="frens-discription">Score 10% for each friend</div>
         <div className="frens-count">3 Friends</div>
 
         <div className="frens-invited-container">

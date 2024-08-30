@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./app.js"; // Подключение app.js 
 
 const app = ReactDOMClient.createRoot(document.getElementById("app")) //создаем путь где будем выводить контент и указываем его как константу
+tg.setHeaderColor("#ffffff");
 
 app.render(
   <BrowserRouter>

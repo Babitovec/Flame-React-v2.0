@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     padding: 18px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1.5px solid #282828;
     width: 85vw;
 }
 
@@ -73,11 +73,11 @@
     height: 35px;
     width: 75px;
     border-radius: 25px;
-    background-color: #439B52;
+    background-color: #282828;
 }
 
 .open {
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 650;
     text-align: center;
