@@ -9,6 +9,7 @@ import ScoreStoryReward from "./components/score_story/score_story_reward"; // Ð
 import Navigation from "./components/navigation.js";
 
 const tg = window.Telegram.WebApp;
+tg.setHeaderColor("#ffffff");
 
 tg.expand();
 tg.disableVerticalSwipes();
