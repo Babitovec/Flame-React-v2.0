@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../css/score_story_style/score_story_premium.css";
 
 //img
-import flame_emoji_animated from '../../img/burn_emoji_animated.gif';
+import premium_emoji_animated from '../../img/home/tg_premium_emoji_animated.gif'
 
 function ScoreStoryPremium() {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ function ScoreStoryPremium() {
       </div>
 
       <div class="score-story-container">
-        <img src={flame_emoji_animated} alt="flame_emoji_animated" className="burn-emoji-animated-story" />
+        <img src={premium_emoji_animated} alt="flame_emoji_animated" className="burn-emoji-animated-story" />
         <div class="elite-member">Elite Member</div>
         <div class="joined-telegram">You've joined Telegram</div>
         <span class="years">7</span>

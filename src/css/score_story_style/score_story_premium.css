@@ -36,9 +36,11 @@
     height: 98vh;
 }
 
-.burn-emoji-animated-stoy {
-    width: 50vw;
-    height: 50vw;
+.burn-emoji-animated-story {
+    width: 80vw;
+    height: 36.92vh;
+    position: absolute;
+    padding-bottom: 20vh;
 }
 
 .elite-member {

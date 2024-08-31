@@ -5,6 +5,7 @@
     height: 87.5vh;
     width: 100vw; /* Устанавливаем ширину на весь экран */
     box-sizing: border-box; /* Учитываем отступы и границы в общей высоте */
+    overflow: auto;
 }
 
 .crown-emoji-animated {
@@ -22,8 +23,16 @@
     text-align: center;
 }
 
+.user-stats-box-container {
+    background-color: #282828;
+    border-radius: 25px;
+    width: 85vw; /* Фиксированная ширина */
+    height: 20vw; /* Фиксированная высота */
+    display: block;
+    margin-bottom: 2.5vh;
+}
+
 .user-stats-box {
-    background-color: rgba(255, 255, 255, 0.144);
     border-radius: 25px;
     width: 85vw; /* Фиксированная ширина */
     height: 20vw; /* Фиксированная высота */
@@ -68,40 +77,84 @@
     text-align: left;
     width: 85vw;
     margin-bottom: 2.5vh;
+    margin-left: 9vw;
 }
 
 .leaderboard {
     width: 85vw;
     flex: 1; /* Занимает оставшееся пространство */
-    overflow-y: auto; /* Включает вертикальную прокрутку */
+    /* overflow-y: auto; Включает вертикальную прокрутку */
 }
 
 .leaderboard-member {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-bottom: 1vh;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1.5px solid #282828;
+}
+
+.rank-and-username-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 5vh;
+}
+
+.rank-leaderbord-container {
+    width: 17.5vw;
+}
+
+.rank-leaderbord-gold {
+    /* margin-right: 3vw; */
+    color: #F7D000;
+    font-size: 3vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rank-leaderbord-silver {
+    color: #BABABA;
+    font-size: 3vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rank-leaderbord-bronze {
+    color: #C77B30;
+    font-size: 3vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rank-leaderbord {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 3vh;
+    font-weight: bold;
+    text-align: center;
 }
 
 .leaderboard-member-username {
     color: white;
-    font-size: 4.33vw;
+    font-size: 2vh;
     font-weight: bold;
-    text-align: left;
-    margin-bottom: 1vw;
 }
 
 .leaderboard-member-flames {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 3.5vw;
-    text-align: left;
-    margin-bottom: 1vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
-.rank-leaderbord {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 4.33vw;
+.leaderboard-member-flames-count {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 2vh;
+    margin-right: 1vw;
+}
+
+.leaderboard-member-flame-icon {
+    width: 2vh;
+    height: 2vh;
 }

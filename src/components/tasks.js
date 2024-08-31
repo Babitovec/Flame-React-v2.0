@@ -22,7 +22,7 @@ const Tasks = () => {
             <img src={flame_emoji} alt="flame_emoji" className="icon" />
             <div className="text">
               <div className="title">Add 🔥 in Telegram name</div>
-              <div className="points">+100 Flame + 🎁</div>
+              <div className="points">+1 Gift 🎁</div>
             </div>
             <div className="open-button">
               <div className="open">Start</div>
@@ -33,7 +33,7 @@ const Tasks = () => {
             <img src={friends_icon} alt="flame_emoji" className="icon" />
             <div className="text">
               <div className="title">Invite 5 friends</div>
-              <div className="points">+100 Flame + 5🎁</div>
+              <div className="points">+5 Gifts 🎁</div>
             </div>
             <div className="open-button">
               <div className="open">Start</div>
@@ -44,7 +44,7 @@ const Tasks = () => {
             <img src={wallet_icon} alt="wallet_icon" className="icon" />
             <div className="text">
               <div className="title">Connect your wallet</div>
-              <div className="points">+100 Flame + 🎁</div>
+              <div className="points">+1 Gift 🎁</div>
             </div>
             <div className="open-button">
               <div className="open">Start</div>
@@ -55,7 +55,7 @@ const Tasks = () => {
             <img src={tg_icon} alt="tg_icon" className="icon" />
             <div className="text">
               <div className="title">Subscribe to Flame Telegram</div>
-              <div className="points">+100 Flame</div>
+              <div className="points">+100 Flame 🔥</div>
             </div>
             <div className="open-button">
               <div className="open">Start</div>
@@ -66,7 +66,7 @@ const Tasks = () => {
             <img src={x_icon} alt="x_icon" className="icon" />
             <div className="text">
               <div className="title">Subscribe to Flame X</div>
-              <div className="points">+100 Flame</div>
+              <div className="points">+100 Flame 🔥</div>
             </div>
             <div className="open-button">
               <div className="open">Start</div>
@@ -77,7 +77,7 @@ const Tasks = () => {
             <img src={x_icon} alt="x_icon" className="icon" />
             <div className="text">
               <div className="title">Share about us on X</div>
-              <div className="points">+100 Flame</div>
+              <div className="points">+100 Flame 🔥</div>
             </div>
             <div className="open-button">
               <div className="open">Start</div>
