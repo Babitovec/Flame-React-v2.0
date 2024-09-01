@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/mini_games_style/gifts.css";
 
 import gift_emoji_animated from '../../img/home/gift_emoji_animated.gif';
@@ -9,15 +9,31 @@ const tg = window.Telegram.WebApp;
 const Gifts = () => {
     const [isClicked, setIsClicked] = useState(false);
     const [isExploded, setIsExploded] = useState(false);
+    const [showCongratulations, setShowCongratulations] = useState(true);
+
+    useEffect(() => {
+        // Показываем кнопку "Назад"
+        tg.BackButton.show();
+
+        // Устанавливаем обработчик для кнопки "Назад"
+        tg.BackButton.onClick(() => {
+            // Например, вернемся на предыдущую страницу
+            window.history.back(); // Или выполните любую другую логику возврата
+        });
+
+        return () => {
+            // Скрываем кнопку "Назад" при размонтировании компонента
+            tg.BackButton.hide();
+        };
+    }, []);
 
     const openGift = () => {
         tg.HapticFeedback.impactOccurred('light');
         setIsClicked(true);
-        
-        // Запускаем анимацию взрыва
+
         setTimeout(() => {
             setIsExploded(true);
-        }, 200); // Задержка должна совпадать с длительностью анимации взрыва
+        }, 200);
     };
 
     return (
@@ -31,18 +47,20 @@ const Gifts = () => {
                     onClick={openGift} 
                 />
             ) : (
-                isExploded ? (
+                isExploded && showCongratulations ? (
                     <img 
                         src={congratulations_emoji_animated} 
                         alt="Congratulations" 
                         className="congratulations_emoji_animated" 
                     />
                 ) : (
-                    <img 
-                        src={gift_emoji_animated} 
-                        alt="Gift Exploded" 
-                        className="gift_emoji_animated explosion" 
-                    />
+                    isExploded && !showCongratulations ? null : (
+                        <img 
+                            src={gift_emoji_animated} 
+                            alt="Gift Exploded" 
+                            className="gift_emoji_animated explosion" 
+                        />
+                    )
                 )
             )}
             <div className="gifts_count_in_game">x1</div>
