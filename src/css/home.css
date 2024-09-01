@@ -99,7 +99,7 @@
 .in-gifts{
     border-radius: 25px;
     /* background-image: url(/src/img/home/home_background_black_25_opacity.png); */
-    background-image: url(/src/img/home/new_background_gradient.png);
+    background-image: url(/src/img/home/new_background_gifts.webp);
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
@@ -111,8 +111,8 @@
 
 .in-gifts-burn{
     border-radius: 25px;
-    background-image: url(/src/img/home/home_background_black_25_opacity.png);
-    /* background-image: url(/src/img/home/new_background_burn.png); */
+    /* background-image: url(/src/img/home/home_background_black_25_opacity.png); */
+    background-image: url(/src/img/home/new_background_burn_2.webp);
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
@@ -157,7 +157,8 @@
 }
 
 .total-burned-text {
-    color: #BFBFBF;
+    /* color: #BFBFBF; */
+    color: white;
     font-size: 4vw;
     margin-top: 1vw;
     font-weight: bold;
