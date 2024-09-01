@@ -35,31 +35,31 @@ const Gifts = () => {
         <div className="gifts-container">
             <div className="gifts_header_in_game">Gifts</div>
             <div className="gift-and-gifts-count">
-                {!isClicked ? (
-                    <img
-                        src={gift_emoji_animated}
-                        alt="Gift"
-                        className="gift_emoji_animated"
-                        onClick={openGift}
+            {!isClicked ? (
+                <img 
+                    src={gift_emoji_animated} 
+                    alt="Gift" 
+                    className="gift_emoji_animated" 
+                    onClick={openGift} 
+                />
+            ) : (
+                isExploded && showCongratulations ? (
+                    <img 
+                        src={congratulations_emoji_animated} 
+                        alt="Congratulations" 
+                        className="congratulations_emoji_animated" 
                     />
                 ) : (
-                    isExploded && showCongratulations ? (
-                        <img
-                            src={congratulations_emoji_animated}
-                            alt="Congratulations"
-                            className="congratulations_emoji_animated"
+                    isExploded && !showCongratulations ? null : (
+                        <img 
+                            src={gift_emoji_animated} 
+                            alt="Gift Exploded" 
+                            className="gift_emoji_animated explosion" 
                         />
-                    ) : (
-                        isExploded && !showCongratulations ? null : (
-                            <img
-                                src={gift_emoji_animated}
-                                alt="Gift Exploded"
-                                className="gift_emoji_animated explosion"
-                            />
-                        )
                     )
-                )}
-                <div className="gifts_count_in_game">x1</div>
+                )
+            )}
+            <div className="gifts_count_in_game">x1</div>
             </div>
         </div>
     );
