@@ -9,7 +9,7 @@ const tg = window.Telegram.WebApp;
 const Gifts = () => {
     const [isClicked, setIsClicked] = useState(false);
     const [isExploded, setIsExploded] = useState(false);
-    const [showCongratulations, setShowCongratulations] = useState(true);
+    const [showCongratulations] = useState(true);
 
     useEffect(() => {
         // Показываем кнопку "Назад"
