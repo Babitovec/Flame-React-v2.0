@@ -6,6 +6,7 @@ import Home from "./components/home";
 import ScoreStoryYears from "./components/score_story/score_story_years";
 import ScoreStoryPremium from "./components/score_story/score_story_premium";
 import ScoreStoryReward from "./components/score_story/score_story_reward"; // Импорт компонента для нового маршрута
+import Gifts from "./components/mini_games/gifts.js";
 import Navigation from "./components/navigation.js";
 
 const tg = window.Telegram.WebApp;
@@ -25,9 +26,13 @@ const App = () => {
         <Route path="/score_story_years" element={<ScoreStoryYears />} />
         <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
         <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} /> {/* Добавление маршрута для ScoreStoryReward */}
+        <Route path="/Gifts" element={<Gifts />} />
       </Routes>
       {/* Скрываем Navigation на определенных маршрутах */}
-      {location.pathname !== "/score_story_years" && location.pathname !== "/ScoreStoryPremium" && location.pathname !== "/ScoreStoryReward" && <Navigation />}
+      {location.pathname !== "/score_story_years" 
+      && location.pathname !== "/ScoreStoryPremium" 
+      && location.pathname !== "/ScoreStoryReward"
+      && location.pathname !== "/Gifts" && <Navigation />}
     </div>
   );
 };

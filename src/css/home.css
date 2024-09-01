@@ -99,6 +99,7 @@
 .in-gifts{
     border-radius: 25px;
     background-image: url(/src/img/home/home_background_black_25_opacity.png);
+    /* background-image: url(/src/img/home/new_background_gradient.png); */
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
@@ -111,6 +112,7 @@
 .in-gifts-burn{
     border-radius: 25px;
     background-image: url(/src/img/home/home_background_black_25_opacity.png);
+    /* background-image: url(/src/img/home/new_background_burn.png); */
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
@@ -169,6 +171,7 @@
     padding: 2vw;
     border-radius: 25px;
     transition: transform 0.25s ease;
+    text-decoration: none;
 }
 
 .open-gift:active {

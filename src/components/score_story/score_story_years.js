@@ -14,22 +14,22 @@ function ScoreStoryYears() {
 
   return (
     <>
-      <div class="lines_years">
-        <div class="line-1-years"></div>
-        <div class="line-2-years"></div>
-        <div class="line-3-years"></div>
+      <div className="lines_years">
+        <div className="line-1-years"></div>
+        <div className="line-2-years"></div>
+        <div className="line-3-years"></div>
       </div>
 
-      <div class="score-story-container">
+      <div className="score-story-container">
         <img src={congratulations_emoji_animated} alt="flame_emoji_animated" className="burn-emoji-animated-story" />
-        <div class="elite-member">Elite Member</div>
-        <div class="joined-telegram">You've joined Telegram</div>
-        <span class="years">7</span>
-        <div class="years-ago">years ago</div>
-        <div class="account-top">Your account number is #439244929</div>
-        <div class="top">You are in top 10% Telegram users</div>
-        <div class="continue-button" onClick={handleContinue}>
-          <span class="continue-text">Continue</span>
+        <div className="elite-member">Elite Member</div>
+        <div className="joined-telegram">You've joined Telegram</div>
+        <span className="years">7</span>
+        <div className="years-ago">years ago</div>
+        <div className="account-top">Your account number is #439244929</div>
+        <div className="top">You are in top 10% Telegram users</div>
+        <div className="continue-button" onClick={handleContinue}>
+          <span className="continue-text">Continue</span>
         </div>
       </div>
     </>
