@@ -163,10 +163,15 @@
     border-radius: 25px;
     bottom: 12.5%;
     z-index: 10;
+    transition: transform 0.25s ease;
 }
 
 .invite-fren-text {
     color: black;
     font-size: 4.33vw;
     font-weight: bold;
+}
+
+.invite-fren-button:active {
+    transform: scale(0.97);
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Components
 import Home from "./components/home";
@@ -20,19 +21,33 @@ const App = () => {
 
   return (
     <div>
-      <Routes>
+      <Routes location={location}>
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/score_story_years" element={<ScoreStoryYears />} />
         <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
-        <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} /> {/* Добавление маршрута для ScoreStoryReward */}
-        <Route path="/Gifts" element={<Gifts />} />
+        <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
       </Routes>
+
+      <TransitionGroup>
+        <CSSTransition
+          key={location.key}
+          classNames="fade"
+          timeout={450}
+        >
+          <Routes>
+            <Route>
+              <Route path="/Gifts" element={<Gifts />} /> {/* Добавляем маршрут для Gifts с анимацией */}
+            </Route>
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+      
       {/* Скрываем Navigation на определенных маршрутах */}
-      {location.pathname !== "/score_story_years" 
-      && location.pathname !== "/ScoreStoryPremium" 
-      && location.pathname !== "/ScoreStoryReward"
-      && location.pathname !== "/Gifts" && <Navigation />}
+      {location.pathname !== "/score_story_years"
+        && location.pathname !== "/ScoreStoryPremium"
+        && location.pathname !== "/ScoreStoryReward"
+        && location.pathname !== "/Gifts" && <Navigation />}
     </div>
   );
 };

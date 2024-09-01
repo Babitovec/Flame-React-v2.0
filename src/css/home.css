@@ -98,8 +98,8 @@
 
 .in-gifts{
     border-radius: 25px;
-    background-image: url(/src/img/home/home_background_black_25_opacity.png);
-    /* background-image: url(/src/img/home/new_background_gradient.png); */
+    /* background-image: url(/src/img/home/home_background_black_25_opacity.png); */
+    background-image: url(/src/img/home/new_background_gradient.png);
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
@@ -149,7 +149,8 @@
 }
 
 .gifts-count {
-    color: #BFBFBF;
+    /* color: #BFBFBF; */
+    color: white;
     font-size: 6vw;
     margin-top: 1vw;
     font-weight: bold;
@@ -167,7 +168,8 @@
     font-size: 5vw;
     font-weight: bold;
     margin-top: 10vh;
-    background-color: #439B52;
+    /* background-color: #439B52; */
+    background-color: #282828;
     padding: 2vw;
     border-radius: 25px;
     transition: transform 0.25s ease;
