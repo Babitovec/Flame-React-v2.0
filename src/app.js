@@ -21,11 +21,12 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
+    tg.ready();  // Инициализация Telegram Web App
+
     const userData = tg.initDataUnsafe.user;
-    console.log("User data:", userData); // Логируем данные
-  
+
     if (userData) {
-      axios.post('https://flameapp-babito.amvera.io/', userData)
+      axios.post('https://flameapp-babito.amvera.io', userData)
         .then(response => {
           console.log('Данные успешно отправлены:', response.data);
         })
@@ -34,7 +35,6 @@ const App = () => {
         });
     }
   }, []);
-  
 
   return (
     <div>
