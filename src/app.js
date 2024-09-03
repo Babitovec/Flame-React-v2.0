@@ -22,7 +22,8 @@ const App = () => {
 
   useEffect(() => {
     const userData = tg.initDataUnsafe.user;
-
+    console.log("User data:", userData); // Логируем данные
+  
     if (userData) {
       axios.post('https://flameapp-babito.amvera.io/', userData)
         .then(response => {
@@ -33,6 +34,7 @@ const App = () => {
         });
     }
   }, []);
+  
 
   return (
     <div>
