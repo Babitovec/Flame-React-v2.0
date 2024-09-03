@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/home.css";
 import { NavLink } from "react-router-dom";
+import axios from 'axios'; // Импорт Axios
 
 // Images
 import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
@@ -12,6 +13,25 @@ import play_icon from "../img/home/play_icon3.webp";
 const tg = window.Telegram.WebApp;
 
 const Home = ({ username }) => {
+  const [flamesCount, setFlamesCount] = useState(0); // Состояние для flames_count
+  const [giftsCount, setGiftsCount] = useState(0); // Состояние для gifts_count
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userId = tg.initDataUnsafe.user?.id;
+        const response = await axios.get(`https://flameapp-babito.amvera.io/users/${userId}`);
+        const userData = response.data;
+        setFlamesCount(userData.flames_count);
+        setGiftsCount(userData.gifts_count);
+      } catch (error) {
+        console.error('Ошибка при получении данных пользователя:', error);
+      }
+    };
+
+    fetchUserData(); // Загружаем данные пользователя при загрузке компонента
+  }, []);
+
   const handleNavigationClick = () => {
     tg.HapticFeedback.impactOccurred('light');
   };
@@ -33,7 +53,7 @@ const Home = ({ username }) => {
           <img src={flame_emoji_animated} alt="PFP" className="profile-pic" />
           <div className="home_username">{username}</div>
           <div className="score">
-            <span className="score-count">5739</span>
+            <span className="score-count">{flamesCount}</span> {/* Вывод flames_count */}
           </div>
           <span className="flame-text-score">FLAME</span>
         </div>
@@ -43,7 +63,7 @@ const Home = ({ username }) => {
             <span className="gifts-header">Gifts</span>
             <div className="gift-gif-and-count">
               <img src={gift_emoji} alt="gift" className="gift-gif" />
-              <div className="gifts-count">x1</div>
+              <div className="gifts-count">x{giftsCount}</div> {/* Вывод gifts_count */}
             </div>
             <NavLink className="open-gift" to="/Gifts" onClick={handleNavigationClick}>Open</NavLink>
           </div>
