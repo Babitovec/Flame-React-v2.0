@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import axios from 'axios'; // Импорт Axios
 
 // Components
 import Home from "./components/home";
 import ScoreStoryYears from "./components/score_story/score_story_years";
 import ScoreStoryPremium from "./components/score_story/score_story_premium";
-import ScoreStoryReward from "./components/score_story/score_story_reward"; // Импорт компонента для нового маршрута
+import ScoreStoryReward from "./components/score_story/score_story_reward"; 
 import Gifts from "./components/mini_games/gifts.js";
 import Navigation from "./components/navigation.js";
 
@@ -18,6 +19,20 @@ tg.disableVerticalSwipes();
 
 const App = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    const userData = tg.initDataUnsafe.user;
+
+    if (userData) {
+      axios.post('flameapp-babito.amvera.io', userData)
+        .then(response => {
+          console.log('Данные успешно отправлены:', response.data);
+        })
+        .catch(error => {
+          console.error('Ошибка при отправке данных:', error);
+        });
+    }
+  }, []);
 
   return (
     <div>
@@ -37,13 +52,12 @@ const App = () => {
         >
           <Routes>
             <Route>
-              <Route path="/Gifts" element={<Gifts />} /> {/* Добавляем маршрут для Gifts с анимацией */}
+              <Route path="/Gifts" element={<Gifts />} /> 
             </Route>
           </Routes>
         </CSSTransition>
       </TransitionGroup>
       
-      {/* Скрываем Navigation на определенных маршрутах */}
       {location.pathname !== "/score_story_years"
         && location.pathname !== "/ScoreStoryPremium"
         && location.pathname !== "/ScoreStoryReward"
