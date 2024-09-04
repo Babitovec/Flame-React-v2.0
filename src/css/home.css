@@ -100,6 +100,7 @@
     border-radius: 25px;
     /* background-image: url(/src/img/home/home_background_black_25_opacity.png); */
     background-image: url(/src/img/home/new_background_gifts.webp);
+    background-size: cover;
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
@@ -113,6 +114,7 @@
     border-radius: 25px;
     /* background-image: url(/src/img/home/home_background_black_25_opacity.png); */
     background-image: url(/src/img/home/new_background_burn_2.webp);
+    background-size: cover;
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
