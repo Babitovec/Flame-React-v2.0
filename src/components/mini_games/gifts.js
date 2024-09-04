@@ -23,10 +23,6 @@ const Gifts = () => {
             tg.BackButton.hide();
         });
 
-        return () => {
-            // Скрываем кнопку "Назад" при размонтировании компонента
-            tg.BackButton.hide();
-        };
     }, []);
 
     const openGift = () => {
