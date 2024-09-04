@@ -18,7 +18,7 @@ const Gifts = () => {
         // Устанавливаем обработчик для кнопки "Назад"
         tg.BackButton.onClick(() => {
             // Перенаправляем на страницу /Home
-            window.location.href = '/Home';
+            window.location.href = '/';
             // Скрываем кнопку "Назад"
             tg.BackButton.hide();
         });
