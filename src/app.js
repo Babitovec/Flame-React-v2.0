@@ -7,7 +7,7 @@ import axios from 'axios'; // Импорт Axios
 import Home from "./components/home";
 import ScoreStoryYears from "./components/score_story/score_story_years";
 import ScoreStoryPremium from "./components/score_story/score_story_premium";
-import ScoreStoryReward from "./components/score_story/score_story_reward"; 
+import ScoreStoryReward from "./components/score_story/score_story_reward";
 import Gifts from "./components/mini_games/gifts.js";
 import Navigation from "./components/navigation.js";
 
@@ -38,13 +38,6 @@ const App = () => {
 
   return (
     <div>
-      <Routes location={location}>
-        <Route path="/" element={<Navigate to="/Home" />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/score_story_years" element={<ScoreStoryYears />} />
-        <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
-        <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
-      </Routes>
 
       <TransitionGroup>
         <CSSTransition
@@ -54,12 +47,17 @@ const App = () => {
         >
           <Routes>
             <Route>
-              <Route path="/Gifts" element={<Gifts />} /> 
+              <Route path="/" element={<Navigate to="/Home" />} />
+              <Route path="/Home" element={<Home />} />
+              <Route path="/Gifts" element={<Gifts />} />
+              <Route path="/score_story_years" element={<ScoreStoryYears />} />
+              <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
+              <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
             </Route>
           </Routes>
         </CSSTransition>
       </TransitionGroup>
-      
+
       {location.pathname !== "/score_story_years"
         && location.pathname !== "/ScoreStoryPremium"
         && location.pathname !== "/ScoreStoryReward"
