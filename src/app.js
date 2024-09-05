@@ -50,13 +50,18 @@ const App = () => {
               <Route path="/" element={<Navigate to="/Home" />} />
               <Route path="/Home" element={<Home />} />
               <Route path="/Gifts" element={<Gifts />} />
-              <Route path="/score_story_years" element={<ScoreStoryYears />} />
-              <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
-              <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
             </Route>
           </Routes>
         </CSSTransition>
       </TransitionGroup>
+
+      <Routes>
+        <Route>
+          <Route path="/score_story_years" element={<ScoreStoryYears />} />
+          <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
+          <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
+        </Route>
+      </Routes>
 
       {location.pathname !== "/score_story_years"
         && location.pathname !== "/ScoreStoryPremium"

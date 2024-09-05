@@ -28,58 +28,72 @@
     border-radius: 25px;
 }
 
-.score-story-container {
+.score-story-reward-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 98vh;
 }
 
-.burn-emoji-animated-story {
-    width: 80vw;
-    height: 36.92vh;
+.reward-handline {
+    color: white;
+    font-size: 8vw;
+    font-weight: bold;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+.reward {
+    color: white;
+    font-size: 5vw;
+    font-weight: bold;
+    margin-bottom: 42.5vh;
+}
+
+.flame-emoji-animated-story-reward {
     position: absolute;
-    padding-bottom: 20vh;
+    width: 70vw;
+    height: 70vw;
+    top: 43.35vw;
+    left: 50%;
+    transform: translateX(-50%); 
 }
 
-.elite-member {
+.flames-count-story {
+    color: #ffffff;
+    font-size: 12vw;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    display: inline-block; /* Добавьте display для правильного позиционирования */
+}
+
+@keyframes casinoSpin {
+    0% { transform: scale(0.6); }
+    100% { transform: scale(1); }
+}
+
+.countup-wrapper {
+    display: inline-block;
+    animation: casinoSpin 2.5s forwards;
+}
+
+
+.flame-text-story {
+    color: #ffffff;
+    font-size: 8vw;
+    font-weight: bold;
+    opacity: 50%;
+    margin-bottom: 7vh;
+}
+
+.thanks {
     color: white;
-    font-size: 2vh;
+    font-size: 5vw;
     font-weight: bold;
 }
 
-.joined-telegram {
-    color: white;
-    font-size: 2vh;
-    font-weight: bold;
-}
-
-.years {
-    color: white;
-    font-size: 25vh;
-    font-weight: bold;
-}
-
-.years-ago {
-    color: white;
-    font-size: 2vh;
-    font-weight: bold;
-}
-
-.account-top {
-    color: white;
-    font-size: 2vh;
-    font-weight: bold;
-}
-
-.top {
-    color: white;
-    font-size: 2vh;
-    font-weight: bold;
-}
-
-.continue-button {
+.continue-button-reward {
+    position: absolute;
     background-color: white;
     width: 90vw;
     padding-top: 2vh;
@@ -88,12 +102,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 25px;
-    bottom: 12.5%;
+    bottom: 5%;
 }
 
 .continue-text {
     color: black;
-    font-size: 2vh;
+    font-size: 4vw;
     font-weight: bold;
     text-decoration: none;
 }

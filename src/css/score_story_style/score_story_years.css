@@ -28,66 +28,75 @@
     border-radius: 25px;
 }
 
-.score-story-container {
+.score-story-years-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 98vh;
 }
 
 .elite-member {
     color: white;
-    font-size: 2vh;
+    font-size: 8vw;
     font-weight: bold;
+    margin-top: 2.5vh;
+    margin-bottom: 4.5vh;
 }
 
 .joined-telegram {
     color: white;
-    font-size: 2vh;
+    font-size: 5vw;
     font-weight: bold;
-}
-
-.years-container {
-    width: 90vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 40vh;
 }
 
 .burn-emoji-animated-story {
-    width: 80vw;
-    height: 36.92vh;
     position: absolute;
-    padding-bottom: 20vh;
+    width: 70vw;
+    height: 70vw;
+    top: 43.35vw; /* Отступ сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Только по оси X */
 }
+
 
 .years {
     color: white;
-    font-size: 25vh;
+    position: absolute;
+    font-size: 70vw;
     font-weight: bold;
-    z-index: 1;
+    top: 38vw; /* Отступ сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Только по оси X */
+}
+
+.years-info {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .years-ago {
     color: white;
-    font-size: 2vh;
+    font-size: 5vw;
     font-weight: bold;
 }
 
 .account-top {
     color: white;
-    font-size: 2vh;
+    font-size: 4vw;
     font-weight: bold;
 }
 
 .top {
     color: white;
-    font-size: 2vh;
+    font-size: 5vw;
     font-weight: bold;
 }
 
-.continue-button {
+.continue-button-years {
+    position: absolute;
     background-color: white;
     width: 90vw;
     padding-top: 2vh;
@@ -96,12 +105,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 25px;
-    bottom: 12.5%;
+    bottom: 5%;
+    text-decoration: none;
 }
 
 .continue-text {
     color: black;
-    font-size: 2vh;
+    font-size: 4vw;
     font-weight: bold;
     text-decoration: none;
 }

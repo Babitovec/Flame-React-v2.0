@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CountUp from 'react-countup';
 import "../../css/score_story_style/score_story_reward.css";
 
-//img
+// img
 import flame_emoji_animated from '../../img/burn_emoji_animated.gif';
 
 function ScoreStoryReward() {
@@ -20,15 +21,19 @@ function ScoreStoryReward() {
         <div className="line-3-reward"></div>
       </div>
 
-      <div className="score-story-container">
-        <img src={flame_emoji_animated} alt="flame_emoji_animated" className="burn-emoji-animated-story" />
-        <div className="elite-member">Elite Member</div>
-        <div className="joined-telegram">You've joined Telegram</div>
-        <span className="years">7</span>
-        <div className="years-ago">years ago</div>
-        <div className="account-top">Your account number is #439244929</div>
-        <div className="top">You are in top 10% Telegram users</div>
-        <div className="continue-button" onClick={handleContinue}>
+      <div className="score-story-reward-container">
+        <span className="reward-handline">You are amazing!</span>
+        <span className="reward">Here is your reward</span>
+        <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame-emoji-animated-story-reward" />
+        {/* Анимация countUp */}
+        <div className="flames-count-story">
+          <div className="countup-wrapper">
+            <CountUp start={0} end={2567} duration={2.5} />
+          </div>
+        </div>
+        <span className="flame-text-story">FLAME</span>
+        <span className="thanks">Thanks for your time on Telegram!</span>
+        <div className="continue-button-reward" onClick={handleContinue}>
           <span className="continue-text">Continue</span>
         </div>
       </div>
