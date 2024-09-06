@@ -5,13 +5,7 @@ import "../css/frens.css";
 import masks_animated from '../img/masks_animated.gif';
 import flame_emoji from "../img/flame_emoji.webp";
 
-const tg = window.Telegram.WebApp;
-
 const Frens = () => {
-
-  const handleInviteFriend = () => {
-    tg.showPopup("Check how long you've been on telegram and get FLAME 🔥: /n./https://t.me/burn_crypto_bot")
-  };
 
   return (
     <div>
@@ -63,7 +57,7 @@ const Frens = () => {
         </div>
 
         <div className="invite-fren-background">
-          <div className="invite-fren-button" onClick={handleInviteFriend}>
+          <div className="invite-fren-button">
             <div className="invite-fren-text">Invite Friends</div>
           </div>
         </div>
