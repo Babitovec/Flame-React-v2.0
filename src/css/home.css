@@ -98,7 +98,6 @@
 
 .in-gifts{
     border-radius: 25px;
-    /* background-image: url(/src/img/home/home_background_black_25_opacity.png); */
     background-image: url(/src/img/home/new_background_gifts.webp);
     background-size: cover;
     width: 85vw;
@@ -107,12 +106,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* background-color: rgba(249, 201, 28, 0.05); */
 }
 
 .in-gifts-burn{
     border-radius: 25px;
-    /* background-image: url(/src/img/home/home_background_black_25_opacity.png); */
     background-image: url(/src/img/home/new_background_burn_2.webp);
     background-size: cover;
     width: 85vw;
@@ -121,7 +118,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* background-color: rgba(255, 68, 27, 0.05); */
 }
 
 .gifts-header {
@@ -151,7 +147,6 @@
 }
 
 .gifts-count {
-    /* color: #BFBFBF; */
     color: white;
     font-size: 6vw;
     margin-top: 1vw;
@@ -159,7 +154,6 @@
 }
 
 .total-burned-text {
-    /* color: #BFBFBF; */
     color: white;
     font-size: 4vw;
     margin-top: 1vw;
@@ -171,7 +165,6 @@
     font-size: 5vw;
     font-weight: bold;
     margin-top: 10vh;
-    /* background-color: #439B52; */
     background-color: #282828;
     padding: 2vw;
     border-radius: 25px;

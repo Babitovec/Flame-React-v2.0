@@ -1,28 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../css/score_story_style/score_story_share.css";
-import storyImg from "../../img/story.png";
+
+import storyImg from "../../img/story.png"
 
 function ScoreStoryShare() {
     const navigate = useNavigate();
 
     const handleContinue = () => {
-        // Здесь вызываем Telegram API для публикации сторис
-        window.Telegram.WebApp.shareStory({
-            media: [
-                {
-                    type: 'photo',
-                    media: storyImg,  // Указываем картинку
-                }
-            ],
-            // Можем также добавить подпись
-            caption: "Check out my story result!",
-        }).then(() => {
-            // После успешного публикации возвращаемся на Home
-            navigate("/Home");
-        }).catch((err) => {
-            console.error("Failed to share the story:", err);
-        });
+        navigate("/Home");
     };
 
     return (

@@ -50,6 +50,10 @@
     text-align: center;
 }
 
+.storyImg {
+    width: 90vw;
+}
+
 .share-story-button {
     position: absolute;
     background-color: rgb(255, 255, 255);

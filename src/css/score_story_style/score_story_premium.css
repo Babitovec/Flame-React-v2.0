@@ -39,18 +39,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 98vh;
-}
-
-.premium_emoji_animated {
-    position: absolute;
-    width: 70vw;
-    height: 70vw;
-    top: 43.35vw;
-    /* Отступ сверху */
-    left: 50%;
-    transform: translateX(-50%);
-    /* Только по оси X */
 }
 
 .telegram-premium-handline {
@@ -65,7 +53,13 @@
     color: white;
     font-size: 5vw;
     font-weight: bold;
-    margin-bottom: 45vh;
+    margin-bottom: 2.5vh;
+}
+
+.premium_emoji_animated {
+    width: 70vw;
+    height: 70vw;
+    margin-bottom: 2.5vh;
 }
 
 .status-confirmed {
@@ -75,23 +69,11 @@
     margin-bottom: 9vh;
 }
 
-.flames-for-premium {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 .flames-for-premium-count {
     color: white;
     font-size: 7vw;
     font-weight: bold;
     text-align: center;
-}
-
-.flame-emoji-premium {
-    width: 10vw;
-    height: 10vw;
 }
 
 .continue-button-premium {

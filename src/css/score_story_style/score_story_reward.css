@@ -53,17 +53,15 @@
     color: white;
     font-size: 5vw;
     font-weight: bold;
-    margin-bottom: 42.5vh;
+    margin-bottom: 2.5vh;
 }
 
 .flame-emoji-animated-story-reward {
-    position: absolute;
     width: 70vw;
     height: 70vw;
-    top: 43.35vw;
-    left: 50%;
-    transform: translateX(-50%); 
+    margin-bottom: 2.5vh;
 }
+    
 
 .flames-count-story {
     color: #ffffff;

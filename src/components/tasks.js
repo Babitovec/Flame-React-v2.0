@@ -9,7 +9,14 @@ import flame_emoji from "../img/flame_emoji.webp";
 import wallet_icon from "../img/tasks/wallet_icon.webp";
 import friends_icon from '../img/tasks/friends_icon.png';
 
+const tg = window.Telegram.WebApp;
+
 const Tasks = () => {
+
+  const handleOpenTelegramChannel = () => {
+    tg.openTelegramLink("https://t.me/dogs_community");
+  };
+
   return (
     <div>
       <div className="container-tasks">
@@ -57,7 +64,7 @@ const Tasks = () => {
               <div className="title">Subscribe to Flame Telegram</div>
               <div className="points">+100 Flame 🔥</div>
             </div>
-            <div className="open-button">
+            <div className="open-button" onClick={handleOpenTelegramChannel}>
               <div className="open">Start</div>
             </div>
           </div>
