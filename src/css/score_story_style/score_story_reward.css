@@ -8,23 +8,30 @@
 }
 
 .line-1-reward {
-    width: 31.5vw;
+    width: 24vw;
     height: 1vw;
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
 }
 
 .line-2-reward {
-    width: 31.5vw;
+    width: 24vw;
     height: 1vw;
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
 }
 
 .line-3-reward {
-    width: 31.5vw;
+    width: 24vw;
     height: 1vw;
     background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+}
+
+.line-4-reward {
+    width: 24vw;
+    height: 1vw;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 25px;
 }
 

@@ -42,7 +42,7 @@ const Home = ({ username }) => {
         <div className="score-stats">
           <img src={background_filled_colour} alt="background_filled_colour" className="score-background" />
           
-            <NavLink className="score-stats-box" to="/score_story_years" onClick={handleNavigationClick}>
+            <NavLink className="score-stats-box" to="/ScoreStoryYears" onClick={handleNavigationClick}>
               <img src={play_icon} alt="play_icon" className="play_icon" />
               <div className="score-stats-text">Your Score</div>
             </NavLink>

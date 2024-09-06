@@ -19,6 +19,7 @@ function ScoreStoryYears() {
         <div className="line-1-years"></div>
         <div className="line-2-years"></div>
         <div className="line-3-years"></div>
+        <div className="line-4-years"></div>
       </div>
 
       <div className="score-story-years-container">

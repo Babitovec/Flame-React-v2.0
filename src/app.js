@@ -8,6 +8,7 @@ import Home from "./components/home";
 import ScoreStoryYears from "./components/score_story/score_story_years";
 import ScoreStoryPremium from "./components/score_story/score_story_premium";
 import ScoreStoryReward from "./components/score_story/score_story_reward";
+import ScoreStoryShare from "./components/score_story/score_story_share";
 import Gifts from "./components/mini_games/gifts.js";
 import Navigation from "./components/navigation.js";
 
@@ -57,15 +58,17 @@ const App = () => {
 
       <Routes>
         <Route>
-          <Route path="/score_story_years" element={<ScoreStoryYears />} />
+          <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
           <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
           <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
+          <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
         </Route>
       </Routes>
 
-      {location.pathname !== "/score_story_years"
+      {location.pathname !== "/ScoreStoryYears"
         && location.pathname !== "/ScoreStoryPremium"
         && location.pathname !== "/ScoreStoryReward"
+        && location.pathname !== "/ScoreStoryShare"
         && location.pathname !== "/Gifts" && <Navigation />}
     </div>
   );

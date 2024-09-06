@@ -10,7 +10,7 @@ function ScoreStoryReward() {
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    navigate("/Home"); // Навигация на Home
+    navigate("/ScoreStoryShare"); // Навигация на Home
   };
 
   return (
@@ -19,13 +19,13 @@ function ScoreStoryReward() {
         <div className="line-1-reward"></div>
         <div className="line-2-reward"></div>
         <div className="line-3-reward"></div>
+        <div className="line-4-reward"></div>
       </div>
 
       <div className="score-story-reward-container">
         <span className="reward-handline">You are amazing!</span>
         <span className="reward">Here is your reward</span>
         <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame-emoji-animated-story-reward" />
-        {/* Анимация countUp */}
         <div className="flames-count-story">
           <div className="countup-wrapper">
             <CountUp start={0} end={2567} duration={2.5} />
