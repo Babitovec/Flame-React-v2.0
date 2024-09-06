@@ -5,23 +5,19 @@ import "../css/frens.css";
 import masks_animated from '../img/masks_animated.gif';
 import flame_emoji from "../img/flame_emoji.webp";
 
+const tg = window.Telegram.WebApp;
+
 const Frens = () => {
+
+  const handleInviteFriend = () => {
+    tg.showPopup("Check how long you've been on telegram and get FLAME 🔥: /n./https://t.me/burn_crypto_bot")
+  };
+
   return (
     <div>
       <div className="container-frens">
         <img src={masks_animated} alt="masks_animated" className="masks-emoji-animated" />
         <span className="frens-header">Invite Friends<br />and get more Flame</span>
-
-        {/* <div className="claim-frens">
-          <div className="claimable-burn">
-            <img src={flame_emoji} alt="burn_logo" className="burn-logo-claim" />
-            <div className="claimable-burn-count">156</div>
-          </div>
-          <div className="claim-button" onClick={handleClick}>
-            <div className="claim">Claim</div>
-          </div>
-        </div> */}
-
         <div className="frens-discription">Score 10% for each friend</div>
         <div className="frens-count">3 Friends</div>
 
@@ -67,7 +63,7 @@ const Frens = () => {
         </div>
 
         <div className="invite-fren-background">
-          <div className="invite-fren-button">
+          <div className="invite-fren-button" onClick={handleInviteFriend}>
             <div className="invite-fren-text">Invite Friends</div>
           </div>
         </div>

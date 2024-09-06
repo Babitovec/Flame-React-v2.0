@@ -1,14 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "../../css/score_story_style/score_story_share.css";
 
 import storyImg from "../../img/story.png"
 
+const tg = window.Telegram.WebApp;
+
 function ScoreStoryShare() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const handleContinue = () => {
-        navigate("/Home");
+        tg.shareToStory('https://funny-hamster-88e22c.netlify.app/static/media/story.466070a59abbf49eb855.png',{text:'https://t.me/burn_crypto_bot'});
     };
 
     return (
