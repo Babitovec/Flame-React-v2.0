@@ -14,7 +14,11 @@ const tg = window.Telegram.WebApp;
 const Tasks = () => {
 
   const handleOpenTelegramChannel = () => {
-    tg.openTelegramLink("https://t.me/dogs_community");
+    tg.openTelegramLink("https://t.me/flame_coin_community");
+  };
+
+  const handleOpenX = () => {
+    tg.openLink("https://x.com/realDogsHouse");
   };
 
   return (
@@ -47,6 +51,7 @@ const Tasks = () => {
             </div>
           </div>
 
+          {/* Connect wallet */}
           <div className="task">
             <img src={wallet_icon} alt="wallet_icon" className="icon" />
             <div className="text">
@@ -58,6 +63,7 @@ const Tasks = () => {
             </div>
           </div>
 
+          {/* Telegram channel subscribtion */}
           <div className="task">
             <img src={tg_icon} alt="tg_icon" className="icon" />
             <div className="text">
@@ -69,17 +75,19 @@ const Tasks = () => {
             </div>
           </div>
 
+          {/* Twitter subscribtion */}
           <div className="task">
             <img src={x_icon} alt="x_icon" className="icon" />
             <div className="text">
               <div className="title">Subscribe to Flame X</div>
               <div className="points">+100 Flame 🔥</div>
             </div>
-            <div className="open-button">
+            <div className="open-button" onClick={handleOpenX}>
               <div className="open">Start</div>
             </div>
           </div>
 
+          {/* Twitter share about us */}
           <div className="task">
             <img src={x_icon} alt="x_icon" className="icon" />
             <div className="text">

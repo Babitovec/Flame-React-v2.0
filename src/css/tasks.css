@@ -77,17 +77,6 @@
     transition: transform 0.25s ease;
 }
 
-.open-button-subscribe-flame-telegram {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Центрирование по горизонтали и вертикали */
-    height: 35px;
-    width: 75px;
-    border-radius: 25px;
-    background-color: #282828;
-    transition: transform 0.25s ease;
-}
-
 .open {
     color: rgb(255, 255, 255);
     font-size: 16px;
@@ -96,9 +85,5 @@
 }
 
 .open-button:active {
-    transform: scale(0.97);
-}
-
-.open-button-subscribe-flame-telegram:active {
     transform: scale(0.97);
 }
