@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/home.css";
 import { NavLink } from "react-router-dom";
 import axios from 'axios'; // Импорт Axios
+import Skeleton from "react-loading-skeleton";
 
 // Images
 import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
@@ -53,7 +54,7 @@ const Home = ({ username }) => {
           <img src={flame_emoji_animated} alt="PFP" className="profile-pic" />
           <div className="home_username">{username}</div>
           <div className="score">
-            <span className="score-count">{flamesCount}</span> {/* Вывод flames_count */}
+            <span className="score-count">{flamesCount || <Skeleton />}</span> {/* Вывод flames_count */}
           </div>
           <span className="flame-text-score">FLAME</span>
         </div>
