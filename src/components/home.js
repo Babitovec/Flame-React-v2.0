@@ -41,7 +41,7 @@ const Home = () => {
     <>
       <div className="container-home">
         <div className="score-stats">
-          <img src={background_filled_colour} alt="background_filled_colour" className="score-background" />
+          <img src={background_filled_colour || <Skeleton />} alt="background_filled_colour" className="score-background" />
 
           <NavLink className="score-stats-box" to="/ScoreStoryYears" onClick={handleNavigationClick}>
             <img src={play_icon} alt="play_icon" className="play_icon" />
@@ -51,7 +51,7 @@ const Home = () => {
         </div>
 
         <div className="profile">
-          <img src={flame_emoji_animated} alt="PFP" className="profile-pic" />
+          <img src={flame_emoji_animated || <Skeleton />} alt="PFP" className="profile-pic" />
           <div className="score">
             <div className="score-count">{flamesCount || <Skeleton />}</div> {/* Вывод flames_count */}
           </div>
@@ -62,7 +62,7 @@ const Home = () => {
           <div className="in-gifts">
             <span className="gifts-header">Gifts</span>
             <div className="gift-gif-and-count">
-              <img src={gift_emoji} alt="gift" className="gift-gif" />
+              <img src={gift_emoji || <Skeleton />} alt="gift" className="gift-gif" />
               <div className="gifts-count">x{giftsCount}</div> {/* Вывод gifts_count */}
             </div>
             <NavLink className="open-gift" to="/Gifts" onClick={handleNavigationClick}>Open</NavLink>
@@ -73,7 +73,7 @@ const Home = () => {
           <div className="in-gifts-burn">
             <span className="gifts-header">Burn</span>
             <div className="gift-gif-and-count">
-              <img src={flame_emoji} alt="gift" className="gift-gif" />
+              <img src={flame_emoji || <Skeleton />} alt="gift" className="gift-gif" />
               <div className="total-burned-text">Burned: 2313</div>
             </div>
             <span className="open-gift">Open</span>
