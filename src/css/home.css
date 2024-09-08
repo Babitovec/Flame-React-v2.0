@@ -149,6 +149,7 @@
 }
 
 .gifts-count {
+    text-align: center;
     height: 7vw;
     width: 14vw;
     color: white;
