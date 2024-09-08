@@ -14,7 +14,7 @@ import play_icon from "../img/home/play_icon3.webp";
 const tg = window.Telegram.WebApp;
 
 const Home = ({ username }) => {
-  const [flamesCount, setFlamesCount] = useState(<Skeleton />); // Состояние для flames_count
+  const [flamesCount, setFlamesCount] = useState(null); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(0); // Состояние для gifts_count
 
   useEffect(() => {
@@ -54,7 +54,11 @@ const Home = ({ username }) => {
           <img src={flame_emoji_animated} alt="PFP" className="profile-pic" />
           <div className="home_username">{username}</div>
           <div className="score">
-            <span className="score-count">{flamesCount}</span> {/* Вывод flames_count */}
+          {flamesCount !== null ? (
+              <span className="score-count">{flamesCount}</span> // Вывод flames_count
+            ) : (
+              <Skeleton width={50} height={30} /> // Анимация Skeleton при отсутствии данных
+            )}
           </div>
           <span className="flame-text-score">FLAME</span>
         </div>
