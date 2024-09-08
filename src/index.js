@@ -10,7 +10,7 @@ import App from "./app.js"; // Подключение app.js
 const app = ReactDOMClient.createRoot(document.getElementById("app")) //создаем путь где будем выводить контент и указываем его как константу
 
 app.render(
-  <SkeletonTheme baseColor="#313131" highlightColor="#626262" borderRadius="25px">
+  <SkeletonTheme baseColor="#323232" highlightColor="#626262" borderRadius="15px">
     <BrowserRouter>
       <App />
     </BrowserRouter>
