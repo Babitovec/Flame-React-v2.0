@@ -8,7 +8,7 @@ const tg = window.Telegram.WebApp;
 
 const Gifts = () => {
 
-    tg.setHeaderColor("#046BE2");
+    tg.setHeaderColor("#FF6C00");
 
     const [isClicked, setIsClicked] = useState(false);
     const [isExploded, setIsExploded] = useState(false);
