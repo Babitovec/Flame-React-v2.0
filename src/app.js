@@ -39,7 +39,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <>
 
       <TransitionGroup>
         <CSSTransition
@@ -71,7 +71,7 @@ const App = () => {
         && location.pathname !== "/ScoreStoryReward"
         && location.pathname !== "/ScoreStoryShare"
         && location.pathname !== "/Gifts" && <Navigation />}
-    </div>
+    </>
   );
 };
 

@@ -3,7 +3,6 @@ import "../css/home.css";
 import { NavLink } from "react-router-dom";
 import axios from 'axios'; // Импорт Axios
 import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css'
 
 // Images
 import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
@@ -15,7 +14,7 @@ import play_icon from "../img/home/play_icon3.webp";
 const tg = window.Telegram.WebApp;
 
 const Home = () => {
-  const [flamesCount, setFlamesCount] = useState([]); // Состояние для flames_count
+  const [flamesCount, setFlamesCount] = useState(undefined); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(0); // Состояние для gifts_count
 
   useEffect(() => {
@@ -54,7 +53,7 @@ const Home = () => {
         <div className="profile">
           <img src={flame_emoji_animated} alt="PFP" className="profile-pic" />
           <div className="score">
-            <span className="score-count">{flamesCount || <Skeleton />}</span> {/* Вывод flames_count */}
+            <div className="score-count">{flamesCount || <Skeleton />}</div> {/* Вывод flames_count */}
           </div>
           <span className="flame-text-score">FLAME</span>
         </div>
