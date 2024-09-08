@@ -3,6 +3,7 @@ import "../css/home.css";
 import { NavLink } from "react-router-dom";
 import axios from 'axios'; // Импорт Axios
 import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // Images
 import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
@@ -13,8 +14,8 @@ import play_icon from "../img/home/play_icon3.webp";
 
 const tg = window.Telegram.WebApp;
 
-const Home = ({ username }) => {
-  const [flamesCount, setFlamesCount] = useState(null); // Состояние для flames_count
+const Home = () => {
+  const [flamesCount, setFlamesCount] = useState([]); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(0); // Состояние для gifts_count
 
   useEffect(() => {
@@ -42,23 +43,18 @@ const Home = ({ username }) => {
       <div className="container-home">
         <div className="score-stats">
           <img src={background_filled_colour} alt="background_filled_colour" className="score-background" />
-          
-            <NavLink className="score-stats-box" to="/ScoreStoryYears" onClick={handleNavigationClick}>
-              <img src={play_icon} alt="play_icon" className="play_icon" />
-              <div className="score-stats-text">Your Score</div>
-            </NavLink>
-          
+
+          <NavLink className="score-stats-box" to="/ScoreStoryYears" onClick={handleNavigationClick}>
+            <img src={play_icon} alt="play_icon" className="play_icon" />
+            <div className="score-stats-text">Your Score</div>
+          </NavLink>
+
         </div>
 
         <div className="profile">
           <img src={flame_emoji_animated} alt="PFP" className="profile-pic" />
-          <div className="home_username">{username}</div>
           <div className="score">
-          {flamesCount !== null ? (
-              <span className="score-count">{flamesCount}</span> // Вывод flames_count
-            ) : (
-              <Skeleton width={50} height={30} /> // Анимация Skeleton при отсутствии данных
-            )}
+            <span className="score-count">{flamesCount || <Skeleton />}</span> {/* Вывод flames_count */}
           </div>
           <span className="flame-text-score">FLAME</span>
         </div>
