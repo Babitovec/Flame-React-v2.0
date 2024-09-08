@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../css/mini_games_style/gifts.css";
 
 import gift_emoji_animated from '../../img/home/gift_emoji_animated.gif';
@@ -7,6 +8,7 @@ import congratulations_emoji_animated from '../../img/home/congratulations_emoji
 const tg = window.Telegram.WebApp;
 
 const Gifts = () => {
+    const navigate = useNavigate(); // Инициализация навигации
 
     tg.setHeaderColor("#FF6C00");
 
@@ -19,13 +21,14 @@ const Gifts = () => {
         tg.BackButton.show();
         // Устанавливаем обработчик для кнопки "Назад"
         tg.BackButton.onClick(() => {
-            // Перенаправляем на страницу /Home
-            window.location.href = '/';
+            // Перенаправляем на страницу Home с помощью navigate
+            navigate('/home');
             // Скрываем кнопку "Назад"
             tg.BackButton.hide();
+            tg.setHeaderColor("#000000");
         });
 
-    }, []);
+    }, [navigate]); // Добавляем navigate как зависимость
 
     const openGift = () => {
         tg.HapticFeedback.impactOccurred('light');
