@@ -5,6 +5,7 @@ import gift_emoji_animated from '../../img/home/gift_emoji_animated.gif';
 import congratulations_emoji_animated from '../../img/home/congratulations_emoji_animated.gif';
 
 const tg = window.Telegram.WebApp;
+tg.setHeaderColor("#FF6C00");
 
 const Gifts = () => {
     const [isClicked, setIsClicked] = useState(false);

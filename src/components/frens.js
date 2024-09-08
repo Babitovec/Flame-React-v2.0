@@ -56,7 +56,7 @@ const Frens = () => {
           </div>
         </div>
 
-        <a href="http://t.me/share/url?url=t.me/burn_crypto_bot&text=Join+now+🔥" className="invite-fren-background">
+        <a href="http://t.me/share/url?url=t.me/burn_crypto_bot&text=Join now 🔥" className="invite-fren-background">
           <div className="invite-fren-button">
             <div className="invite-fren-text">Invite Friends</div>
           </div>
