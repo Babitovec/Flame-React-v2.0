@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import axios from 'axios'; // Импорт Axios
+import axios from 'axios';
 
 // Components
 import Home from "./components/home";
@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <>
-
+    
       <TransitionGroup>
         <CSSTransition
           key={location.key}

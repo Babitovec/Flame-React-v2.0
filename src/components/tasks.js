@@ -18,11 +18,11 @@ const Tasks = () => {
   };
 
   const handleOpenX = () => {
-    tg.openLink("https://x.com/realDogsHouse");
+    tg.openLink("https://x.com/realDogsHouse"); //Заменить на реальный twitter
   };
 
   return (
-    <div>
+    <>
       <div className="container-tasks">
         <img src={tasks_gift_emoji_animated} alt="burn" className="burn-logo" />
         <span className="tasks-header">Tasks</span>
@@ -59,7 +59,7 @@ const Tasks = () => {
               <div className="points">+1 Gift 🎁</div>
             </div>
             <div className="open-button">
-              <div className="open">Start</div>
+                <div className="open">Start</div>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ const Tasks = () => {
 
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
