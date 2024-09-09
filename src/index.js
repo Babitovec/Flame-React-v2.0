@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 // Подключение кошелька работает,но не включаю из-за warning https://docs.ton.org/develop/dapps/ton-connect/react
 // import { TonConnectUIProvider } from '@tonconnect/ui-react'
-// import { TonConnectButton } from '@tonconnect/ui-react'
+// import { TonConnectButton } from '@tonconnect/ui-react' //Чтобы работал кнопка <TonConnectButton />
 
 import App from "./app.js"; // Подключение app.js 
 

@@ -164,6 +164,7 @@
     bottom: 12.5%;
     z-index: 10;
     transition: transform 0.25s ease;
+    animation: appearance-invite-button 0.45s forwards;
 }
 
 .invite-fren-text {
@@ -174,4 +175,21 @@
 
 .invite-fren-button:active {
     transform: scale(0.97);
+}
+
+@keyframes appearance-invite-button {
+    0% {
+        bottom: 5%;
+        transform: scale(1.15);
+    }
+    25% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        bottom: 12.5%;
+        transform: scale(1);
+    }
 }

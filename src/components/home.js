@@ -49,7 +49,7 @@ const Home = () => {
         </div>
 
         <div className="profile">
-          <img src={flame_emoji_animated} alt="PFP" className="profile-pic" />
+          <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
           <div className="score">
             <div className="score-count">{flamesCount || <Skeleton />}</div> {/* Вывод flames_count */}
           </div>
@@ -70,7 +70,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="gifts">
+        <div className="burn">
           <div className="in-gifts-burn">
             <span className="gifts-header">Burn</span>
             <div className="gift-gif-and-count">
