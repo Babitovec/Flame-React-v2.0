@@ -14,7 +14,7 @@ const tg = window.Telegram.WebApp;
 
 const Home = () => {
 
-  tg.setHeaderColor("#FF6C00");
+  tg.setHeaderColor("#F55823");
 
   const [flamesCount, setFlamesCount] = useState(undefined); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
