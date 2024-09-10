@@ -7,7 +7,7 @@
     width: 100vw;
 }
 
-.gift_emoji_animated {
+.tasks_emoji_animated {
     width: 80px;
     height: 80px;
     margin-top: 3.5vh;
@@ -15,7 +15,7 @@
     animation: drop-from-top 0.35s forwards;
 }
 
-.gift_emoji_animated:active {
+.tasks_emoji_animated:active {
     transform: scale(0.85);
 }
 

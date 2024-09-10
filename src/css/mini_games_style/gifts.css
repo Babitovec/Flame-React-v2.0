@@ -37,8 +37,26 @@
     width: 60vw;
     height: 60vw;
     cursor: pointer;
-    animation: appearance 0.45s forwards;
+    animation: drop-from-top-gift 0.45s forwards;
 }
+
+@keyframes drop-from-top-gift {
+    0% {
+      transform: translateY(-20vh) scale(0);
+      opacity: 0%;
+      /* Начинаем с позиции выше экрана */
+    }
+  
+    50% {
+      transform: translateY(2vh) scale(0.9);
+      opacity: 100%;
+    }
+  
+    100% {
+      transform: translateY(0) scale(1);
+      /* Возвращаемся на исходное место */
+    }
+  }
 
 .gift_emoji_animated.explosion {
     animation: explode 0.2s forwards;
