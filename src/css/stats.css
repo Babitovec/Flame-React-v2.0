@@ -12,6 +12,7 @@
     width: 80px;
     height: 80px;
     margin-top: 3.5vh;
+    animation: drop-from-top 0.35s forwards;
 }
 
 .stats-header {
@@ -21,6 +22,7 @@
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     text-align: center;
+    animation: appearance-gifts 0.35s forwards;
 }
 
 .user-stats-box-container {
@@ -30,6 +32,7 @@
     height: 20vw; /* Фиксированная высота */
     display: block;
     margin-bottom: 2.5vh;
+    animation: appearance-gifts 0.35s forwards;
 }
 
 .user-stats-box {

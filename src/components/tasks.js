@@ -24,7 +24,7 @@ const Tasks = () => {
   return (
     <>
       <div className="container-tasks">
-        <img src={tasks_gift_emoji_animated} alt="burn" className="burn-logo" />
+        <img src={tasks_gift_emoji_animated} alt="gift" className="gift_emoji_animated" />
         <span className="tasks-header">Tasks</span>
         <span className="tasks-description">Complete tasks and get more Flame.</span>
         <div className="tasks">

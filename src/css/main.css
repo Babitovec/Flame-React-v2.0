@@ -1,16 +1,8 @@
-/* @font-face {
-  font-family: "Fulbo Argenta"; 
-  src: url("../../fulbo-argenta.otf") format("OpenType"); 
-} */
-
 body {
   margin: 0;
   padding: 0;
   background-color: black;
-  /* font-family: "Roboto", sans-serif; */
-  /* font-family: "Montserrat", sans-serif; */
   font-family: "Rubik", sans-serif;
-  /* font-family: "Fulbo Argenta";  */
   height: 100vh;
   user-select: none;
   position: fixed;
@@ -39,4 +31,38 @@ body {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 450ms;
+}
+
+@keyframes drop-from-top {
+  0% {
+    transform: translateY(-10vh) scale(1.15);
+    /* Начинаем с позиции выше экрана */
+  }
+
+  50% {
+    transform: translateY(2vh) scale(0.9);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    /* Возвращаемся на исходное место */
+  }
+}
+
+@keyframes appearance-gifts {
+  0% {
+      transform: scale(1.15);
+      opacity: 0;
+  }
+  25% {
+      transform: scale(1.05);
+      opacity: 0.7;
+  }
+  50% {
+      transform: scale(0.9);
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
 }
