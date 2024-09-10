@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     overflow: auto;
-    flex: auto;
+    height: 87.5vh;
     width: 100vw;
 }
 
