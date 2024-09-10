@@ -4,7 +4,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from 'axios';
 
 // Components
-import Home from "./components/home";
 import ScoreStoryYears from "./components/score_story/score_story_years";
 import ScoreStoryPremium from "./components/score_story/score_story_premium";
 import ScoreStoryReward from "./components/score_story/score_story_reward";
@@ -40,7 +39,7 @@ const App = () => {
 
   return (
     <>
-    
+
       <TransitionGroup>
         <CSSTransition
           key={location.key}
@@ -50,7 +49,6 @@ const App = () => {
           <Routes>
             <Route>
               <Route path="/" element={<Navigate to="/Home" />} />
-              <Route path="/Home" element={<Home />} />
               <Route path="/Gifts" element={<Gifts />} />
             </Route>
           </Routes>

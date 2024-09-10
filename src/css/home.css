@@ -12,6 +12,7 @@
     display: flex;
     position: fixed;
     background-color: black;
+    z-index: 2;
 }
 
 .score-background {
