@@ -8,7 +8,7 @@ import flame_emoji from "../img/flame_emoji.webp";
 const Frens = () => {
 
   return (
-    <div>
+    <>
       <div className="container-frens">
         <img src={masks_animated} alt="masks_animated" className="masks-emoji-animated" />
         <span className="frens-header">Invite Friends<br />and get more Flame</span>
@@ -63,7 +63,7 @@ const Frens = () => {
         </a>
 
       </div>
-    </div>
+    </>
   );
 };
 
