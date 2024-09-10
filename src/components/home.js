@@ -11,9 +11,11 @@ import gift_emoji from '../img/home/gift_emoji.webp';
 import play_icon from "../img/home/play_icon3.webp";
 
 const tg = window.Telegram.WebApp;
-tg.setHeaderColor("#FF6C00");
 
 const Home = () => {
+
+  tg.setHeaderColor("#FF6C00");
+
   const [flamesCount, setFlamesCount] = useState(undefined); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
 
