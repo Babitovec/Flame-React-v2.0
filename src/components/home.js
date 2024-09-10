@@ -5,6 +5,7 @@ import axios from 'axios'; // Импорт Axios
 import Skeleton from "react-loading-skeleton";
 
 // Images
+import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
 import flame_emoji from "../img/flame_emoji.webp";
 import flame_emoji_animated from '../img/burn_emoji_animated.gif';
 import gift_emoji from '../img/home/gift_emoji.webp';
@@ -13,9 +14,6 @@ import play_icon from "../img/home/play_icon3.webp";
 const tg = window.Telegram.WebApp;
 
 const Home = () => {
-
-  tg.setHeaderColor("#F55823");
-
   const [flamesCount, setFlamesCount] = useState(undefined); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
 
@@ -43,48 +41,45 @@ const Home = () => {
     <>
       <div className="container-home">
         <div className="score-stats">
+          <img src={background_filled_colour} alt="background_filled_colour" className="score-background" />
           <NavLink className="score-stats-box" to="/ScoreStoryYears" onClick={handleNavigationClick}>
             <img src={play_icon} alt="play_icon" className="play_icon" />
             <div className="score-stats-text">Your Score</div>
           </NavLink>
         </div>
 
-        <div className="home_box">
-
-          <div className="profile">
-            <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
-            <div className="score">
-              <div className="score-count">{flamesCount || <Skeleton />}</div> {/* Вывод flames_count */}
-            </div>
-            <span className="flame-text-score">FLAME</span>
+        <div className="profile">
+          <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
+          <div className="score">
+            <div className="score-count">{flamesCount || <Skeleton />}</div> {/* Вывод flames_count */}
           </div>
+          <span className="flame-text-score">FLAME</span>
+        </div>
 
-          <div className="gifts">
-            <div className="in-gifts">
-              <span className="gifts-header">Gifts</span>
-              <div className="gift-gif-and-count">
-                <img src={gift_emoji} alt="gift" className="gift-gif" />
-                <div className="gifts-count">
-                  {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
-                </div>
-
+        <div className="gifts">
+          <div className="in-gifts">
+            <span className="gifts-header">Gifts</span>
+            <div className="gift-gif-and-count">
+              <img src={gift_emoji} alt="gift" className="gift-gif" />
+              <div className="gifts-count">
+                {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
               </div>
-              <NavLink className="open-gift" to="/Gifts" onClick={handleNavigationClick}>Open</NavLink>
-            </div>
-          </div>
 
-          <div className="burn">
-            <div className="in-gifts-burn">
-              <span className="gifts-header">Burn</span>
-              <div className="gift-gif-and-count">
-                <img src={flame_emoji} alt="gift" className="gift-gif" />
-                <div className="total-burned-text">Burned: 2313</div>
-              </div>
-              <span className="open-gift">Open</span>
             </div>
+            <NavLink className="open-gift" to="/Gifts" onClick={handleNavigationClick}>Open</NavLink>
           </div>
         </div>
 
+        <div className="burn">
+          <div className="in-gifts-burn">
+            <span className="gifts-header">Burn</span>
+            <div className="gift-gif-and-count">
+              <img src={flame_emoji} alt="gift" className="gift-gif" />
+              <div className="total-burned-text">Burned: 2313</div>
+            </div>
+            <span className="open-gift">Open</span>
+          </div>
+        </div>
       </div>
     </>
   );
