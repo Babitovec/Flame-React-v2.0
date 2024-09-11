@@ -26,15 +26,15 @@
 .score-stats-text {
     padding-top: 2.5vh;
     color: white;
-    font-size: 2.5vh;
+    font-size: 5.42vw;
     font-weight: bold;
     text-decoration: none;
 }
 
 .play_icon {
     padding-top: 2.5vh;
-    width: 2.5vh;
-    height: 2.5vh;
+    width: 5.42vw;
+    height: 5.42vw;
     margin-right: 2.5vw;
 }
 
