@@ -6,7 +6,7 @@ import "../../css/score_story_style/score_story_reward.css";
 // img
 import flame_emoji_animated from '../../img/burn_emoji_animated.gif';
 
-function ScoreStoryReward() {
+const ScoreStoryReward = () => {
   const navigate = useNavigate();
 
   const handleContinue = () => {

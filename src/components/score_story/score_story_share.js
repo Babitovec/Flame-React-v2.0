@@ -6,7 +6,7 @@ import storyImg from "../../img/story.png"
 
 const tg = window.Telegram.WebApp;
 
-function ScoreStoryShare() {
+const ScoreStoryShare = () => {
     const navigate = useNavigate();
 
     const handleContinue = () => {

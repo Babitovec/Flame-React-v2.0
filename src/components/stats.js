@@ -5,11 +5,15 @@ import "../css/stats.css";
 import crown_emoji_animated_compressed from "../img/crown_emoji_animated_compressed.gif"
 import leaderboard_member_flame_icon from "../img/flame_emoji.webp"
 
+const tg = window.Telegram.WebApp;
+
 const Stats = ({ username }) => {
 
   const [loading, setLoading] = useState(true); // Состояние загрузки
 
   useEffect(() => {
+    tg.setHeaderColor("#000000");
+
     const imageUrls = [
       crown_emoji_animated_compressed,
       leaderboard_member_flame_icon,

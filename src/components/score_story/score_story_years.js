@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 //img
 import congratulations_emoji_animated from '../../img/home/congratulations_emoji_animated.gif';
 
+const tg = window.Telegram.WebApp;
 
-function ScoreStoryYears() {
+const ScoreStoryYears = () => {
+
+  tg.setHeaderColor("#000000");
+
   const navigate = useNavigate();
 
   const handleContinue = () => {

@@ -5,7 +5,7 @@ import "../../css/score_story_style/score_story_premium.css";
 //img
 import premium_emoji_animated from '../../img/home/tg_premium_emoji_animated.gif'
 
-function ScoreStoryPremium() {
+const ScoreStoryPremium = () => {
   const navigate = useNavigate();
 
   const handleContinue = () => {

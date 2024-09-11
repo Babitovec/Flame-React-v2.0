@@ -12,6 +12,8 @@ import friends_icon from '../img/tasks/friends_icon.png';
 const tg = window.Telegram.WebApp;
 
 const Tasks = () => {
+  tg.setHeaderColor("#000000");
+
   const [loading, setLoading] = useState(true); // Состояние загрузки
 
   useEffect(() => {

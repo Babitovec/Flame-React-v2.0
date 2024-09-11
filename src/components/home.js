@@ -20,6 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     tg.setHeaderColor("#FF5718");
+    
     //Для лоадера
     const imageUrls = [
       background_filled_colour,
