@@ -5,6 +5,7 @@
     overflow: auto;
     height: 87.5vh;
     width: 100vw;
+    overscroll-behavior: none;
 }
 
 .score-stats {

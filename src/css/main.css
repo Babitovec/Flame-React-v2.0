@@ -8,7 +8,6 @@ body {
   user-select: none;
   position: fixed;
   overflow: hidden;
-  overscroll-behavior: none;
 }
 
 /* Убираем скролл бар */
