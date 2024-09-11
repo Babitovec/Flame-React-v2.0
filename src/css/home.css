@@ -14,7 +14,7 @@
 }
 
 .score-stats-box {
-    width: 100%;
+    width: 100vw;
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -45,7 +45,7 @@
     width: 100vw;
     min-height: 5vh; /* Добавляем min-height */
     background-color: rgb(0, 0, 0);
-    border-radius: 25px;
+    border-radius: 50vw;
 }
 
 .profile {
