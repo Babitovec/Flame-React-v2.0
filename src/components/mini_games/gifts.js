@@ -11,6 +11,8 @@ const Gifts = () => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
 
+  tg.setHeaderColor("#FF6C00");
+
   const [isClicked, setIsClicked] = useState(false);
   const [isExploded, setIsExploded] = useState(false);
   const [showCongratulations] = useState(true);
@@ -75,7 +77,6 @@ const Gifts = () => {
   }, [navigate]); // Добавляем navigate как зависимость
 
   if (loading) {
-    tg.setHeaderColor("#FF6C00");
     return (
       <div className="loader-box">
         <div class="loader"></div>
