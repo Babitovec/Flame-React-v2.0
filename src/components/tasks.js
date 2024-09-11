@@ -8,8 +8,6 @@ import x_icon from "../img/tasks/x_icon.webp";
 import flame_emoji from "../img/flame_emoji.webp";
 import wallet_icon from "../img/tasks/wallet_icon.webp";
 import friends_icon from '../img/tasks/friends_icon.png';
-import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css';
 
 const tg = window.Telegram.WebApp;
 
@@ -57,10 +55,7 @@ const Tasks = () => {
 
   if (loading) {
     return (
-      <div className="loading-container">
-        {/* Здесь вы можете использовать Skeleton или любой индикатор загрузки */}
-        <Skeleton height={1000} count={1} />
-      </div>
+      <span class="loader"></span>
     );
   }
 
