@@ -19,6 +19,7 @@ const Home = () => {
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
 
   useEffect(() => {
+    tg.setHeaderColor("#FF5718");
     //Для лоадера
     const imageUrls = [
       background_filled_colour,
@@ -80,12 +81,13 @@ const Home = () => {
     <>
       <div className="container-home">
         <div className="score-stats">
-          <img src={background_filled_colour} alt="background_filled_colour" className="score-background" />
           <NavLink className="score-stats-box" to="/ScoreStoryYears" onClick={handleNavigationClick}>
             <img src={play_icon} alt="play_icon" className="play_icon" />
             <div className="score-stats-text">Your Score</div>
           </NavLink>
         </div>
+
+        <div className="border-box-home"></div>
 
         <div className="profile">
           <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
