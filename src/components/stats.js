@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/stats.css";
 
 // Images
@@ -6,6 +6,44 @@ import crown_emoji_animated_compressed from "../img/crown_emoji_animated_compres
 import leaderboard_member_flame_icon from "../img/flame_emoji.webp"
 
 const Stats = ({ username }) => {
+
+  const [loading, setLoading] = useState(true); // Состояние загрузки
+
+  useEffect(() => {
+    const imageUrls = [
+      crown_emoji_animated_compressed,
+      leaderboard_member_flame_icon,
+    ];
+
+    let imagesLoaded = 0;
+    const totalImages = imageUrls.length;
+
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены
+        }
+      };
+      img.onerror = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены (с учетом ошибок)
+        }
+      };
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loader-box">
+        <div class="loader"></div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="container-stats">

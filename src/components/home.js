@@ -14,10 +14,41 @@ import play_icon from "../img/home/play_icon3.webp";
 const tg = window.Telegram.WebApp;
 
 const Home = () => {
+  const [loading, setLoading] = useState(true); // Состояние загрузки
   const [flamesCount, setFlamesCount] = useState(undefined); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
 
   useEffect(() => {
+    //Для лоадера
+    const imageUrls = [
+      background_filled_colour,
+      flame_emoji,
+      flame_emoji_animated,
+      gift_emoji,
+      play_icon,
+    ];
+
+    let imagesLoaded = 0;
+    const totalImages = imageUrls.length;
+
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены
+        }
+      };
+      img.onerror = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены (с учетом ошибок)
+        }
+      };
+    });
+
+    //Для полчение данных с БД
     const fetchUserData = async () => {
       try {
         const userId = tg.initDataUnsafe.user?.id;
@@ -36,6 +67,14 @@ const Home = () => {
   const handleNavigationClick = () => {
     tg.HapticFeedback.impactOccurred('light');
   };
+
+  if (loading) {
+    return (
+      <div className="loader-box">
+        <div class="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <>

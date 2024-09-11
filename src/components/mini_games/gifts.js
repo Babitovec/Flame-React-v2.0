@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../css/mini_games_style/gifts.css";
 
@@ -8,6 +8,7 @@ import congratulations_emoji_animated from '../../img/home/congratulations_emoji
 const tg = window.Telegram.WebApp;
 
 const Gifts = () => {
+    const [loading, setLoading] = useState(true); // Состояние загрузки
     const navigate = useNavigate(); // Инициализация навигации
 
     tg.setHeaderColor("#FF6C00");
@@ -18,6 +19,31 @@ const Gifts = () => {
 
     //Кнопка назад
     useEffect(() => {
+        const imageUrls = [
+            gift_emoji_animated,
+            congratulations_emoji_animated,
+          ];
+      
+          let imagesLoaded = 0;
+          const totalImages = imageUrls.length;
+      
+          imageUrls.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+              imagesLoaded += 1;
+              if (imagesLoaded === totalImages) {
+                setLoading(false); // Все изображения загружены
+              }
+            };
+            img.onerror = () => {
+              imagesLoaded += 1;
+              if (imagesLoaded === totalImages) {
+                setLoading(false); // Все изображения загружены (с учетом ошибок)
+              }
+            };
+          });
+
         tg.BackButton.show();
         // Устанавливаем обработчик для кнопки "Назад"
         tg.BackButton.onClick(() => {
@@ -29,6 +55,14 @@ const Gifts = () => {
         });
 
     }, [navigate]); // Добавляем navigate как зависимость
+
+    if (loading) {
+        return (
+          <div className="loader-box">
+            <div class="loader"></div>
+          </div>
+        );
+      }
 
     const openGift = () => {
         tg.HapticFeedback.impactOccurred('light');

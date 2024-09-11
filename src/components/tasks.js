@@ -55,7 +55,9 @@ const Tasks = () => {
 
   if (loading) {
     return (
-      <span class="loader"></span>
+      <div className="loader-box">
+        <div class="loader"></div>
+      </div>
     );
   }
 

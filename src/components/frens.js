@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/frens.css";
 
 // Images
@@ -6,6 +6,43 @@ import masks_animated from '../img/masks_animated.gif';
 import flame_emoji from "../img/flame_emoji.webp";
 
 const Frens = () => {
+
+  const [loading, setLoading] = useState(true); // Состояние загрузки
+
+  useEffect(() => {
+    const imageUrls = [
+      masks_animated,
+      flame_emoji,
+    ];
+
+    let imagesLoaded = 0;
+    const totalImages = imageUrls.length;
+
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены
+        }
+      };
+      img.onerror = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены (с учетом ошибок)
+        }
+      };
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loader-box">
+        <div class="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <>
