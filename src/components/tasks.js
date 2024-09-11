@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/tasks.css";
 
 // Images
@@ -8,18 +8,61 @@ import x_icon from "../img/tasks/x_icon.webp";
 import flame_emoji from "../img/flame_emoji.webp";
 import wallet_icon from "../img/tasks/wallet_icon.webp";
 import friends_icon from '../img/tasks/friends_icon.png';
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const tg = window.Telegram.WebApp;
 
 const Tasks = () => {
+  const [loading, setLoading] = useState(true); // Состояние загрузки
+
+  useEffect(() => {
+    const imageUrls = [
+      tasks_gift_emoji_animated,
+      tg_icon,
+      x_icon,
+      flame_emoji,
+      wallet_icon,
+      friends_icon,
+    ];
+
+    let imagesLoaded = 0;
+    const totalImages = imageUrls.length;
+
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены
+        }
+      };
+      img.onerror = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены (с учетом ошибок)
+        }
+      };
+    });
+  }, []);
 
   const handleOpenTelegramChannel = () => {
     tg.openTelegramLink("https://t.me/flame_coin_community");
   };
 
   const handleOpenX = () => {
-    tg.openLink("https://x.com/realDogsHouse"); //Заменить на реальный twitter
+    tg.openLink("https://x.com/realDogsHouse"); // Заменить на реальный Twitter/X
   };
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        {/* Здесь вы можете использовать Skeleton или любой индикатор загрузки */}
+        <Skeleton height={1000} count={1} />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -41,7 +84,7 @@ const Tasks = () => {
           </div>
 
           <div className="task">
-            <img src={friends_icon} alt="flame_emoji" className="icon" />
+            <img src={friends_icon} alt="friends_icon" className="icon" />
             <div className="text">
               <div className="title">Invite 5 friends</div>
               <div className="points">+5 Gifts 🎁</div>
@@ -63,7 +106,7 @@ const Tasks = () => {
             </div>
           </div>
 
-          {/* Telegram channel subscribtion */}
+          {/* Telegram channel subscription */}
           <div className="task">
             <img src={tg_icon} alt="tg_icon" className="icon" />
             <div className="text">
@@ -75,7 +118,7 @@ const Tasks = () => {
             </div>
           </div>
 
-          {/* Twitter subscribtion */}
+          {/* Twitter subscription */}
           <div className="task">
             <img src={x_icon} alt="x_icon" className="icon" />
             <div className="text">
