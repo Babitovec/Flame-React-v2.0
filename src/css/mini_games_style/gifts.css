@@ -1,7 +1,7 @@
 .gifts-container {
     /* background-image: url(/src/img/home/gifts_mini_game_background.webp); */
-    background: radial-gradient(circle, #ffd27f, #FF6C00 100%);
-    background-size: cover;
+    background: radial-gradient(circle, #ffd27f, #FF6C00);
+    /* background-size: cover; */
     height: 100vh;
     width: 100vw;
 }
