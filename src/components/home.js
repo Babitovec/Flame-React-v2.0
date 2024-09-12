@@ -5,11 +5,10 @@ import axios from 'axios'; // Импорт Axios
 import Skeleton from "react-loading-skeleton";
 
 // Images
-import background_filled_colour from '../img/home/score_background_430x70_without_fade.webp';
 import flame_emoji from "../img/flame_emoji.webp";
 import flame_emoji_animated from '../img/burn_emoji_animated.gif';
 import gift_emoji from '../img/home/gift_emoji.webp';
-import play_icon from "../img/home/play_icon3.webp";
+import play_icon from "../img/home/play-button.webp";
 
 const tg = window.Telegram.WebApp;
 
@@ -23,7 +22,6 @@ const Home = () => {
     
     //Для лоадера
     const imageUrls = [
-      background_filled_colour,
       flame_emoji,
       flame_emoji_animated,
       gift_emoji,
