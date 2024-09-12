@@ -9,7 +9,7 @@
 }
 
 .score-stats {
-    background: linear-gradient(to bottom, #FF5718, #f59523);
+    background: linear-gradient(to bottom, #FF5718, #f59523 75%);
     width: 100vw;
     display: flex;
 }
@@ -45,7 +45,7 @@
     width: 100vw;
     min-height: 5vh; /* Добавляем min-height */
     background-color: rgb(0, 0, 0);
-    border-radius: 50vw;
+    border-radius: 25px;
 }
 
 .profile {
@@ -98,8 +98,6 @@
 
 .in-gifts{
     border-radius: 25px;
-    /* background-image: url(/src/img/home/new_background_gifts.webp);
-    background-size: cover; */
     background: radial-gradient(ellipse 50% 100% at center, #ffd27f, #FF6C00);
     width: 85vw;
     height: 38.85vw;

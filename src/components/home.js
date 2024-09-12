@@ -19,7 +19,7 @@ const Home = () => {
 
   useEffect(() => {
     tg.setHeaderColor("#FF5718");
-    
+
     //Для лоадера
     const imageUrls = [
       flame_emoji,
