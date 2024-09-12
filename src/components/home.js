@@ -86,40 +86,45 @@ const Home = () => {
           </NavLink>
         </div>
 
-        <div className="border-box-home"></div>
+        {/* Для эффекта затмения скор статс <div className="home-box">  */}
+        <div className="home-box">
+          <div className="border-box-home"></div>
 
-        <div className="profile">
-          <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
-          <div className="score">
-            <div className="score-count">{flamesCount || <Skeleton />}</div> {/* Вывод flames_count */}
+          <div className="profile">
+            <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
+            <div className="score">
+              <div className="score-count">{flamesCount || <Skeleton />}</div> {/* Вывод flames_count */}
+            </div>
+            <span className="flame-text-score">FLAME</span>
           </div>
-          <span className="flame-text-score">FLAME</span>
-        </div>
 
-        <div className="gifts">
-          <div className="in-gifts">
-            <span className="gifts-header">Gifts</span>
-            <div className="gift-gif-and-count">
-              <img src={gift_emoji} alt="gift" className="gift-gif" />
-              <div className="gifts-count">
-                {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
+          <div className="gifts">
+            <div className="in-gifts">
+              <span className="gifts-header">Gifts</span>
+              <div className="gift-gif-and-count">
+                <img src={gift_emoji} alt="gift" className="gift-gif" />
+                <div className="gifts-count">
+                  {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
+                </div>
+
               </div>
-
+              <NavLink className="open-gift" to="/Gifts" onClick={handleNavigationClick}>Open</NavLink>
             </div>
-            <NavLink className="open-gift" to="/Gifts" onClick={handleNavigationClick}>Open</NavLink>
           </div>
+
+          <div className="burn">
+            <div className="in-gifts-burn">
+              <span className="gifts-header">Burn</span>
+              <div className="gift-gif-and-count">
+                <img src={flame_emoji} alt="gift" className="gift-gif" />
+                <div className="total-burned-text">Burned: 2313</div>
+              </div>
+              <span className="open-gift">Open</span>
+            </div>
+          </div>
+
         </div>
 
-        <div className="burn">
-          <div className="in-gifts-burn">
-            <span className="gifts-header">Burn</span>
-            <div className="gift-gif-and-count">
-              <img src={flame_emoji} alt="gift" className="gift-gif" />
-              <div className="total-burned-text">Burned: 2313</div>
-            </div>
-            <span className="open-gift">Open</span>
-          </div>
-        </div>
       </div>
     </>
   );

@@ -12,6 +12,9 @@
     background: linear-gradient(to bottom, #FF5718, #f59523 75%);
     width: 100vw;
     display: flex;
+    /* Для эффекта затмения скор статс */
+    position: sticky;
+    top: 0%;
 }
 
 .score-stats-box {
@@ -36,6 +39,17 @@
     width: 5.42vw;
     height: 5.42vw;
     margin-right: 2.5vw;
+}
+
+/* Для эффекта затмения скор статс */
+.home-box {
+    z-index: 2;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .border-box-home {
