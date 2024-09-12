@@ -1,5 +1,4 @@
 .container-home {
-    margin-top: 10px;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -11,9 +10,10 @@
 }
 
 .score-stats {
+    background: linear-gradient(to bottom, #FF5718, #f59523);
     width: 100vw;
     display: flex;
-    background-image: url(../img/home/score_stats_gradient_background_3.png);
+    /* background-image: url(../img/home/score_stats_gradient_background_3.png); */
 }
 
 .score-stats-box {
