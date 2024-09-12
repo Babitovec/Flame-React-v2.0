@@ -98,8 +98,9 @@
 
 .in-gifts{
     border-radius: 25px;
-    background-image: url(/src/img/home/new_background_gifts.webp);
-    background-size: cover;
+    /* background-image: url(/src/img/home/new_background_gifts.webp);
+    background-size: cover; */
+    background: radial-gradient(ellipse 50% 100% at center, #ffd27f, #FF6C00);
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
@@ -110,8 +111,7 @@
 
 .in-gifts-burn{
     border-radius: 25px;
-    background-image: url(/src/img/home/new_background_burn_2.webp);
-    background-size: cover;
+    background: radial-gradient(ellipse 50% 100% at center, #ffd27f, #FF4410);
     width: 85vw;
     height: 38.85vw;
     z-index: 1;
