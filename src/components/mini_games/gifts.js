@@ -96,7 +96,7 @@ const Gifts = () => {
   const updateGiftsCount = async () => {
     try {
       const userId = tg.initDataUnsafe.user?.id;
-      const response = await axios.post(`https://flameapp-babito.amvera.io/users/${userId}/update-gifts`, {
+      const response = await axios.post(`https://flameapp-babito.amvera.io/update-gifts/${userId}`, {
         action: 'decrease'
       });
       setGiftsCount(response.data.gifts_count);
