@@ -88,6 +88,7 @@ const Home = () => {
 
         {/* Для эффекта затмения скор статс <div className="home-box">  */}
         <div className="home-box">
+          
           <div className="border-box-home"></div>
 
           <div className="profile">

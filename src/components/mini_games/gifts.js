@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'; // Импорт Axios
+import Skeleton from "react-loading-skeleton";
 import "../../css/mini_games_style/gifts.css";
 
 import gift_emoji_animated from '../../img/home/gift_emoji_animated.gif';
@@ -10,6 +12,8 @@ const tg = window.Telegram.WebApp;
 const Gifts = () => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
+
+  const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
 
   tg.setHeaderColor("#FF6C00");
 
@@ -76,13 +80,18 @@ const Gifts = () => {
 
   }, [navigate]); // Добавляем navigate как зависимость
 
-  if (loading) {
-    return (
-      <div className="loader-box">
-        <div class="loader"></div>
-      </div>
-    );
-  }
+  const fetchUserData = async () => {
+    try {
+      const userId = tg.initDataUnsafe.user?.id;
+      const response = await axios.get(`https://flameapp-babito.amvera.io/users/${userId}`);
+      const userData = response.data;
+      setGiftsCount(userData.gifts_count);
+    } catch (error) {
+      console.error('Ошибка при получении данных пользователя:', error);
+    }
+  };
+
+  fetchUserData(); // Загружаем данные пользователя при загрузке компонента
 
   const openGift = () => {
     tg.HapticFeedback.impactOccurred('light');
@@ -92,6 +101,14 @@ const Gifts = () => {
       setIsExploded(true);
     }, 200);
   };
+
+  if (loading) {
+    return (
+      <div className="loader-box">
+        <div class="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="gifts-container">
@@ -121,7 +138,9 @@ const Gifts = () => {
             )
           )
         )}
-        <div className="gifts_count_in_game">x1</div>
+        <div className="gifts_count_in_game">
+        {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
+        </div>
       </div>
     </div>
   );
