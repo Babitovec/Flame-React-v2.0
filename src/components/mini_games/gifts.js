@@ -13,7 +13,7 @@ const Gifts = () => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
 
-  const [giftsCount, setGiftsCount] = useState(3); // Состояние для gifts_count
+  const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
 
   tg.setHeaderColor("#FF6C00");
 
@@ -34,13 +34,13 @@ const Gifts = () => {
     };
 
     const backgroundImageUrl = "/src/img/home/gifts_mini_game_background.webp";
-        checkBackgroundImageLoaded(backgroundImageUrl)
-            .then(() => {
-                setLoading(false); // Фоновое изображение загружено
-            })
-            .catch(() => {
-                setLoading(false); // Фоновое изображение не удалось загрузить
-            });
+    checkBackgroundImageLoaded(backgroundImageUrl)
+      .then(() => {
+        setLoading(false); // Фоновое изображение загружено
+      })
+      .catch(() => {
+        setLoading(false); // Фоновое изображение не удалось загрузить
+      });
 
     const imageUrls = [
       gift_emoji_animated,
@@ -93,9 +93,24 @@ const Gifts = () => {
 
   fetchUserData(); // Загружаем данные пользователя при загрузке компонента
 
+  const updateGiftsCount = async () => {
+    try {
+      const userId = tg.initDataUnsafe.user?.id;
+      const response = await axios.post(`https://flameapp-babito.amvera.io/users/${userId}/update-gifts`, {
+        action: 'decrease'
+      });
+      setGiftsCount(response.data.gifts_count);
+    } catch (error) {
+      console.error('Ошибка при обновлении количества подарков:', error);
+    }
+  };
+
   const openGift = () => {
     tg.HapticFeedback.impactOccurred('light');
     setIsClicked(true);
+
+    // Отправляем запрос на сервер для обновления количества подарков
+    updateGiftsCount();
 
     setTimeout(() => {
       setIsExploded(true);
@@ -139,7 +154,7 @@ const Gifts = () => {
           )
         )}
         <div className="gifts_count_in_game">
-        {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
+          {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
         </div>
       </div>
     </div>
