@@ -13,7 +13,7 @@ const Gifts = () => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
 
-  const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
+  const [giftsCount, setGiftsCount] = useState(3); // Состояние для gifts_count
 
   tg.setHeaderColor("#FF6C00");
 
