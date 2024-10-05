@@ -11,7 +11,6 @@ import congratulations_emoji_animated from '../../img/home/congratulations_emoji
 const tg = window.Telegram.WebApp;
 
 const Gifts = () => {
-  tg.setHeaderColor("#FF6C00");
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
@@ -55,6 +54,7 @@ const Gifts = () => {
         imagesLoaded += 1;
         if (imagesLoaded === totalImages) {
           setLoading(false); // Все изображения загружены
+          tg.setHeaderColor("#FF6C00"); //Меняем header tg когда все прогрузится
         }
       };
       img.onerror = () => {
