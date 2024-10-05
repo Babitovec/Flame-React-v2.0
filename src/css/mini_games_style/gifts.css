@@ -122,3 +122,12 @@
         opacity: 1;
     }
 }
+
+.flames_received {
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: 15vw;
+    font-weight: bold;
+    animation: appearance 0.45s forwards;
+}

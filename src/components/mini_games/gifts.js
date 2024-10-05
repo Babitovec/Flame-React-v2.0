@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'; // Импорт Axios
 import Skeleton from "react-loading-skeleton";
+import CountUp from 'react-countup';
 import "../../css/mini_games_style/gifts.css";
 
 import gift_emoji_animated from '../../img/home/gift_emoji_animated.gif';
@@ -10,13 +11,11 @@ import congratulations_emoji_animated from '../../img/home/congratulations_emoji
 const tg = window.Telegram.WebApp;
 
 const Gifts = () => {
+  tg.setHeaderColor("#FF6C00");
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
-
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
-
-  tg.setHeaderColor("#FF6C00");
-
+  const [flamesReceived, setFlamesReceived] = useState(2000); // Состояние для хранения полученных flames
   const [isClicked, setIsClicked] = useState(false);
   const [isExploded, setIsExploded] = useState(false);
   const [showCongratulations] = useState(true);
@@ -99,6 +98,11 @@ const Gifts = () => {
       const response = await axios.post(`https://flameapp-babito.amvera.io/update-gifts/${userId}`, {
         action: 'decrease'
       });
+
+      // Получаем количество flames из ответа сервера
+      const { flames_count } = response.data;
+      setGiftsCount(response.data.gifts_count);
+      setFlamesReceived(flames_count); // Сохраняем полученные flames
       setGiftsCount(response.data.gifts_count);
     } catch (error) {
       console.error('Ошибка при обновлении количества подарков:', error);
@@ -138,11 +142,18 @@ const Gifts = () => {
           />
         ) : (
           isExploded && showCongratulations ? (
-            <img
-              src={congratulations_emoji_animated}
-              alt="Congratulations"
-              className="congratulations_emoji_animated"
-            />
+            <>
+              <img
+                src={congratulations_emoji_animated}
+                alt="Congratulations"
+                className="congratulations_emoji_animated"
+              />
+              <div className="flames_received">
+                <div className="countup-wrapper">
+                  <CountUp start={0} end={flamesReceived} duration={2.5} />
+                </div>
+              </div>
+            </>
           ) : (
             isExploded && !showCongratulations ? null : (
               <img
