@@ -94,7 +94,7 @@ const Home = () => {
           <div className="profile">
             <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
             <div className="score">
-            <div className="score-count">{flamesCount !== undefined ? flamesCount.toLocaleString() : <Skeleton />}</div> {/* Вывод flames_count */}
+            <div className="score-count">{flamesCount !== undefined ? flamesCount.toLocaleString('en-US') : <Skeleton />}</div> {/* Вывод flames_count */}
             </div>
             <span className="flame-text-score">FLAME</span>
           </div>
