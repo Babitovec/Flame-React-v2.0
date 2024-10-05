@@ -15,7 +15,7 @@ const Gifts = () => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
-  const [flamesReceived, setFlamesReceived] = useState(2000); // Состояние для хранения полученных flames
+  const [flamesReceived, setFlamesReceived] = useState(undefined); // Состояние для хранения полученных flames
   const [isClicked, setIsClicked] = useState(false);
   const [isExploded, setIsExploded] = useState(false);
   const [showCongratulations] = useState(true);
