@@ -129,5 +129,32 @@
     color: white;
     font-size: 15vw;
     font-weight: bold;
-    animation: appearance 0.45s forwards;
+    animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
+}
+
+@keyframes appearanceFlames {
+    0% {
+        transform: scale(1.2);
+    }
+    25% {
+        transform: scale(1.1) rotate(1deg);
+    }
+    50% {
+        transform: scale(0.8) rotate(-1deg);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleUpDown {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Увеличиваем на 20% */
+    }
+    100% {
+        transform: scale(1); /* Возвращаем к первоначальному размеру */
+    }
 }
