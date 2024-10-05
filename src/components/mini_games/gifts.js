@@ -21,7 +21,6 @@ const Gifts = () => {
   const [showCongratulations] = useState(true);
 
   useEffect(() => {
-
     // Функция для проверки загрузки фонового изображения
     const checkBackgroundImageLoaded = (url) => {
       return new Promise((resolve, reject) => {
@@ -90,7 +89,9 @@ const Gifts = () => {
     }
   };
 
-  fetchUserData(); // Загружаем данные пользователя при загрузке компонента
+  useEffect(() => {
+    fetchUserData(); // Загружаем данные пользователя при загрузке компонента
+  }, []); // Добавляем пустой массив зависимостей для вызова только один раз
 
   const updateGiftsCount = async () => {
     try {
@@ -100,9 +101,9 @@ const Gifts = () => {
       });
 
       // Получаем количество flames из ответа сервера
-      const { flames_count } = response.data;
+      const { flamesToAdd } = response.data;
       setGiftsCount(response.data.gifts_count);
-      setFlamesFromGift(flames_count); // Сохраняем только что выпавшие flames
+      setFlamesFromGift(flamesToAdd); // Устанавливаем выпавшие flames
     } catch (error) {
       console.error('Ошибка при обновлении количества подарков:', error);
     }
@@ -123,7 +124,7 @@ const Gifts = () => {
   if (loading) {
     return (
       <div className="loader-box">
-        <div class="loader"></div>
+        <div className="loader"></div>
       </div>
     );
   }
