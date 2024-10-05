@@ -15,7 +15,7 @@ const Gifts = () => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const navigate = useNavigate(); // Инициализация навигации
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
-  const [flamesReceived, setFlamesReceived] = useState(undefined); // Состояние для хранения полученных flames
+  const [flamesFromGift, setFlamesFromGift] = useState(0); // Состояние для хранения выпавших flames
   const [isClicked, setIsClicked] = useState(false);
   const [isExploded, setIsExploded] = useState(false);
   const [showCongratulations] = useState(true);
@@ -102,8 +102,7 @@ const Gifts = () => {
       // Получаем количество flames из ответа сервера
       const { flames_count } = response.data;
       setGiftsCount(response.data.gifts_count);
-      setFlamesReceived(flames_count); // Сохраняем полученные flames
-      setGiftsCount(response.data.gifts_count);
+      setFlamesFromGift(flames_count); // Сохраняем только что выпавшие flames
     } catch (error) {
       console.error('Ошибка при обновлении количества подарков:', error);
     }
@@ -150,7 +149,7 @@ const Gifts = () => {
               />
               <div className="flames_received">
                 <div className="countup-wrapper">
-                  <CountUp start={0} end={flamesReceived} duration={2.5} />
+                  <CountUp start={0} end={flamesFromGift} duration={2.5} />
                 </div>
               </div>
             </>
