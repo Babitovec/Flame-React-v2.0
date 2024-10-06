@@ -17,7 +17,8 @@ const Gifts = () => {
   const [flamesFromGift, setFlamesFromGift] = useState(0); // Состояние для хранения выпавших flames
   const [isClicked, setIsClicked] = useState(false);
   const [isExploded, setIsExploded] = useState(false);
-  const [showCongratulations] = useState(true);
+  const [showCongratulations] = useState(true); // Состояние для управления поздравлениями
+  const [canClickFlames, setCanClickFlames] = useState(false); // Состояние для контроля клика на flames_received
 
   useEffect(() => {
     // Функция для проверки загрузки фонового изображения
@@ -118,7 +119,17 @@ const Gifts = () => {
 
     setTimeout(() => {
       setIsExploded(true);
+      // Разрешаем клик через 2.5 секунды
+      setTimeout(() => setCanClickFlames(true), 2500);
     }, 200);
+  };
+
+  const handleFlamesClick = () => {
+    if (!canClickFlames) return; // Блокируем клики до разрешённого времени
+
+    setIsClicked(false);
+    setIsExploded(false);
+    setCanClickFlames(false); // Сбрасываем возможность клика
   };
 
   if (loading) {
@@ -148,7 +159,7 @@ const Gifts = () => {
                 alt="Congratulations"
                 className="congratulations_emoji_animated"
               />
-              <div className="flames_received">
+              <div className="flames_received" onClick={handleFlamesClick}>
                 <div className="countup-wrapper">
                   <CountUp start={0} end={flamesFromGift} duration={2.5} />
                 </div>
