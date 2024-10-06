@@ -27,10 +27,11 @@
 
 .gifts_count_in_game {
     text-align: center;
-    width: 50%;
+    width: 100%;
     color: white;
-    font-size: 15vw;
+    font-size: 12vw;
     font-weight: bold;
+    margin-top: 20vw;
     animation: appearance 0.45s forwards;
 }
 
@@ -125,9 +126,9 @@
 
 .flames_received {
     position: absolute;
-    top: 26%;    
+    top: 19%;
     color: white;
-    font-size: 17vw;
+    font-size: 20vw;
     font-weight: bold;
     animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
 }
