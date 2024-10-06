@@ -124,10 +124,10 @@
 }
 
 .flames_received {
-    text-align: center;
-    width: 100%;
+    position: absolute;
+    top: 26%;    
     color: white;
-    font-size: 15vw;
+    font-size: 17vw;
     font-weight: bold;
     animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
 }
