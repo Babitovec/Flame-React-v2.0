@@ -51,8 +51,7 @@ const Home = () => {
     //Для получение данных с БД
     const fetchUserData = async () => {
       try {
-        const userId = tg.initDataUnsafe.user?.id;
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`, {
+        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/`, {
           headers: {
             Authorization: `Bearer ${window.token}`
           }});
