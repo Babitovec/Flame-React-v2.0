@@ -85,6 +85,7 @@
 .congratulations_emoji_animated {
     width: 60vw;
     height: 60vw;
+    opacity: 75%;
 }
 
 @keyframes appearance {
@@ -106,12 +107,21 @@
 }
 
 .flames_received {
+    z-index: 2;
     position: absolute;
     top: 19%;
     color: white;
     font-size: 20vw;
     font-weight: bold;
     animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
+}
+
+.flames_count_from_gifts {
+    position: absolute;
+    color: white;
+    font-size: 12vw;
+    font-weight: bold;
+    animation: drop-from-top-gift 0.3s forwards, scaleUpDown 0.5s 2.5s forwards;
 }
 
 @keyframes appearanceFlames {

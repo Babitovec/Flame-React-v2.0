@@ -164,6 +164,7 @@ const Gifts = () => {
                   <CountUp start={0} end={flamesFromGift} duration={2.5} />
                 </div>
               </div>
+              <span className="flames_count_from_gifts">FLAMES</span>
             </>
           ) : (
             isExploded && !showCongratulations ? null : (
