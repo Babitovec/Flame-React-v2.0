@@ -103,9 +103,11 @@ const Gifts = () => {
         headers: {
           Authorization: `Bearer ${window.token}`
         }
-      }, {
-        action: 'decrease'
       });
+
+      // , {
+      //   action: 'decrease'
+      // }
 
       // Получаем количество flames из ответа сервера
       const { flamesToAdd } = response.data;
