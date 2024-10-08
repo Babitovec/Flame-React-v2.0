@@ -86,7 +86,6 @@
 .congratulations_emoji_animated {
     width: 80vw;
     height: 80vw;
-    /* opacity: 75%; */
 }
 
 @keyframes appearance {
@@ -115,6 +114,7 @@
     font-size: 20vw;
     font-weight: bold;
     animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
+    text-shadow: 1px 1px 1px rgba(255, 108, 0, 0.5);
 }
 
 .flames_count_from_gifts {
@@ -123,6 +123,7 @@
     font-size: 12vw;
     font-weight: bold;
     top: 47.5%;
+    text-shadow: 1px 1px 1px rgba(255, 108, 0, 0.5);
     animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
 }
 
