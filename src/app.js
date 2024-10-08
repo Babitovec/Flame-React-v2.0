@@ -44,7 +44,7 @@ const App = () => {
       axios.post('https://more-gratefully-hornet.ngrok-free.app/', userData)
         .then(response => {
           const data = JSON.parse(response.data);
-          window.token = data.token;
+          document.cookie = `token=${data.token}; path=/; max-age=3600`; // Кука действует 1 час
           console.log('Данные успешно отправлены:', response.data);
         })
         .catch(error => {
