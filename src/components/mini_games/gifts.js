@@ -99,15 +99,11 @@ const Gifts = () => {
 
   const updateGiftsCount = async () => {
     try {
-      const response = await axios.post(`https://more-gratefully-hornet.ngrok-free.app/update-gifts`, {
+      const response = await axios.post(`https://more-gratefully-hornet.ngrok-free.app/update-gifts`, { action: 'decrease' }, {
         headers: {
           Authorization: `Bearer ${window.token}`
         }
       });
-
-      // , {
-      //   action: 'decrease'
-      // }
 
       // Получаем количество flames из ответа сервера
       const { flamesToAdd } = response.data;
