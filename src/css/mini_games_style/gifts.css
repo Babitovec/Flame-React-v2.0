@@ -123,8 +123,7 @@
     font-size: 12vw;
     font-weight: bold;
     top: 47.5%;
-    animation: scaleUpDown 0.5s 2.5s forwards;
-    /* animation: drop-from-top-gift 0.3s forwards, scaleUpDown 0.5s 2.5s forwards; */
+    animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
 }
 
 @keyframes appearanceFlames {
