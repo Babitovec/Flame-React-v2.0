@@ -14,6 +14,7 @@
 }
 
 .gift-and-gifts-count {
+    width: 80vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -83,9 +84,9 @@
 }
 
 .congratulations_emoji_animated {
-    width: 60vw;
-    height: 60vw;
-    opacity: 75%;
+    width: 80vw;
+    height: 80vw;
+    /* opacity: 75%; */
 }
 
 @keyframes appearance {
@@ -109,7 +110,7 @@
 .flames_received {
     z-index: 2;
     position: absolute;
-    top: 19%;
+    top: 25%;
     color: white;
     font-size: 20vw;
     font-weight: bold;
@@ -121,7 +122,9 @@
     color: white;
     font-size: 12vw;
     font-weight: bold;
-    animation: drop-from-top-gift 0.3s forwards, scaleUpDown 0.5s 2.5s forwards;
+    top: 47.5%;
+    animation: scaleUpDown 0.5s 2.5s forwards;
+    /* animation: drop-from-top-gift 0.3s forwards, scaleUpDown 0.5s 2.5s forwards; */
 }
 
 @keyframes appearanceFlames {
