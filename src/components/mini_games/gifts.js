@@ -81,9 +81,12 @@ const Gifts = () => {
 
   const fetchUserData = async () => {
     try {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; token=`);
+      const tokenValue = parts.pop().split(';').shift();
       const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/`, {
         headers: {
-          Authorization: `Bearer ${getCookie("token")}`
+          Authorization: `Bearer ${tokenValue}`
         }
       });
       const userData = response.data;
@@ -97,17 +100,20 @@ const Gifts = () => {
     fetchUserData(); // Загружаем данные пользователя при загрузке компонента
   }, []); // Добавляем пустой массив зависимостей для вызова только один раз
 
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
+  // const getCookie = (name) => {
+  //   const value = `; ${document.cookie}`;
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop().split(';').shift();
+  // }
 
   const updateGiftsCount = async () => {
     try {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; token=`);
+      const tokenValue = parts.pop().split(';').shift();
       const response = await axios.post(`https://more-gratefully-hornet.ngrok-free.app/update-gifts`, { action: 'decrease' }, {
         headers: {
-          Authorization: `Bearer ${getCookie("token")}`
+          Authorization: `Bearer ${tokenValue}`
         }
       });
 
