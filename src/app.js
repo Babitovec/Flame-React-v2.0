@@ -24,27 +24,11 @@ const App = () => {
   useEffect(() => {
     tg.ready();  // Инициализация Telegram Web App
 
-    const urlParams = new URLSearchParams(tg.initData);
-    const hash = urlParams.get("hash");
-
-    urlParams.delete("hash");
-    urlParams.sort();
-
-    let dataCheckString = "";
-    for (const [key, value] of urlParams.entries()) {
-      dataCheckString += key + '=' + value + '\n';
-    }
-
-    let userData = {
-      dataCheckString: dataCheckString.slice(0, -1),
-      hash: hash,
-    };
+    const userData = tg.initDataUnsafe.user;
 
     if (userData) {
-      axios.post('https://more-gratefully-hornet.ngrok-free.app/', userData)
+      axios.post('https://flameapp-babito.amvera.io', userData)
         .then(response => {
-          const data = JSON.parse(response.data);
-          document.cookie = `token=${data.token}; path=/; max-age=3600`; // Кука действует 1 час
           console.log('Данные успешно отправлены:', response.data);
         })
         .catch(error => {

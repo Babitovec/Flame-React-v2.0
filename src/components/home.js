@@ -48,13 +48,11 @@ const Home = () => {
       };
     });
 
-    //Для получение данных с БД
+    //Для полчение данных с БД
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/`, {
-          headers: {
-            Authorization: `Bearer ${window.token}`
-          }});
+        const userId = tg.initDataUnsafe.user?.id;
+        const response = await axios.get(`https://flameapp-babito.amvera.io/users/${userId}`);
         const userData = response.data;
         setFlamesCount(userData.flames_count);
         setGiftsCount(userData.gifts_count);
