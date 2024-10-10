@@ -21,24 +21,6 @@ const Gifts = () => {
   const [canClickFlames, setCanClickFlames] = useState(false); // Состояние для контроля клика на flames_received
 
   useEffect(() => {
-    // Функция для проверки загрузки фонового изображения
-    const checkBackgroundImageLoaded = (url) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = url;
-        img.onload = () => resolve();
-        img.onerror = () => reject();
-      });
-    };
-
-    const backgroundImageUrl = "/src/img/home/gifts_mini_game_background.webp";
-    checkBackgroundImageLoaded(backgroundImageUrl)
-      .then(() => {
-        setLoading(false); // Фоновое изображение загружено
-      })
-      .catch(() => {
-        setLoading(false); // Фоновое изображение не удалось загрузить
-      });
 
     const imageUrls = [
       gift_emoji_animated,
