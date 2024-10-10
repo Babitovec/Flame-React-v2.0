@@ -82,7 +82,7 @@ const Gifts = () => {
   const fetchUserData = async () => {
     try {
       const userId = tg.initDataUnsafe.user?.id;
-      const response = await axios.get(`https://flameapp-babito.amvera.io/users/${userId}`);
+      const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`);
       const userData = response.data;
       setGiftsCount(userData.gifts_count);
     } catch (error) {
@@ -97,7 +97,7 @@ const Gifts = () => {
   const updateGiftsCount = async () => {
     try {
       const userId = tg.initDataUnsafe.user?.id;
-      const response = await axios.post(`https://flameapp-babito.amvera.io/update-gifts/${userId}`, {
+      const response = await axios.post(`https://more-gratefully-hornet.ngrok-free.app/update-gifts/${userId}`, {
         action: 'decrease'
       });
 
