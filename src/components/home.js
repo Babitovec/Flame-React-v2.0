@@ -54,7 +54,7 @@ const Home = () => {
         const userId = tg.initDataUnsafe.user?.id;
         const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`);
         const userData = response.data;
-        console.log('Данные успешно получены:', userData) //Чекаем
+        console.log('Данные успешно получены:', userData.flames_count, userData.gifts_count) //Чекаем
         setFlamesCount(userData.flames_count);
         setGiftsCount(userData.gifts_count);
       } catch (error) {
