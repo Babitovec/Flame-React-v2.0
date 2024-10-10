@@ -27,7 +27,7 @@ const App = () => {
     const userData = tg.initDataUnsafe.user;
 
     if (userData) {
-      axios.post('https://flameapp-babito.amvera.io', userData)
+      axios.post(process.env.URL, userData)
         .then(response => {
           console.log('Данные успешно отправлены:', response.data);
         })

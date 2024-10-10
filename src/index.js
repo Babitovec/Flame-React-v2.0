@@ -4,6 +4,7 @@ import "./css/main.css" // подключение main.css, который пр�
 import { BrowserRouter } from "react-router-dom";
 import { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
+import dotenv from 'dotenv';
 
 // Подключение кошелька работает,но не включаю из-за warning https://docs.ton.org/develop/dapps/ton-connect/react
 // import { TonConnectUIProvider } from '@tonconnect/ui-react'
@@ -11,6 +12,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 import App from "./app.js"; // Подключение app.js 
 
+dotenv.config()
 const app = ReactDOMClient.createRoot(document.getElementById("app")) //создаем путь где будем выводить контент и указываем его как константу
 
 app.render(
