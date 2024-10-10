@@ -52,11 +52,15 @@ const Home = () => {
     const fetchUserData = async () => {
       try {
         const userId = tg.initDataUnsafe.user?.id;
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`);
-        const userDataFromBD = response.data;
-        console.log('Данные успешно получены:', userDataFromBD, userDataFromBD.flames_count, userDataFromBD.gifts_count) //Чекаем
-        setFlamesCount(userDataFromBD.flames_count);
-        setGiftsCount(userDataFromBD.gifts_count);
+        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
+        });
+        const userData = response.data;
+        console.log('Данные успешно получены:', userData, userData.flames_count, userData.gifts_count) //Чекаем
+        setFlamesCount(userData.flames_count);
+        setGiftsCount(userData.gifts_count);
       } catch (error) {
         console.error('Ошибка при получении данных пользователя:', error);
       }
