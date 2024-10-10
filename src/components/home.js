@@ -58,7 +58,7 @@ const Home = () => {
           },
         });
         const userData = response.data;
-        console.log('Данные успешно получены:', userData, userData.flames_count, userData.gifts_count) //Чекаем
+        console.log('Данные успешно получены:', `Flames count: ${userData.flames_count}`, `Gifts count: ${userData.gifts_count}`) //Чекаем
         setFlamesCount(userData.flames_count);
         setGiftsCount(userData.gifts_count);
       } catch (error) {
