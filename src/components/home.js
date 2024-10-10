@@ -52,7 +52,7 @@ const Home = () => {
     const fetchUserData = async () => {
       try {
         const userId = tg.initDataUnsafe.user?.id;
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`);
+        const response = await axios.get(`https://flameapp-babito.amvera.io/users/${userId}`);
         const userData = response.data;
         setFlamesCount(userData.flames_count);
         setGiftsCount(userData.gifts_count);
