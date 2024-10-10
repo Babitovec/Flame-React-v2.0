@@ -52,11 +52,15 @@ const Home = () => {
     const fetchUserData = async () => {
       try {
         const userId = tg.initDataUnsafe.user?.id;
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`, {
-          headers: {
-            'ngrok-skip-browser-warning': 'true',
-          },
-        });
+        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`,
+          //Для нгрок только
+          {
+            headers: {
+              'ngrok-skip-browser-warning': 'true',
+            },
+          }
+        );
+
         const userData = response.data;
         console.log('Данные успешно получены:', `Flames count: ${userData.flames_count}`, `Gifts count: ${userData.gifts_count}`) //Чекаем
         setFlamesCount(userData.flames_count);
@@ -93,13 +97,13 @@ const Home = () => {
 
         {/* Для эффекта затмения скор статс <div className="home-box">  */}
         <div className="home-box">
-          
+
           <div className="border-box-home"></div>
 
           <div className="profile">
             <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
             <div className="score">
-            <div className="score-count">{flamesCount !== undefined ? flamesCount.toLocaleString('en-US') : <Skeleton />}</div> {/* Вывод flames_count */}
+              <div className="score-count">{flamesCount !== undefined ? flamesCount.toLocaleString('en-US') : <Skeleton />}</div> {/* Вывод flames_count */}
             </div>
             <span className="flame-text-score">FLAME</span>
           </div>

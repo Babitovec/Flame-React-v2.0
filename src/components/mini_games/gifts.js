@@ -64,7 +64,13 @@ const Gifts = () => {
   const fetchUserData = async () => {
     try {
       const userId = tg.initDataUnsafe.user?.id;
-      const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`);
+      const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`,
+        //Для нгрок только
+        {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
+        });
       const userData = response.data;
       setGiftsCount(userData.gifts_count);
     } catch (error) {
