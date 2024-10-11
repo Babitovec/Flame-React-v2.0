@@ -89,22 +89,24 @@ const Stats = ({ username }) => {
             leaderboard.map((user, index) => (
               <div key={index} className="leaderboard-member">
                 <div className="rank-and-username-container">
-                  <div className={`rank-leaderbord-${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : ""}`}>
-                    #{index + 1}
+                  <div className="rank-leaderbord-container">
+                    <div className={`rank-leaderbord-${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : ""}`}>
+                      #{index + 1}
+                    </div>
                   </div>
+                  <div className="leaderboard-member-username">{user.username}</div>
                 </div>
-                <div className="leaderboard-member-username">{user.username}</div>
                 <div className="leaderboard-member-flames">
-                  <div className="leaderboard-member-flames-count">{user.flames_count.toLocaleString()}</div>
+                  <div className="leaderboard-member-flames-count">{user.flames_count.toLocaleString('en-US')}</div>
                   <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
                 </div>
               </div>
             ))
-          ) : (
-            <div>No users in leaderboard</div>
+        ) : (
+        <div>No users in leaderboard</div>
           )}
-        </div>
       </div>
+    </div >
     </>
   );
 };
