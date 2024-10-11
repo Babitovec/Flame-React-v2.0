@@ -85,7 +85,7 @@ const Stats = ({ username }) => {
           <div className="user-stats-box">
             <div className="username-and-flame-count-box">
               <div className="stats_username">{username}</div>
-              <div className="burn-count">{userFlamesCount.toLocaleString('en-US')} Flame</div> {/* Отображаем flames пользователя */}
+              <div className="burn-count">{userFlamesCount.toLocaleString('en-US')} FLAME</div> {/* Отображаем flames пользователя */}
             </div>
             <div className="user-rank">#{userRank || "N/A"}</div> {/* Отображаем место пользователя в рейтинге */}
           </div>

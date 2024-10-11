@@ -48,8 +48,9 @@
 }
 
 .username-and-flame-count-box {
+    display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start; /* Выровнять элементы по левому краю */
     margin-left: 7vw;
 }
 
