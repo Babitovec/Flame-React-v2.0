@@ -12,6 +12,8 @@ const Stats = ({ username }) => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const [leaderboard, setLeaderboard] = useState([]); // Топ пользователей, инициализирован как пустой массив
   const [totalUsers, setTotalUsers] = useState(0); // Общее количество пользователей
+  const [userFlamesCount, setUserFlamesCount] = useState(0); // Flames пользователя
+  const [userRank, setUserRank] = useState(undefined); // Место пользователя в рейтинге
 
   useEffect(() => {
     tg.setHeaderColor("#000000");
@@ -41,22 +43,29 @@ const Stats = ({ username }) => {
     // Получение данных с бэка
     const fetchLeaderboard = async () => {
       try {
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/leaderboard`,
-          //Для нгрок только
-          {
-            headers: {
-              'ngrok-skip-browser-warning': 'true',
-            },
-          });
-        setLeaderboard(response.data.leaderboard || []); // Добавляем || [] чтобы избежать undefined
-        setTotalUsers(response.data.totalUsers || 0); // Аналогично для totalUsers
+        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/leaderboard`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
+        });
+
+        const leaderboardData = response.data.leaderboard || [];
+        setLeaderboard(leaderboardData); // Устанавливаем таблицу лидеров
+        setTotalUsers(response.data.totalUsers || 0); // Устанавливаем общее количество пользователей
+
+        // Поиск текущего пользователя в таблице лидеров
+        const user = leaderboardData.find((user) => user.username === username);
+        if (user) {
+          setUserFlamesCount(user.flames_count); // Устанавливаем количество flames
+          setUserRank(leaderboardData.indexOf(user) + 1); // Устанавливаем позицию пользователя в таблице лидеров
+        }
       } catch (error) {
         console.error("Ошибка при получении данных:", error);
       }
     };
 
     fetchLeaderboard();
-  }, []);
+  }, [username]);
 
   if (loading) {
     return (
@@ -76,13 +85,13 @@ const Stats = ({ username }) => {
           <div className="user-stats-box">
             <div className="username-and-flame-count-box">
               <div className="stats_username">{username}</div>
-              <div className="burn-count">5738 Flame</div>
+              <div className="burn-count">{userFlamesCount.toLocaleString('en-US')} Flame</div> {/* Отображаем flames пользователя */}
             </div>
-            <div className="user-rank">#256791</div>
+            <div className="user-rank">#{userRank || "N/A"}</div> {/* Отображаем место пользователя в рейтинге */}
           </div>
         </div>
 
-        <div className="total-users">{totalUsers} Flamers</div>
+        <div className="total-users">{totalUsers.toLocaleString('en-US')} Flamers</div> {/* Отображаем общее количество пользователей */}
 
         <div className="leaderboard">
           {leaderboard.length > 0 ? (
@@ -102,11 +111,11 @@ const Stats = ({ username }) => {
                 </div>
               </div>
             ))
-        ) : (
-        <div>No users in leaderboard</div>
+          ) : (
+            <div>No users in leaderboard</div>
           )}
+        </div>
       </div>
-    </div >
     </>
   );
 };
