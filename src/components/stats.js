@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../css/stats.css";
 
 // Images
-import crown_emoji_animated_compressed from "../img/crown_emoji_animated_compressed.gif"
-import leaderboard_member_flame_icon from "../img/flame_emoji.webp"
+import crown_emoji_animated_compressed from "../img/crown_emoji_animated_compressed.gif";
+import leaderboard_member_flame_icon from "../img/flame_emoji.webp";
 
 const tg = window.Telegram.WebApp;
 
 const Stats = ({ username }) => {
-
   const [loading, setLoading] = useState(true); // Состояние загрузки
+  const [leaderboard, setLeaderboard] = useState([]); // Топ пользователей, инициализирован как пустой массив
+  const [totalUsers, setTotalUsers] = useState(0); // Общее количество пользователей
 
   useEffect(() => {
     tg.setHeaderColor("#000000");
 
-    const imageUrls = [
-      crown_emoji_animated_compressed,
-      leaderboard_member_flame_icon,
-    ];
-
+    // Загрузка изображений
+    const imageUrls = [crown_emoji_animated_compressed, leaderboard_member_flame_icon];
     let imagesLoaded = 0;
     const totalImages = imageUrls.length;
 
@@ -38,12 +37,31 @@ const Stats = ({ username }) => {
         }
       };
     });
+
+    // Получение данных с бэка
+    const fetchLeaderboard = async () => {
+      try {
+        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/leaderboard`,
+          //Для нгрок только
+          {
+            headers: {
+              'ngrok-skip-browser-warning': 'true',
+            },
+          });
+        setLeaderboard(response.data.leaderboard || []); // Добавляем || [] чтобы избежать undefined
+        setTotalUsers(response.data.totalUsers || 0); // Аналогично для totalUsers
+      } catch (error) {
+        console.error("Ошибка при получении данных:", error);
+      }
+    };
+
+    fetchLeaderboard();
   }, []);
 
   if (loading) {
     return (
       <div className="loader-box">
-        <div class="loader"></div>
+        <div className="loader"></div>
       </div>
     );
   }
@@ -54,7 +72,7 @@ const Stats = ({ username }) => {
         <img src={crown_emoji_animated_compressed} alt="cronw_emoji_animated" className="crown-emoji-animated" />
         <span className="stats-header">Leaderboard</span>
 
-        <div className="user-stats-box-container ">
+        <div className="user-stats-box-container">
           <div className="user-stats-box">
             <div className="username-and-flame-count-box">
               <div className="stats_username">{username}</div>
@@ -64,157 +82,31 @@ const Stats = ({ username }) => {
           </div>
         </div>
 
-        <div className="total-users">2M Flamers</div>
+        <div className="total-users">{totalUsers} Flamers</div>
 
         <div className="leaderboard">
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord-gold">#1</div>
+          {leaderboard.length > 0 ? (
+            leaderboard.map((user, index) => (
+              <div key={index} className="leaderboard-member">
+                <div className="rank-and-username-container">
+                  <div className={`rank-leaderbord-${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : ""}`}>
+                    #{index + 1}
+                  </div>
+                </div>
+                <div className="leaderboard-member-username">{user.username}</div>
+                <div className="leaderboard-member-flames">
+                  <div className="leaderboard-member-flames-count">{user.flames_count.toLocaleString()}</div>
+                  <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
+                </div>
               </div>
-              <div className="leaderboard-member-username">Aboba</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">25,683,109</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord-silver">#2</div>
-              </div>
-              <div className="leaderboard-member-username">Marling</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">20,679,132</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord-bronze">#3</div>
-              </div>
-              <div className="leaderboard-member-username">Skulldugger</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">18,632,915</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#4</div>
-              </div>
-              <div className="leaderboard-member-username">FryerTuck</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">15,469,879</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#5</div>
-              </div>
-              <div className="leaderboard-member-username">Oblation</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">14,679,132</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#6</div>
-              </div>
-              <div className="leaderboard-member-username">Crucifery</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">12,679,132</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#7</div>
-              </div>
-              <div className="leaderboard-member-username">CatInHat</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">11,679,132</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#8</div>
-              </div>
-              <div className="leaderboard-member-username">Trilemma</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">10,679,132</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#9</div>
-              </div>
-              <div className="leaderboard-member-username">Altometer</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">9,679,132</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#10</div>
-              </div>
-              <div className="leaderboard-member-username">MoonMan</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">8,679,132</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
-          <div className="leaderboard-member">
-            <div className="rank-and-username-container">
-              <div className="rank-leaderbord-container">
-                <div className="rank-leaderbord">#11</div>
-              </div>
-              <div className="leaderboard-member-username">Nessundorma</div>
-            </div>
-            <div className="leaderboard-member-flames">
-              <div className="leaderboard-member-flames-count">5,144,128</div>
-              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-            </div>
-          </div>
-
+            ))
+          ) : (
+            <div>No users in leaderboard</div>
+          )}
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Stats;
