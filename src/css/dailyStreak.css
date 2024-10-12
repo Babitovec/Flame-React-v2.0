@@ -1,0 +1,98 @@
+.streak-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw; /* Устанавливаем ширину на весь экран */
+    height: 87.5vh;
+    box-sizing: border-box; /* Учитываем отступы и границы в общей высоте */
+    overflow: auto;
+    flex: auto;
+}
+
+.logo_streak {
+    width: 40vw;
+    height: 40vw;
+    margin-top: 3.5vh;
+    margin-bottom: 2.5vh;
+    animation: drop-from-top 0.35s forwards;
+}
+
+.day-streak {
+    color: white;
+    font-size: 40vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rewards-title {
+    color: white;
+    font-size: 8vw;
+    font-weight: bold;
+    margin-bottom: 5vw;
+    text-align: center;
+}
+
+.rewards-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.reward-box {
+    border-radius: 15px;
+    width: 43vw; 
+    height: 43vw; 
+    border: 3px solid #282828;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.emoji_reward {
+    width: 20vw;
+    height: 20vw;
+}
+
+.count-daily-reward {
+    color: white;
+    font-size: 8vw;
+    font-weight: bold;
+}
+
+.reward-txt {
+    color: white;
+    opacity: 50%;
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.description-daily-reward {
+    text-align: center;
+    margin-top: 12vw;
+    color: white;
+    opacity: 50%;
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.continue-button-daily-reward {
+    position: absolute;
+    background-color: white;
+    width: 90vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    bottom: 5%;
+}
+
+.continue-text {
+    color: black;
+    font-size: 4vw;
+    font-weight: bold;
+    text-decoration: none;
+}

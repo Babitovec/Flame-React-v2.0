@@ -8,6 +8,7 @@ import ScoreStoryYears from "./components/score_story/score_story_years";
 import ScoreStoryPremium from "./components/score_story/score_story_premium";
 import ScoreStoryReward from "./components/score_story/score_story_reward";
 import ScoreStoryShare from "./components/score_story/score_story_share";
+import DailyStreak from "./components/dailyStreak.js";
 import Gifts from "./components/mini_games/gifts.js";
 import Navigation from "./components/navigation.js";
 
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
           <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
           <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
+          <Route path="/DailyStreak" element={<DailyStreak />} />
         </Route>
       </Routes>
 
@@ -68,6 +70,7 @@ const App = () => {
         && location.pathname !== "/ScoreStoryPremium"
         && location.pathname !== "/ScoreStoryReward"
         && location.pathname !== "/ScoreStoryShare"
+        && location.pathname !== "/DailyStreak"
         && location.pathname !== "/Gifts" && <Navigation />}
     </>
   );
