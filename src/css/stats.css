@@ -165,7 +165,6 @@
     width: 85vw; 
     height: 20vw; 
     display: block;
-    margin-bottom: 2.5vh;
 }
 
 .total-users-skeleton {
@@ -174,4 +173,13 @@
     margin-bottom: 2.5vh;
     position: relative;
     transform: translateX(-35%); /* Сдвигает элемент влево на 50% */
+}
+
+.leaderboard-member-skeleton {
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1vh;
 }

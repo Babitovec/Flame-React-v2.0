@@ -76,7 +76,7 @@ const Stats = ({ username }) => {
     );
   }
 
-  if (userFlamesCount === 0 || userRank === 0 || totalUsers === 0) {
+  if (userFlamesCount === 0 || userRank === 0 || totalUsers === 0 ) {
     return (
       <div className="container-stats">
         <img src={crown_emoji_animated_compressed} alt="cronw_emoji_animated" className="crown-emoji-animated" />
@@ -85,6 +85,12 @@ const Stats = ({ username }) => {
         {/* Отображаем скелетоны вместо данных пользователя */}
         <Skeleton className="user-stats-box-container-skeleton" />
         <Skeleton className="total-users-skeleton" />
+        <div className="leaderboard">
+          {Array(8).fill(0).map((_, index) => (
+            <Skeleton key={index} className="leaderboard-member-skeleton" />
+          ))}
+        </div>
+
       </div>
     );
   }
@@ -126,6 +132,7 @@ const Stats = ({ username }) => {
           </div>
         ))}
       </div>
+
     </div>
   );
 };
