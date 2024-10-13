@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/dailyStreak.css";
 
 // Images
@@ -11,6 +12,12 @@ const tg = window.Telegram.WebApp;
 const DailyStreak = () => {
     tg.setHeaderColor("#000000");
 
+    const navigate = useNavigate();
+
+    const handleContinue = () => {
+        navigate("/Home"); // Навигация на Home
+    };
+
     return (
         <>
             <div className="streak-container">
@@ -18,20 +25,20 @@ const DailyStreak = () => {
                 <div className="day-streak">2</div>
                 <div className="rewards-title">day check-in</div>
                 <div className="rewards-container">
-                    <div className="reward-box">
+                    <div className="reward-box-1">
                         <img src={flame_emoji} alt="flame_emoji_animated" className="emoji_reward" />
                         <div className="count-daily-reward">100</div>
                         <div className="reward-txt">Flames</div>
                     </div>
-                    <div className="reward-box">
+                    <div className="reward-box-2">
                         <img src={gift_emoji} alt="flame_emoji_animated" className="emoji_reward" />
                         <div className="count-daily-reward">1</div>
                         <div className="reward-txt">Gifts</div>
                     </div>
                 </div>
                 <div className="description-daily-reward">Come back tommorow for check-in day 3 <br />Skipping a day resets your check-in</div>
-                <div className="continue-button-daily-reward">
-                    <span className="continue-text">Continue</span>
+                <div className="continue-button-daily-reward" onClick={handleContinue}>
+                    <span className="continue-text" >Continue</span>
                 </div>
             </div>
         </>
