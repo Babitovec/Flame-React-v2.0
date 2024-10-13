@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
 import "../css/stats.css";
 
 // Images
@@ -75,48 +76,57 @@ const Stats = ({ username }) => {
     );
   }
 
-  return (
-    <>
+  if (userFlamesCount === 0 || userRank === 0 || totalUsers === 0) {
+    return (
       <div className="container-stats">
         <img src={crown_emoji_animated_compressed} alt="cronw_emoji_animated" className="crown-emoji-animated" />
         <span className="stats-header">Leaderboard</span>
 
-        <div className="user-stats-box-container">
-          <div className="user-stats-box">
-            <div className="username-and-flame-count-box">
-              <div className="stats_username">{username}</div>
-              <div className="burn-count">{userFlamesCount.toLocaleString('en-US')} FLAME</div> {/* Отображаем flames пользователя */}
-            </div>
-            <div className="user-rank">#{userRank || "N/A"}</div> {/* Отображаем место пользователя в рейтинге */}
+        {/* Отображаем скелетоны вместо данных пользователя */}
+        <Skeleton className="user-stats-box-container-skeleton" />
+        <Skeleton className="total-users-skeleton" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="container-stats">
+      <img src={crown_emoji_animated_compressed} alt="cronw_emoji_animated" className="crown-emoji-animated" />
+      <span className="stats-header">Leaderboard</span>
+
+      {/* Отображаем информацию о пользователе */}
+      <div className="user-stats-box-container">
+        <div className="user-stats-box">
+          <div className="username-and-flame-count-box">
+            <div className="stats_username">{username}</div>
+            <div className="burn-count">{userFlamesCount.toLocaleString('en-US')} FLAME</div>
           </div>
-        </div>
-
-        <div className="total-users">{totalUsers.toLocaleString('en-US')} Flamers</div> {/* Отображаем общее количество пользователей */}
-
-        <div className="leaderboard">
-          {leaderboard.length > 0 ? (
-            leaderboard.map((user, index) => (
-              <div key={index} className="leaderboard-member">
-                <div className="rank-and-username-container">
-                  <div className="rank-leaderbord-container">
-                    <div className={`rank-leaderbord-${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : ""}`}>
-                      #{index + 1}
-                    </div>
-                  </div>
-                  <div className="leaderboard-member-username">{user.username}</div>
-                </div>
-                <div className="leaderboard-member-flames">
-                  <div className="leaderboard-member-flames-count">{user.flames_count.toLocaleString('en-US')}</div>
-                  <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
-                </div>
-              </div>
-            ))
-          ) : (
-            <div>No users in leaderboard</div>
-          )}
+          <div className="user-rank">#{userRank || "N/A"}</div>
         </div>
       </div>
-    </>
+
+      {/* Отображаем общее количество пользователей */}
+      <div className="total-users">{totalUsers.toLocaleString('en-US')} Flamers</div>
+
+      <div className="leaderboard">
+        {leaderboard.map((user, index) => (
+          <div key={index} className="leaderboard-member">
+            <div className="rank-and-username-container">
+              <div className="rank-leaderbord-container">
+                <div className={`rank-leaderbord-${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : ""}`}>
+                  #{index + 1}
+                </div>
+              </div>
+              <div className="leaderboard-member-username">{user.username}</div>
+            </div>
+            <div className="leaderboard-member-flames">
+              <div className="leaderboard-member-flames-count">{user.flames_count.toLocaleString('en-US')}</div>
+              <img src={leaderboard_member_flame_icon} alt="flame_icon" className="leaderboard-member-flame-icon" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -23,9 +23,7 @@ const DailyStreak = () => {
     return (
         <>
             <div className="streak-container">
-                <div className="confettie">
-                    <Lottie loop={false} animationData={confettie} />
-                </div>
+                <Lottie className="confettie" loop={false} animationData={confettie} />
                 <img src={gz_daily} alt="flame_emoji_animated" className="logo_streak" />
                 <div className="day-streak">2</div>
                 <div className="rewards-title">day check-in</div>

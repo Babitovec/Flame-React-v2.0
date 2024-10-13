@@ -9,11 +9,16 @@
     flex: auto;
 }
 
+.confettie {
+    position: absolute;
+    width: 100vw;
+    z-index: 2;
+}
+
 .logo_streak {
     width: 40vw;
     height: 40vw;
     margin-top: 3.5vh;
-    /* opacity: 0%; */
     animation: drop-from-top 0.45s forwards;
 }
 
@@ -56,10 +61,10 @@
 
 .rewards-container {
     width: 90vw;
+    height: 45vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    overflow: hidden;
 }
 
 .reward-box-1 {
@@ -111,6 +116,8 @@
 }
 
 .reward-txt {
+    z-index: 2;
+    background-color: black;
     color: white;
     opacity: 50%;
     font-size: 4vw;
@@ -162,10 +169,4 @@
         bottom: 5%;
         transform: scale(1);
     }
-}
-
-.confettie {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
 }

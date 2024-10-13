@@ -15,7 +15,7 @@ const app = ReactDOMClient.createRoot(document.getElementById("app")) //созд
 
 app.render(
   // <TonConnectUIProvider manifestUrl="https://test-youtube.s3.amazonaws.com/manifest.json">
-    <SkeletonTheme baseColor="#323232" highlightColor="#626262" borderRadius="15px">
+    <SkeletonTheme baseColor="#323232" highlightColor="#626262" borderRadius="25px">
       <BrowserRouter>
         <App />
       </BrowserRouter>

@@ -28,8 +28,8 @@
 .user-stats-box-container {
     background-color: #282828;
     border-radius: 25px;
-    width: 85vw; /* Фиксированная ширина */
-    height: 20vw; /* Фиксированная высота */
+    width: 85vw; 
+    height: 20vw; 
     display: block;
     margin-bottom: 2.5vh;
     animation: appearance-gifts 0.35s forwards;
@@ -37,8 +37,8 @@
 
 .user-stats-box {
     border-radius: 25px;
-    width: 85vw; /* Фиксированная ширина */
-    height: 20vw; /* Фиксированная высота */
+    width: 85vw;
+    height: 20vw; 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -81,13 +81,11 @@
     text-align: left;
     width: 85vw;
     margin-bottom: 2.5vh;
-    margin-left: 9vw;
 }
 
 .leaderboard {
     width: 85vw;
-    flex: 1; /* Занимает оставшееся пространство */
-    /* overflow-y: auto; Включает вертикальную прокрутку */
+    flex: 1;
 }
 
 .leaderboard-member {
@@ -111,32 +109,31 @@
 }
 
 .rank-leaderbord-gold {
-    /* margin-right: 3vw; */
     color: #F7D000;
     font-size: 6.5vw;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 .rank-leaderbord-silver {
     color: #BABABA;
     font-size: 6.5vw;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 .rank-leaderbord-bronze {
     color: #C77B30;
     font-size: 6.5vw;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 .rank-leaderbord- {
     color: rgba(255, 255, 255, 0.5);
     font-size: 6.5vw;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 .leaderboard-member-username {
@@ -161,4 +158,20 @@
 .leaderboard-member-flame-icon {
     width: 4.33vw;
     height: 4.33vw;
+}
+
+.user-stats-box-container-skeleton {
+    border-radius: 25px;
+    width: 85vw; 
+    height: 20vw; 
+    display: block;
+    margin-bottom: 2.5vh;
+}
+
+.total-users-skeleton {
+    width: 50vw;
+    height: 35px;
+    margin-bottom: 2.5vh;
+    position: relative;
+    transform: translateX(-35%); /* Сдвигает элемент влево на 50% */
 }
