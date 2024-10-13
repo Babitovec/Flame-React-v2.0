@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Lottie from "lottie-react";
 import "../css/dailyStreak.css";
 
 // Images
 import gz_daily from '../img/gz-daily.gif';
 import flame_emoji from "../img/flame_emoji.webp";
 import gift_emoji from '../img/home/gift_emoji.webp';
+import confettie from "../img/confetti.json"
 
 const tg = window.Telegram.WebApp;
 
@@ -21,6 +23,9 @@ const DailyStreak = () => {
     return (
         <>
             <div className="streak-container">
+                <div className="confettie">
+                    <Lottie loop={false} animationData={confettie} />
+                </div>
                 <img src={gz_daily} alt="flame_emoji_animated" className="logo_streak" />
                 <div className="day-streak">2</div>
                 <div className="rewards-title">day check-in</div>
