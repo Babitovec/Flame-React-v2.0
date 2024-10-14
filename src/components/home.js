@@ -16,11 +16,12 @@ const Home = () => {
   const [loading, setLoading] = useState(true); // Состояние загрузки
   const [flamesCount, setFlamesCount] = useState(undefined); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
+  const [dailyBonusMessage, setDailyBonusMessage] = useState(null); // Сообщение о бонусе
 
   useEffect(() => {
     tg.setHeaderColor("#FF5718");
 
-    //Для лоадера
+    // Для лоадера
     const imageUrls = [
       flame_emoji,
       flame_emoji_animated,
@@ -48,34 +49,42 @@ const Home = () => {
       };
     });
 
-    //Для полчение данных с БД
+    // Для получения данных с БД и выдачи бонуса
     const fetchUserData = async () => {
       try {
         const userId = tg.initDataUnsafe.user?.id;
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`,
-          //Для нгрок только
-          {
-            headers: {
-              'ngrok-skip-browser-warning': 'true',
-            },
-          }
-        );
+
+        // Запрос на получение данных пользователя
+        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
+        });
 
         const userData = response.data;
-        console.log('Данные успешно получены:', `Flames count: ${userData.flames_count}`, `Gifts count: ${userData.gifts_count}`) //Чекаем
+        console.log('Данные успешно получены:', `Flames count: ${userData.flames_count}`, `Gifts count: ${userData.gifts_count}`);
+
+        // Устанавливаем полученные данные
         setFlamesCount(userData.flames_count);
         setGiftsCount(userData.gifts_count);
+
+        // Запрос на получение ежедневного бонуса
+        const bonusResponse = await axios.post(`https://more-gratefully-hornet.ngrok-free.app/daily-bonus/${userId}`, {}, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
+        });
+
+        setDailyBonusMessage(bonusResponse.data.message); // Сообщение об успешной выдаче бонуса
+        setFlamesCount(bonusResponse.data.flames_count); // Обновляем flames_count
+        setGiftsCount(bonusResponse.data.gifts_count); // Обновляем gifts_count
       } catch (error) {
-        console.error('Ошибка при получении данных пользователя:', error);
+        console.error('Ошибка при получении данных пользователя или выдаче бонуса:', error);
       }
     };
 
-    fetchUserData(); // Загружаем данные пользователя при загрузке компонента
+    fetchUserData(); // Загружаем данные пользователя и выдаем бонус при загрузке компонента
   }, []);
-
-  const handleNavigationClick = () => {
-    tg.HapticFeedback.impactOccurred('light');
-  };
 
   if (loading) {
     return (
@@ -88,22 +97,22 @@ const Home = () => {
   return (
     <>
       <div className="container-home">
+        {dailyBonusMessage && <div className="bonus-message">{dailyBonusMessage}</div>} {/* Показываем сообщение о бонусе */}
+        
         <div className="score-stats">
-          <NavLink className="score-stats-box" to="/ScoreStoryYears" onClick={handleNavigationClick}>
+          <NavLink className="score-stats-box" to="/ScoreStoryYears">
             <img src={play_icon} alt="play_icon" className="play_icon" />
             <div className="score-stats-text">Your Score</div>
           </NavLink>
         </div>
 
-        {/* Для эффекта затмения скор статс <div className="home-box">  */}
         <div className="home-box">
-
           <div className="border-box-home"></div>
 
           <div className="profile">
             <img src={flame_emoji_animated} alt="flame_emoji_animated" className="flame_logo" />
             <div className="score">
-              <div className="score-count">{flamesCount !== undefined ? flamesCount.toLocaleString('en-US') : <Skeleton />}</div> {/* Вывод flames_count */}
+              <div className="score-count">{flamesCount !== undefined ? flamesCount.toLocaleString('en-US') : <Skeleton />}</div>
             </div>
             <span className="flame-text-score">FLAME</span>
           </div>
@@ -116,9 +125,8 @@ const Home = () => {
                 <div className="gifts-count">
                   {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
                 </div>
-
               </div>
-              <NavLink className="open-gift" to="/Gifts" onClick={handleNavigationClick}>Open</NavLink>
+              <NavLink className="open-gift" to="/Gifts">Open</NavLink>
             </div>
           </div>
 
@@ -132,9 +140,7 @@ const Home = () => {
               <span className="open-gift">Open</span>
             </div>
           </div>
-
         </div>
-
       </div>
     </>
   );
