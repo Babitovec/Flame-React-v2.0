@@ -71,12 +71,53 @@
 .open-button {
     display: flex;
     align-items: center;
-    justify-content: center; /* Центрирование по горизонтали и вертикали */
+    justify-content: center;
+    /* Центрирование по горизонтали и вертикали */
     height: 35px;
     width: 75px;
     border-radius: 25px;
     background-color: #282828;
     transition: transform 0.25s ease;
+}
+
+.cheking-task {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 75px;
+    border-radius: 25px;
+    background-color: #282828;
+    transition: transform 0.25s ease;
+}
+
+.loader-task {
+    width: 16px;
+    height: 16px;
+    border: 3px solid #FFF;
+    opacity: 50%;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1.2s linear infinite;
+}
+
+.task-done {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 75px;
+    border-radius: 25px;
+    background-color: #282828;
+    transition: transform 0.25s ease;
+}
+
+.check_mark {
+    width: 16px;
+    height: 16px;
+    opacity: 50%;
 }
 
 .open {

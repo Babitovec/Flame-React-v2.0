@@ -8,6 +8,7 @@ import x_icon from "../img/tasks/x_icon.webp";
 import flame_emoji from "../img/flame_emoji.webp";
 import wallet_icon from "../img/tasks/wallet_icon.webp";
 import friends_icon from '../img/tasks/friends_icon.png';
+import check_mark from "../img/tasks/check-mark.png"
 
 const tg = window.Telegram.WebApp;
 
@@ -24,6 +25,7 @@ const Tasks = () => {
       flame_emoji,
       wallet_icon,
       friends_icon,
+      check_mark,
     ];
 
     let imagesLoaded = 0;
@@ -101,7 +103,7 @@ const Tasks = () => {
               <div className="points">+1 Gift 🎁</div>
             </div>
             <div className="open-button">
-                <div className="open">Start</div>
+              <div className="open">Start</div>
             </div>
           </div>
 
@@ -116,6 +118,15 @@ const Tasks = () => {
               <div className="open">Start</div>
             </div>
           </div>
+
+          {/* верстка для состояния заданий
+          <div className="cheking-task">
+            <div class="loader-task"></div>
+          </div>
+
+          <div className="task-done">
+            <img src={check_mark} alt="check_mark" className="check_mark" />
+          </div> */}
 
           {/* Twitter subscription */}
           <div className="task">

@@ -171,7 +171,7 @@
     height: 22px;
     margin-bottom: 2.5vh;
     position: relative;
-    transform: translateX(-35%); /* Сдвигает элемент влево на 50% */
+    transform: translateX(-35%);
 }
 
 .leaderboard-member-skeleton {
@@ -180,5 +180,4 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 1vh;
 }
