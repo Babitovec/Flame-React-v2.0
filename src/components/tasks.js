@@ -14,37 +14,37 @@ const tg = window.Telegram.WebApp;
 
 const tasksData = [
   {
-    id: 1,
+    id: 0,
     title: "Add 🔥 in Telegram name",
     points: "+1 Gift 🎁",
     icon: flame_emoji,
   },
   {
-    id: 2,
+    id: 1,
     title: "Invite 5 friends",
     points: "+5 Gifts 🎁",
     icon: friends_icon,
   },
   {
-    id: 3,
+    id: 2,
     title: "Connect your wallet",
     points: "+1 Gift 🎁",
     icon: wallet_icon,
   },
   {
-    id: 4,
+    id: 3,
     title: "Subscribe to Flame Telegram",
     points: "+100 Flame 🔥",
     icon: tg_icon,
   },
   {
-    id: 5,
+    id: 4,
     title: "Subscribe to Flame X",
     points: "+100 Flame 🔥",
     icon: x_icon,
   },
   {
-    id: 6,
+    id: 5,
     title: "Share about us on X",
     points: "+100 Flame 🔥",
     icon: x_icon,
