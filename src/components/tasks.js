@@ -61,7 +61,14 @@ const Tasks = () => {
     const fetchTasks = async () => {
       try {
         const userId = tg.initDataUnsafe.user.id; // Получаем ID пользователя
-        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`); // Запрос к бэкенду
+        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`,
+        //Для нгрок только
+        {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
+        }
+      );
         if (!response.ok) {
           throw new Error('Ошибка при получении задач');
         }
