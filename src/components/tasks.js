@@ -36,14 +36,12 @@ const tasksData = [
     title: "Subscribe to Flame Telegram",
     points: "+100 Flame 🔥",
     icon: tg_icon,
-    onClick: () => tg.openTelegramLink("https://t.me/flame_coin_community"),
   },
   {
     id: 5,
     title: "Subscribe to Flame X",
     points: "+100 Flame 🔥",
     icon: x_icon,
-    onClick: () => tg.openLink("https://x.com/realDogsHouse"),
   },
   {
     id: 6,
@@ -57,24 +55,26 @@ const Tasks = () => {
   tg.setHeaderColor("#000000");
 
   const [loading, setLoading] = useState(true); // Состояние загрузки
-  const [tasks, setTasks] = useState([]); // Состояние для задач
+  const [userTasks, setUserTasks] = useState([]); // Состояние задач пользователя
 
   useEffect(() => {
-    const userId = tg.initDataUnsafe.user.id; // Получаем ID пользователя из Telegram
-
     const fetchTasks = async () => {
       try {
-        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`); // Ваш путь к API
-        const data = await response.json();
-        setTasks(data); // Устанавливаем полученные задачи
+        const userId = tg.initDataUnsafe.user.id; // Получаем ID пользователя
+        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`); // Запрос к бэкенду
+        if (!response.ok) {
+          throw new Error('Ошибка при получении задач');
+        }
+        const tasks = await response.json();
+        setUserTasks(tasks);
       } catch (error) {
-        console.error("Error fetching tasks:", error);
+        console.error(error);
       } finally {
-        setLoading(false); // Завершаем загрузку
+        setLoading(false); // Устанавливаем состояние загрузки в false после завершения запроса
       }
     };
 
-    fetchTasks(); // Запрос к бэкенду
+    fetchTasks();
   }, []);
 
   if (loading) {
@@ -91,9 +91,8 @@ const Tasks = () => {
       <span className="tasks-header">Tasks</span>
       <span className="tasks-description">Complete tasks and get more Flame.</span>
       <div className="tasks">
-        {tasksData.map((task) => {
-          const userTask = tasks.find(t => t.name === task.title);
-          const isTaskDone = userTask ? userTask.completed : false;
+        {tasksData.map((task, index) => {
+          const userTask = userTasks[index] || {}; // Получаем соответствующую задачу пользователя
 
           return (
             <div className="task" key={task.id}>
@@ -102,12 +101,12 @@ const Tasks = () => {
                 <div className="title">{task.title}</div>
                 <div className="points">{task.points}</div>
               </div>
-              {isTaskDone ? (
+              {userTask.completed ? (
                 <div className="task-done">
                   <img src={check_mark} alt="check_mark" className="check_mark" />
                 </div>
               ) : (
-                <div className="open-button" onClick={task.onClick}>
+                <div className="open-button" onClick={() => task.onClick()}>
                   <div className="open">Start</div>
                 </div>
               )}
