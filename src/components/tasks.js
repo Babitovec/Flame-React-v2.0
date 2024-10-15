@@ -61,7 +61,7 @@ const Tasks = () => {
     const fetchTasks = async () => {
       try {
         const userId = tg.initDataUnsafe.user.id; // Получаем ID пользователя
-        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`); // Запрос к бэкенду
+        const response = await fetch(`http://localhost:5000/api/tasks/${userId}`); // Запрос к бэкенду
         if (!response.ok) {
           throw new Error('Ошибка при получении задач');
         }
@@ -91,8 +91,9 @@ const Tasks = () => {
       <span className="tasks-header">Tasks</span>
       <span className="tasks-description">Complete tasks and get more Flame.</span>
       <div className="tasks">
-        {tasksData.map((task, index) => {
-          const userTask = userTasks[index] || {}; // Получаем соответствующую задачу пользователя
+        {tasksData.map((task) => {
+          // Найти задачу пользователя по ID
+          const userTask = userTasks.find((t) => t.id === task.id) || {}; // Найти соответствующую задачу пользователя
 
           return (
             <div className="task" key={task.id}>
