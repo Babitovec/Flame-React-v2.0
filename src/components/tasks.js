@@ -54,31 +54,30 @@ const tasksData = [
 const Tasks = () => {
   tg.setHeaderColor("#000000");
 
-  const [loading, setLoading] = useState(true); // Состояние загрузки
-  const [userTasks, setUserTasks] = useState([]); // Состояние задач пользователя
+  const [loading, setLoading] = useState(true);
+  const [userTasks, setUserTasks] = useState([]);
 
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const userId = tg.initDataUnsafe.user.id; // Получаем ID пользователя
-        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`,
-        //Для нгрок только
-        {
+        const userId = tg.initDataUnsafe.user.id;
+        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`, {
           headers: {
             'ngrok-skip-browser-warning': 'true',
           },
-        }
-      );
+        });
+
         if (!response.ok) {
           throw new Error('Ошибка при получении задач');
         }
+
         const tasks = await response.json();
-        console.log("Полученные задачи:", tasks); // Выводим задачи в консоль для отладки
+        console.log("Полученные задачи:", tasks);
         setUserTasks(tasks);
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false); // Устанавливаем состояние загрузки в false после завершения запроса
+        setLoading(false);
       }
     };
 
@@ -101,10 +100,10 @@ const Tasks = () => {
       <div className="tasks">
         {tasksData.map((task) => {
           // Найти задачу пользователя по ID
-          const userTask = userTasks.find((t) => t.id === task.id) || {}; // Найти соответствующую задачу пользователя
+          const userTask = userTasks.find((t) => t._id === task.id); // Используйте _id для поиска, если это ID из базы данных
 
-          // Добавляем вывод для отладки
-          console.log(`Задача: ${task.title}, статус выполнения: ${userTask.completed}`);
+          // Логирование для отладки
+          console.log(`Задача: ${task.title}, статус выполнения: ${userTask ? userTask.completed : "не найдено"}`);
 
           return (
             <div className="task" key={task.id}>
@@ -113,7 +112,7 @@ const Tasks = () => {
                 <div className="title">{task.title}</div>
                 <div className="points">{task.points}</div>
               </div>
-              {userTask.completed ? (
+              {userTask && userTask.completed ? (
                 <div className="task-done">
                   <img src={check_mark} alt="check_mark" className="check_mark" />
                 </div>
