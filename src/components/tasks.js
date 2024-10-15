@@ -99,11 +99,11 @@ const Tasks = () => {
       <span className="tasks-description">Complete tasks and get more Flame.</span>
       <div className="tasks">
         {tasksData.map((task) => {
-          // Найти задачу пользователя по ID
-          const userTask = userTasks.find((t) => t._id === task.id); // Используйте _id для поиска, если это ID из базы данных
+          // Найти задачу пользователя по индексу
+          const userTask = userTasks[task.id] || {}; // Используйте id для поиска в userTasks
 
           // Логирование для отладки
-          console.log(`Задача: ${task.title}, статус выполнения: ${userTask ? userTask.completed : "не найдено"}`);
+          console.log(`Задача: ${task.title}, статус выполнения: ${userTask.completed !== undefined ? userTask.completed : "не найдено"}`);
 
           return (
             <div className="task" key={task.id}>
@@ -112,7 +112,7 @@ const Tasks = () => {
                 <div className="title">{task.title}</div>
                 <div className="points">{task.points}</div>
               </div>
-              {userTask && userTask.completed ? (
+              {userTask.completed ? (
                 <div className="task-done">
                   <img src={check_mark} alt="check_mark" className="check_mark" />
                 </div>
