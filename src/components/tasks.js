@@ -66,6 +66,7 @@ const Tasks = () => {
           throw new Error('Ошибка при получении задач');
         }
         const tasks = await response.json();
+        console.log("Полученные задачи:", tasks); // Выводим задачи в консоль для отладки
         setUserTasks(tasks);
       } catch (error) {
         console.error(error);
@@ -94,6 +95,9 @@ const Tasks = () => {
         {tasksData.map((task) => {
           // Найти задачу пользователя по ID
           const userTask = userTasks.find((t) => t.id === task.id) || {}; // Найти соответствующую задачу пользователя
+
+          // Добавляем вывод для отладки
+          console.log(`Задача: ${task.title}, статус выполнения: ${userTask.completed}`);
 
           return (
             <div className="task" key={task.id}>
