@@ -18,21 +18,18 @@ const tasksData = [
     title: "Add 🔥 in Telegram name",
     points: "+1 Gift 🎁",
     icon: flame_emoji,
-    onClick: () => {}, // Здесь можно добавить логику выполнения задачи
   },
   {
     id: 2,
     title: "Invite 5 friends",
     points: "+5 Gifts 🎁",
     icon: friends_icon,
-    onClick: () => {}, // Здесь можно добавить логику выполнения задачи
   },
   {
     id: 3,
     title: "Connect your wallet",
     points: "+1 Gift 🎁",
     icon: wallet_icon,
-    onClick: () => {}, // Здесь можно добавить логику выполнения задачи
   },
   {
     id: 4,
@@ -53,7 +50,6 @@ const tasksData = [
     title: "Share about us on X",
     points: "+100 Flame 🔥",
     icon: x_icon,
-    onClick: () => {}, // Здесь можно добавить логику выполнения задачи
   },
 ];
 
@@ -61,37 +57,24 @@ const Tasks = () => {
   tg.setHeaderColor("#000000");
 
   const [loading, setLoading] = useState(true); // Состояние загрузки
+  const [tasks, setTasks] = useState([]); // Состояние для задач
 
   useEffect(() => {
-    const imageUrls = [
-      tasks_gift_emoji_animated,
-      tg_icon,
-      x_icon,
-      flame_emoji,
-      wallet_icon,
-      friends_icon,
-      check_mark,
-    ];
+    const userId = tg.initDataUnsafe.user.id; // Получаем ID пользователя из Telegram
 
-    let imagesLoaded = 0;
-    const totalImages = imageUrls.length;
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch(`https://more-gratefully-hornet.ngrok-free.app/tasks/${userId}`); // Ваш путь к API
+        const data = await response.json();
+        setTasks(data); // Устанавливаем полученные задачи
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      } finally {
+        setLoading(false); // Завершаем загрузку
+      }
+    };
 
-    imageUrls.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        imagesLoaded += 1;
-        if (imagesLoaded === totalImages) {
-          setLoading(false); // Все изображения загружены
-        }
-      };
-      img.onerror = () => {
-        imagesLoaded += 1;
-        if (imagesLoaded === totalImages) {
-          setLoading(false); // Все изображения загружены (с учетом ошибок)
-        }
-      };
-    });
+    fetchTasks(); // Запрос к бэкенду
   }, []);
 
   if (loading) {
@@ -108,18 +91,29 @@ const Tasks = () => {
       <span className="tasks-header">Tasks</span>
       <span className="tasks-description">Complete tasks and get more Flame.</span>
       <div className="tasks">
-        {tasksData.map((task) => (
-          <div className="task" key={task.id}>
-            <img src={task.icon} alt={`${task.title} icon`} className="icon" />
-            <div className="text">
-              <div className="title">{task.title}</div>
-              <div className="points">{task.points}</div>
+        {tasksData.map((task) => {
+          const userTask = tasks.find(t => t.name === task.title);
+          const isTaskDone = userTask ? userTask.completed : false;
+
+          return (
+            <div className="task" key={task.id}>
+              <img src={task.icon} alt={`${task.title} icon`} className="icon" />
+              <div className="text">
+                <div className="title">{task.title}</div>
+                <div className="points">{task.points}</div>
+              </div>
+              {isTaskDone ? (
+                <div className="task-done">
+                  <img src={check_mark} alt="check_mark" className="check_mark" />
+                </div>
+              ) : (
+                <div className="open-button" onClick={task.onClick}>
+                  <div className="open">Start</div>
+                </div>
+              )}
             </div>
-            <div className="open-button" onClick={task.onClick}>
-              <div className="open">Start</div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
