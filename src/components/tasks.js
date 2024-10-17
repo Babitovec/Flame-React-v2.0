@@ -57,7 +57,39 @@ const Tasks = () => {
   const [loading, setLoading] = useState(true);
   const [userTasks, setUserTasks] = useState([]);
 
+  //Loader IMG
   useEffect(() => {
+    const imageUrls = [
+      tasks_gift_emoji_animated,
+      tg_icon,
+      x_icon,
+      flame_emoji,
+      wallet_icon,
+      friends_icon,
+      check_mark,
+    ];
+
+    let imagesLoaded = 0;
+    const totalImages = imageUrls.length;
+
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены
+        }
+      };
+      img.onerror = () => {
+        imagesLoaded += 1;
+        if (imagesLoaded === totalImages) {
+          setLoading(false); // Все изображения загружены (с учетом ошибок)
+        }
+      };
+    });
+    
+    //Запрос на серв
     const fetchTasks = async () => {
       try {
         const userId = tg.initDataUnsafe.user.id;
