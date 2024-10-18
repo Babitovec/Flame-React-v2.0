@@ -12,42 +12,73 @@ import check_mark from "../img/tasks/check-mark.png";
 
 const tg = window.Telegram.WebApp;
 
+const handleEmojiIInUsername = () => {
+
+};
+
+const handleInvitedFriends = () => {
+
+};
+
+const handleConectedWallet = () => {
+
+};
+
+const handleOpenTelegramChannel = () => {
+  tg.openTelegramLink("https://t.me/flame_coin_community");
+};
+
+const handleOpenX = () => {
+  tg.openLink("https://x.com/realDogsHouse"); // Заменить на реальный Twitter/X
+};
+
+
+const handleShareOnX = () => {
+  tg.openLink("https://x.com/realDogsHouse"); // Заменить на реальный репост
+};
+
 const tasksData = [
   {
     id: 0,
     title: "Add 🔥 in Telegram name",
     points: "+1 Gift 🎁",
     icon: flame_emoji,
+    onClick: handleEmojiIInUsername,
   },
   {
     id: 1,
     title: "Invite 5 friends",
     points: "+5 Gifts 🎁",
     icon: friends_icon,
+    onClick: handleInvitedFriends,
   },
   {
     id: 2,
     title: "Connect your wallet",
     points: "+1 Gift 🎁",
     icon: wallet_icon,
+    onClick: handleConectedWallet,
   },
   {
     id: 3,
     title: "Subscribe to Flame Telegram",
     points: "+100 Flame 🔥",
     icon: tg_icon,
+    onClick: handleOpenTelegramChannel,
   },
   {
     id: 4,
     title: "Subscribe to Flame X",
     points: "+100 Flame 🔥",
     icon: x_icon,
+    onClick: handleOpenX,
   },
   {
     id: 5,
     title: "Share about us on X",
     points: "+100 Flame 🔥",
     icon: x_icon,
+    onClick: handleShareOnX,
   },
 ];
 
@@ -88,7 +119,7 @@ const Tasks = () => {
         }
       };
     });
-    
+
     //Запрос на серв
     const fetchTasks = async () => {
       try {
@@ -149,7 +180,7 @@ const Tasks = () => {
                   <img src={check_mark} alt="check_mark" className="check_mark" />
                 </div>
               ) : (
-                <div className="open-button" onClick={() => task.onClick()}>
+                <div className="open-button" onClick={task.onClick}>
                   <div className="open">Start</div>
                 </div>
               )}
