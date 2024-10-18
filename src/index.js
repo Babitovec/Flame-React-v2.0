@@ -13,13 +13,6 @@ import App from "./app.js"; // Подключение app.js
 
 const app = ReactDOMClient.createRoot(document.getElementById("app")) //создаем путь где будем выводить контент и указываем его как константу
 
-const tg = window.Telegram.WebApp;
-
-tg.setHeaderColor("#000000");
-tg.setBackgroundColor("#000000");
-tg.expand();
-tg.disableVerticalSwipes();
-
 app.render(
   // <TonConnectUIProvider manifestUrl="https://test-youtube.s3.amazonaws.com/manifest.json">
     <SkeletonTheme baseColor="#323232" highlightColor="#626262" borderRadius="25px">
