@@ -2,6 +2,8 @@
     background: radial-gradient(ellipse 100% 50% at center, #ffd27f, #FF6C00);
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .gifts_header_in_game {
@@ -9,30 +11,25 @@
     font-size: 15vw;
     font-weight: bold;
     text-align: center;
-    padding-top: 3vh;
+    position: fixed;
+    top: 3%;
     animation: appearance 0.45s forwards;
 }
 
 .gift-and-gifts-count {
-    width: 80vw;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .gifts_count_in_game {
     text-align: center;
-    width: 25vw;
+    width: 30vw;
     color: white;
     font-size: 12vw;
     font-weight: bold;
-    margin-top: 20vw;
+    position: fixed;
+    bottom: 12.5%;
     animation: appearance 0.45s forwards;
 }
 
@@ -107,9 +104,12 @@
 }
 
 .flames_received {
-    z-index: 2;
     position: absolute;
-    top: 25%;
+    top: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
     color: white;
     font-size: 20vw;
     font-weight: bold;
@@ -118,11 +118,9 @@
 }
 
 .flames_count_from_gifts {
-    position: absolute;
     color: white;
     font-size: 12vw;
     font-weight: bold;
-    top: 47.5%;
     text-shadow: 1px 1px 1px rgba(255, 108, 0, 0.5);
     animation: appearanceFlames 0.45s forwards, scaleUpDown 0.5s 2.5s forwards;
 }

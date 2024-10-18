@@ -151,8 +151,8 @@ const Gifts = () => {
                 <div className="countup-wrapper">
                   <CountUp start={0} end={flamesFromGift} duration={2.5} />
                 </div>
+                <span className="flames_count_from_gifts">FLAMES</span>
               </div>
-              <span className="flames_count_from_gifts">FLAMES</span>
             </>
           ) : (
             isExploded && !showCongratulations ? null : (
@@ -164,9 +164,9 @@ const Gifts = () => {
             )
           )
         )}
-        <div className="gifts_count_in_game">
-          {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
-        </div>
+      </div>
+      <div className="gifts_count_in_game">
+        {giftsCount !== undefined ? `x${giftsCount}` : <Skeleton baseColor="#FFD9A8" highlightColor="#FF9000" />}
       </div>
     </div>
   );
