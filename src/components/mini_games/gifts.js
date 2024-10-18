@@ -99,17 +99,25 @@ const Gifts = () => {
   };
 
   const openGift = () => {
-    tg.HapticFeedback.impactOccurred('light');
-    setIsClicked(true);
-
-    // Отправляем запрос на сервер для обновления количества подарков
-    updateGiftsCount();
-
-    setTimeout(() => {
-      setIsExploded(true);
-      // Разрешаем клик через 2.5 секунды
-      setTimeout(() => setCanClickFlames(true), 2500);
-    }, 200);
+    if (giftsCount === 0 || giftsCount === undefined) {
+      // Если количество подарков равно 0 или undefined, ничего не делаем
+      tg.HapticFeedback.notificationOccurred('error'); // Для эффекта вибрации при ошибке можно использовать 'error'
+      return;
+    } else {
+      // Иначе выполняем логику открытия подарка
+      tg.HapticFeedback.impactOccurred('light');
+      setIsClicked(true);
+    
+      // Отправляем запрос на сервер для обновления количества подарков
+      updateGiftsCount();
+    
+      setTimeout(() => {
+        setIsExploded(true);
+        // Разрешаем клик через 2.5 секунды
+        setTimeout(() => setCanClickFlames(true), 2500);
+      }, 200);
+    }
+    
   };
 
   const handleFlamesClick = () => {
