@@ -151,7 +151,7 @@ const Gifts = () => {
                 <div className="countup-wrapper">
                   <CountUp start={0} end={flamesFromGift} duration={2.5} />
                 </div>
-                <span className="flames_count_from_gifts">FLAMES</span>
+                <span className="flames_text_from_gifts">FLAMES</span>
               </div>
             </>
           ) : (
