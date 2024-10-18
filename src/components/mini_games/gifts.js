@@ -19,9 +19,9 @@ const Gifts = () => {
   const [isExploded, setIsExploded] = useState(false);
   const [showCongratulations] = useState(true); // Состояние для управления поздравлениями
   const [canClickFlames, setCanClickFlames] = useState(false); // Состояние для контроля клика на flames_received
+  const [isErrorAnimation, setIsErrorAnimation] = useState(false); // Состояние для анимации ошибки при количестве подарков 0 или undefined
 
   useEffect(() => {
-
     const imageUrls = [
       gift_emoji_animated,
       congratulations_emoji_animated,
@@ -37,7 +37,7 @@ const Gifts = () => {
         imagesLoaded += 1;
         if (imagesLoaded === totalImages) {
           setLoading(false); // Все изображения загружены
-          tg.setHeaderColor("#FF6C00"); //Меняем header tg когда все прогрузится
+          tg.setHeaderColor("#FF6C00"); // Меняем header tg когда все прогрузится
         }
       };
       img.onerror = () => {
@@ -48,7 +48,7 @@ const Gifts = () => {
       };
     });
 
-    //Кнопка назад
+    // Кнопка назад
     tg.BackButton.show();
     // Устанавливаем обработчик для кнопки "Назад"
     tg.BackButton.onClick(() => {
@@ -65,7 +65,6 @@ const Gifts = () => {
     try {
       const userId = tg.initDataUnsafe.user?.id;
       const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`,
-        //Для нгрок только
         {
           headers: {
             'ngrok-skip-browser-warning': 'true',
@@ -100,8 +99,10 @@ const Gifts = () => {
 
   const openGift = () => {
     if (giftsCount === 0 || giftsCount === undefined) {
-      // Если количество подарков равно 0 или undefined, ничего не делаем
-      tg.HapticFeedback.notificationOccurred('error'); // Для эффекта вибрации при ошибке можно использовать 'error'
+      // Если количество подарков равно 0 или undefined, показываем анимацию ошибки
+      tg.HapticFeedback.notificationOccurred('error'); // Для эффекта вибрации при ошибке
+      setIsErrorAnimation(true); // Устанавливаем анимацию ошибки
+      setTimeout(() => setIsErrorAnimation(false), 500); // Убираем анимацию через 0.5 секунды
       return;
     } else {
       // Иначе выполняем логику открытия подарка
@@ -117,7 +118,6 @@ const Gifts = () => {
         setTimeout(() => setCanClickFlames(true), 2500);
       }, 200);
     }
-    
   };
 
   const handleFlamesClick = () => {
@@ -144,7 +144,7 @@ const Gifts = () => {
           <img
             src={gift_emoji_animated}
             alt="Gift"
-            className="gift_emoji_animated"
+            className={`gift_emoji_animated ${isErrorAnimation ? 'error-animation' : ''}`} // Добавляем класс для анимации ошибки
             onClick={openGift}
           />
         ) : (
