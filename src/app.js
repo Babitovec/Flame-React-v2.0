@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from 'axios';
 
@@ -21,6 +21,8 @@ tg.disableVerticalSwipes();
 
 const App = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [showDailyStreak, setShowDailyStreak] = useState(false);
 
   useEffect(() => {
     tg.ready();  // Инициализация Telegram Web App
@@ -28,14 +30,6 @@ const App = () => {
     const userData = tg.initDataUnsafe.user;
 
     if (userData) {
-      axios.post('https://more-gratefully-hornet.ngrok-free.app', userData)
-        .then(response => {
-          console.log('Данные успешно отправлены:', response.data);
-        })
-        .catch(error => {
-          console.error('Ошибка при отправке данных:', error);
-        });
-
       // Отправляем запрос для обновления последнего времени входа
       axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`)
         .then(response => {
@@ -44,12 +38,24 @@ const App = () => {
         .catch(error => {
           console.error('Ошибка при обновлении времени последнего входа:', error);
         });
+
+      // Проверяем, был ли получен бонус сегодня
+      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/daily-bonus-status`)
+        .then(response => {
+          const { bonusReceivedToday } = response.data;
+          if (!bonusReceivedToday) {
+            setShowDailyStreak(true); // Показать страницу DailyStreak
+            navigate('/DailyStreak'); // Перенаправить на DailyStreak
+          }
+        })
+        .catch(error => {
+          console.error('Ошибка при проверке бонуса:', error);
+        });
     }
-  }, []);
+  }, [navigate]); // Добавлено navigate в зависимости
 
   return (
     <>
-
       <TransitionGroup>
         <CSSTransition
           key={location.key}
@@ -57,23 +63,21 @@ const App = () => {
           timeout={450}
         >
           <Routes>
-            <Route>
-              <Route path="/" element={<Navigate to="/Home" />} />
-              <Route path="/Gifts" element={<Gifts />} />
-            </Route>
+            <Route path="/" element={<Navigate to="/Home" />} />
+            <Route path="/Gifts" element={<Gifts />} />
+            <Route path="/DailyStreak" element={<DailyStreak />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
 
-      <Routes>
-        <Route>
+      {!showDailyStreak && (
+        <Routes>
           <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
           <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
           <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
           <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
-          <Route path="/DailyStreak" element={<DailyStreak />} />
-        </Route>
-      </Routes>
+        </Routes>
+      )}
 
       {location.pathname !== "/ScoreStoryYears"
         && location.pathname !== "/ScoreStoryPremium"
