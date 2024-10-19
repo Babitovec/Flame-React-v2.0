@@ -13,14 +13,38 @@ import play_icon from "../img/home/play-button.webp";
 const tg = window.Telegram.WebApp;
 
 const Home = () => {
-  const [loading, setLoading] = useState(true); // Состояние загрузки
+  const [loading, setLoading] = useState(true); // Состояние загрузки изображений
   const [flamesCount, setFlamesCount] = useState(undefined); // Состояние для flames_count
   const [giftsCount, setGiftsCount] = useState(undefined); // Состояние для gifts_count
 
   useEffect(() => {
     tg.setHeaderColor("#FF5718");
 
-    //Для лоадера
+    // Запускаем запрос на сервер сразу при загрузке
+    const fetchUserData = async () => {
+      try {
+        const userId = tg.initDataUnsafe.user?.id;
+        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`,
+          // Для нгрок только
+          {
+            headers: {
+              'ngrok-skip-browser-warning': 'true',
+            },
+          }
+        );
+
+        const userData = response.data;
+        console.log('Данные успешно получены:', `Flames count: ${userData.flames_count}`, `Gifts count: ${userData.gifts_count}`);
+        setFlamesCount(userData.flames_count);
+        setGiftsCount(userData.gifts_count);
+      } catch (error) {
+        console.error('Ошибка при получении данных пользователя:', error);
+      }
+    };
+
+    fetchUserData(); // Загружаем данные пользователя при загрузке компонента
+
+    // Для загрузки изображений
     const imageUrls = [
       flame_emoji,
       flame_emoji_animated,
@@ -48,29 +72,6 @@ const Home = () => {
       };
     });
 
-    //Для полчение данных с БД
-    const fetchUserData = async () => {
-      try {
-        const userId = tg.initDataUnsafe.user?.id;
-        const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/users/${userId}`,
-          //Для нгрок только
-          {
-            headers: {
-              'ngrok-skip-browser-warning': 'true',
-            },
-          }
-        );
-
-        const userData = response.data;
-        console.log('Данные успешно получены:', `Flames count: ${userData.flames_count}`, `Gifts count: ${userData.gifts_count}`) //Чекаем
-        setFlamesCount(userData.flames_count);
-        setGiftsCount(userData.gifts_count);
-      } catch (error) {
-        console.error('Ошибка при получении данных пользователя:', error);
-      }
-    };
-
-    fetchUserData(); // Загружаем данные пользователя при загрузке компонента
   }, []);
 
   const handleNavigationClick = () => {
@@ -78,9 +79,10 @@ const Home = () => {
   };
 
   if (loading) {
+    // Пока изображения загружаются, показываем лоадер
     return (
       <div className="loader-box">
-        <div class="loader"></div>
+        <div className="loader"></div>
       </div>
     );
   }
