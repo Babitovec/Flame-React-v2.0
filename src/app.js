@@ -35,6 +35,15 @@ const App = () => {
         .catch(error => {
           console.error('Ошибка при отправке данных:', error);
         });
+
+      // Отправляем запрос для обновления последнего времени входа
+      axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`)
+        .then(response => {
+          console.log('Время последнего входа обновлено:', response.data);
+        })
+        .catch(error => {
+          console.error('Ошибка при обновлении времени последнего входа:', error);
+        });
     }
   }, []);
 
