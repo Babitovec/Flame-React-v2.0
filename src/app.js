@@ -54,6 +54,11 @@ const App = () => {
     }
   }, [navigate]); // Добавлено navigate в зависимости
 
+  const handleContinue = () => {
+    setShowDailyStreak(false); // Скрываем DailyStreak
+    navigate('/Home'); // Перенаправляем на Home
+  };
+
   return (
     <>
       <TransitionGroup>
@@ -65,7 +70,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Navigate to={showDailyStreak ? "/DailyStreak" : "/Home"} />} />
             <Route path="/Gifts" element={<Gifts />} />
-            <Route path="/DailyStreak" element={<DailyStreak />} />
+            <Route path="/DailyStreak" element={<DailyStreak handleContinue={handleContinue} />} />
             {/* Вставка остальных маршрутов в зависимости от состояния */}
             {!showDailyStreak && (
               <>

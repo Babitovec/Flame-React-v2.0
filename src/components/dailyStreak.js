@@ -11,7 +11,7 @@ import confettie from "../img/confetti.json"
 
 const tg = window.Telegram.WebApp;
 
-const DailyStreak = () => {
+const DailyStreak = ({ setShowDailyStreak }) => {
     tg.setHeaderColor("#000000");
 
     const navigate = useNavigate();
