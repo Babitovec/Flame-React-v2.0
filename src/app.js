@@ -44,6 +44,11 @@ const App = () => {
         .catch(error => {
           console.error('Ошибка при обновлении времени последнего входа:', error);
         });
+
+      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/daily-bonus-status`)
+      .then(response => {
+        console.log('daily-bonus-status:', response.data);
+      })
     }
   }, []);
 
