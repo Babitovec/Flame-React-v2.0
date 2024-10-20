@@ -63,21 +63,21 @@ const App = () => {
           timeout={450}
         >
           <Routes>
-            <Route path="/" element={<Navigate to="/Home" />} />
+            <Route path="/" element={<Navigate to={showDailyStreak ? "/DailyStreak" : "/Home"} />} />
             <Route path="/Gifts" element={<Gifts />} />
             <Route path="/DailyStreak" element={<DailyStreak />} />
+            {/* Вставка остальных маршрутов в зависимости от состояния */}
+            {!showDailyStreak && (
+              <>
+                <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
+                <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
+                <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
+                <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
+              </>
+            )}
           </Routes>
         </CSSTransition>
       </TransitionGroup>
-
-      {!showDailyStreak && (
-        <Routes>
-          <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
-          <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
-          <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
-          <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
-        </Routes>
-      )}
 
       {location.pathname !== "/ScoreStoryYears"
         && location.pathname !== "/ScoreStoryPremium"
