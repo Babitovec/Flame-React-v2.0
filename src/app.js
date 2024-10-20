@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from 'axios';
 
@@ -21,21 +21,15 @@ tg.disableVerticalSwipes();
 
 const App = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [hasShownDailyStreak, setHasShownDailyStreak] = useState(false);
 
   useEffect(() => {
-    tg.ready();  // Инициализация Telegram Web App
+    tg.ready(); // Инициализация Telegram Web App
 
     const userData = tg.initDataUnsafe.user;
 
     if (userData) {
-      axios.post('https://more-gratefully-hornet.ngrok-free.app', userData)
-        .then(response => {
-          console.log('Данные успешно отправлены:', response.data);
-        })
-        .catch(error => {
-          console.error('Ошибка при отправке данных:', error);
-        });
-
       // Отправляем запрос для обновления последнего времени входа
       axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`)
         .then(response => {
@@ -44,12 +38,29 @@ const App = () => {
         .catch(error => {
           console.error('Ошибка при обновлении времени последнего входа:', error);
         });
+
+      // Проверяем, был ли получен бонус сегодня
+      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/daily-bonus-status`)
+        .then(response => {
+          const { bonusReceivedToday } = response.data;
+          if (!bonusReceivedToday && !hasShownDailyStreak) {
+            setHasShownDailyStreak(true); // Устанавливаем флаг, что DailyStreak показана
+            navigate('/DailyStreak'); // Перенаправляем на DailyStreak
+          }
+        })
+        .catch(error => {
+          console.error('Ошибка при проверке бонуса:', error);
+        });
     }
-  }, []);
+  }, [navigate, hasShownDailyStreak]); // Добавили hasShownDailyStreak в зависимости
+
+  const handleContinue = () => {
+    setHasShownDailyStreak(false); // Сбрасываем флаг для следующего дня
+    navigate('/Home'); // Перенаправляем на Home
+  };
 
   return (
     <>
-
       <TransitionGroup>
         <CSSTransition
           key={location.key}
@@ -57,23 +68,21 @@ const App = () => {
           timeout={450}
         >
           <Routes>
-            <Route>
-              <Route path="/" element={<Navigate to="/Home" />} />
-              <Route path="/Gifts" element={<Gifts />} />
-            </Route>
+            <Route path="/" element={<Navigate to={hasShownDailyStreak ? "/DailyStreak" : "/Home"} />} />
+            <Route path="/Gifts" element={<Gifts />} />
+            <Route path="/DailyStreak" element={<DailyStreak handleContinue={handleContinue} />} />
+            {/* Вставка остальных маршрутов в зависимости от состояния */}
+            {!hasShownDailyStreak && (
+              <>
+                <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
+                <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
+                <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
+                <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
+              </>
+            )}
           </Routes>
         </CSSTransition>
       </TransitionGroup>
-
-      <Routes>
-        <Route>
-          <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
-          <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
-          <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
-          <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
-          <Route path="/DailyStreak" element={<DailyStreak />} />
-        </Route>
-      </Routes>
 
       {location.pathname !== "/ScoreStoryYears"
         && location.pathname !== "/ScoreStoryPremium"
