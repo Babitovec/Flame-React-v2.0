@@ -56,7 +56,6 @@ const App = () => {
 
   const handleContinue = () => {
     setShowDailyStreak(false); // Скрываем DailyStreak
-    navigate('/Home'); // Перенаправляем на Home
   };
 
   return (
