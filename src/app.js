@@ -23,6 +23,7 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [showDailyStreak, setShowDailyStreak] = useState(false);
+  const [loading, setLoading] = useState(true); // Добавляем состояние загрузки
 
   useEffect(() => {
     tg.ready();  // Инициализация Telegram Web App
@@ -51,19 +52,34 @@ const App = () => {
           if (!bonusReceivedToday) {
             setShowDailyStreak(true); // Показать страницу DailyStreak
             navigate('/DailyStreak'); // Перенаправить на DailyStreak
+          } else {
+            navigate('/Home'); // Перенаправить на Home, если бонус уже получен
           }
         })
         .catch(error => {
           console.error('Ошибка при проверке бонуса:', error);
+        })
+        .finally(() => {
+          setLoading(false); // Убираем загрузку после проверки
         });
 
+    } else {
+      setLoading(false); // Убираем загрузку, если данных пользователя нет
     }
-  }, [navigate]); // Добавлено navigate в зависимости
+  }, [navigate]);
 
   const handleContinue = () => {
     setShowDailyStreak(false); // Скрываем DailyStreak
     navigate('/Home'); // Перенаправляем на Home
   };
+
+  if (loading) {
+    return (
+      <div className="loader-box">
+        <div className="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <>
