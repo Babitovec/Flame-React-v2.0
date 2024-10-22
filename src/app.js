@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from 'axios';
@@ -21,66 +21,80 @@ tg.disableVerticalSwipes();
 
 const App = () => {
   const location = useLocation();
+  const [showDailyStreak, setShowDailyStreak] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Состояние загрузки
 
   useEffect(() => {
-    tg.ready();  // Инициализация Telegram Web App
+    tg.ready();
 
     const userData = tg.initDataUnsafe.user;
 
-    if (userData) {
-      axios.post('https://more-gratefully-hornet.ngrok-free.app', userData)
-        .then(response => {
-          console.log('Данные успешно отправлены:', response.data);
-        })
-        .catch(error => {
-          console.error('Ошибка при отправке данных:', error);
-        });
+    const checkDailyBonus = async () => {
+      try {
+        if (userData) {
+          // Проверяем, заходил ли пользователь уже сегодня
+          const response = await axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/daily-bonus-status`);
+          setShowDailyStreak(!response.data.bonusReceivedToday); // Если бонус сегодня не был получен, показываем DailyStreak
 
-      // Отправляем запрос для обновления последнего времени входа
-      axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`)
-        .then(response => {
-          console.log('Время последнего входа обновлено:', response.data);
-        })
-        .catch(error => {
-          console.error('Ошибка при обновлении времени последнего входа:', error);
-        });
-    }
+          // Обновляем время последнего входа
+          await axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`);
+        }
+      } catch (error) {
+        console.error('Ошибка проверки бонуса:', error);
+      } finally {
+        setIsLoading(false); // Завершаем загрузку после проверки
+      }
+    };
+
+    checkDailyBonus();
   }, []);
+
+  if (isLoading) {
+    // Можно отобразить индикатор загрузки, пока идёт проверка
+    return <div>Загрузка...</div>;
+  }
 
   return (
     <>
+      {showDailyStreak ? (
+        <Routes>
+          <Route path="*" element={<Navigate to="/DailyStreak" />} />
+        </Routes>
+      ) : (
+        <>
+          <TransitionGroup>
+            <CSSTransition
+              key={location.key}
+              classNames="fade"
+              timeout={450}
+            >
+              <Routes>
+                <Route>
+                  <Route path="/" element={<Navigate to="/Home" />} />
+                  <Route path="/Gifts" element={<Gifts />} />
+                </Route>
+              </Routes>
+            </CSSTransition>
+          </TransitionGroup>
 
-      <TransitionGroup>
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={450}
-        >
           <Routes>
             <Route>
-              <Route path="/" element={<Navigate to="/Home" />} />
-              <Route path="/Gifts" element={<Gifts />} />
+              <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
+              <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
+              <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
+              <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
+              <Route path="/DailyStreak" element={<DailyStreak />} />
             </Route>
           </Routes>
-        </CSSTransition>
-      </TransitionGroup>
 
-      <Routes>
-        <Route>
-          <Route path="/ScoreStoryYears" element={<ScoreStoryYears />} />
-          <Route path="/ScoreStoryPremium" element={<ScoreStoryPremium />} />
-          <Route path="/ScoreStoryReward" element={<ScoreStoryReward />} />
-          <Route path="/ScoreStoryShare" element={<ScoreStoryShare />} />
-          <Route path="/DailyStreak" element={<DailyStreak />} />
-        </Route>
-      </Routes>
-
-      {location.pathname !== "/ScoreStoryYears"
-        && location.pathname !== "/ScoreStoryPremium"
-        && location.pathname !== "/ScoreStoryReward"
-        && location.pathname !== "/ScoreStoryShare"
-        && location.pathname !== "/DailyStreak"
-        && location.pathname !== "/Gifts" && <Navigation />}
+          {location.pathname !== "/ScoreStoryYears"
+            && location.pathname !== "/ScoreStoryPremium"
+            && location.pathname !== "/ScoreStoryReward"
+            && location.pathname !== "/ScoreStoryShare"
+            && location.pathname !== "/DailyStreak"
+            && location.pathname !== "/Gifts" && <Navigation />}
+        </>
+      )}
     </>
   );
 };
