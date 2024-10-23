@@ -39,23 +39,16 @@ const App = () => {
           console.error('Ошибка при отправке данных:', error);
         });
 
-      // Отправляем запрос для обновления последнего времени входа
-      axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`)
-        .then(response => {
-          console.log('Время последнего входа обновлено:', response.data);
-        })
-        .catch(error => {
-          console.error('Ошибка при обновлении времени последнего входа:', error);
-        });
-
-      // Проверяем, был ли логин сегодня
-      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/today-login-status`,
-        {
+      // Запрос для обновления времени последнего входа и проверки статуса
+      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/login-status`, {
           headers: {
             'ngrok-skip-browser-warning': 'true', // Добавляем заголовок для ngrok
           },
         })
         .then(response => {
+          console.log('Время последнего входа обновлено:', response.data);
+
+          // Проверяем, был ли логин сегодня
           const { bonusReceivedToday } = response.data;
           if (!bonusReceivedToday) {
             setShowDailyStreak(true); // Показать страницу DailyStreak
@@ -63,9 +56,8 @@ const App = () => {
           }
         })
         .catch(error => {
-          console.error('Ошибка при проверке бонуса:', error);
+          console.error('Ошибка при обновлении времени входа:', error);
         });
-
     }
   }, [navigate]);
 
