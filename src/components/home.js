@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/home.css";
 import { NavLink } from "react-router-dom";
-import axios from 'axios'; // Импорт Axios
+import axios from 'axios';
 import Skeleton from "react-loading-skeleton";
 
 // Images

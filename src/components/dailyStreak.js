@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import Lottie from "lottie-react";
 import "../css/dailyStreak.css";
 
@@ -90,7 +91,7 @@ const DailyStreak = ({ handleContinue }) => {
                     </div>
                     <div className="reward-box-2">
                         <img src={gift_emoji} alt="gift_emoji" className="emoji_reward" />
-                        <div className="count-daily-reward">{gifts_count}</div>
+                        <div className="count-daily-reward">{giftsReward}</div>
                         <div className="reward-txt">Gifts</div>
                     </div>
                 </div>
