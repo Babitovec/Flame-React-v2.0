@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import "../css/dailyStreak.css";
@@ -12,14 +12,54 @@ import confettie from "../img/confetti.json";
 const tg = window.Telegram.WebApp;
 
 const DailyStreak = ({ handleContinue }) => {
+    const [loading, setLoading] = useState(true); // Состояние загрузки изображений
+    const navigate = useNavigate(); // Вынесли useNavigate в корень компонента
+
     tg.setHeaderColor("#000000");
 
-    const navigate = useNavigate();
+    useEffect(() => {
+        // Для загрузки изображений
+        const imageUrls = [
+            gz_daily,
+            flame_emoji,
+            gift_emoji,
+            confettie,
+        ];
+
+        let imagesLoaded = 0;
+        const totalImages = imageUrls.length;
+
+        imageUrls.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                imagesLoaded += 1;
+                if (imagesLoaded === totalImages) {
+                    setLoading(false); // Все изображения загружены
+                }
+            };
+            img.onerror = () => {
+                imagesLoaded += 1;
+                if (imagesLoaded === totalImages) {
+                    setLoading(false); // Все изображения загружены (с учетом ошибок)
+                }
+            };
+        });
+    }, []); // Зависимость пустая, так как логика загружается один раз при монтировании
 
     const handleContinueClick = () => {
         handleContinue(); // Вызываем переданный метод для скрытия DailyStreak
         navigate("/Home"); // Перенаправляем на Home
     };
+
+    if (loading) {
+        // Пока изображения загружаются, показываем лоадер
+        return (
+            <div className="loader-box">
+                <div className="loader"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="streak-container">
