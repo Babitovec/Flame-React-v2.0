@@ -24,7 +24,7 @@ const DailyStreak = ({ handleContinue }) => {
 
         if (userData) {
             // Запрос для получения ежедневного бонуса
-            axios.get(`https://more-gratefully-hornet.ngrok-free.app/daily-bonus/${userData.id}`)
+            axios.post(`https://more-gratefully-hornet.ngrok-free.app/daily-bonus/${userData.id}`)
                 .then(response => {
                     const { today_streak_day, flames_count, gifts_count } = response.data;
                     setStreakDay(today_streak_day);
