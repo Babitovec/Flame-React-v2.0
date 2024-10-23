@@ -30,16 +30,15 @@ const App = () => {
     const userData = tg.initDataUnsafe.user;
 
     if (userData) {
-      axios.post('https://more-gratefully-hornet.ngrok-free.app', userData)
+      // Запрос на создание юзера
+      axios.post('https://more-gratefully-hornet.ngrok-free.app/user/create-user', userData)
         .then(response => {
           console.log('Данные успешно отправлены:', response.data);
         })
         .catch(error => {
           console.error('Ошибка при отправке данных:', error);
         });
-    } 
 
-    if (userData) {
       // Отправляем запрос для обновления последнего времени входа
       axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`)
         .then(response => {
@@ -49,8 +48,8 @@ const App = () => {
           console.error('Ошибка при обновлении времени последнего входа:', error);
         });
 
-      // Проверяем, был ли получен бонус сегодня
-      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/daily-bonus-status`,
+      // Проверяем, был ли логин сегодня
+      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/today-login-status`,
         {
           headers: {
             'ngrok-skip-browser-warning': 'true', // Добавляем заголовок для ngrok
