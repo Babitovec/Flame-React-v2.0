@@ -40,23 +40,26 @@ const App = () => {
         });
 
       // Проверяем, был ли получен бонус сегодня
-      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/daily-bonus-status`,
-        {
-          headers: {
-            'ngrok-skip-browser-warning': 'true', // Добавляем заголовок для ngrok
-          },
-        })
-        .then(response => {
-          const { bonusReceivedToday } = response.data;
-          if (!bonusReceivedToday) {
-            setShowDailyStreak(true); // Показать страницу DailyStreak
-            navigate('/DailyStreak'); // Перенаправить на DailyStreak
-          }
-        })
-        .catch(error => {
-          console.error('Ошибка при проверке бонуса:', error);
-        });
+      axios.get(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/daily-bonus-status`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true', // Добавляем заголовок для ngrok
+        },
+      })
+      .then(response => {
+        const { bonusReceivedToday } = response.data;
+        if (!bonusReceivedToday) {
+          setShowDailyStreak(true); // Устанавливаем состояние для отображения DailyStreak
+          navigate('/DailyStreak'); // Перенаправляем на DailyStreak
+        } else {
+          navigate('/Home'); // Перенаправляем на Home, если бонус был получен
+        }
+      })
+      .catch(error => {
+        console.error('Ошибка при проверке бонуса:', error);
+      });
 
+    } else {
+      navigate('/Home'); // Если нет данных пользователя, перенаправляем на Home
     }
   }, [navigate]); // Добавлено navigate в зависимости
 
