@@ -30,6 +30,16 @@ const App = () => {
     const userData = tg.initDataUnsafe.user;
 
     if (userData) {
+      axios.post('https://more-gratefully-hornet.ngrok-free.app', userData)
+        .then(response => {
+          console.log('Данные успешно отправлены:', response.data);
+        })
+        .catch(error => {
+          console.error('Ошибка при отправке данных:', error);
+        });
+    } 
+
+    if (userData) {
       // Отправляем запрос для обновления последнего времени входа
       axios.put(`https://more-gratefully-hornet.ngrok-free.app/user/${userData.id}/update-login`)
         .then(response => {
