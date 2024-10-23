@@ -68,7 +68,7 @@ const App = () => {
         });
 
     }
-  }, []);
+  }, [navigate]);
 
   const handleContinue = () => {
     setShowDailyStreak(false); // Скрываем DailyStreak
